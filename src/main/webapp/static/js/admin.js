@@ -236,8 +236,11 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
                     var ctx = cvs.getContext('2d');
                     ctx.drawImage(this, 0, 0, cvs.width, cvs.height);
                     var newImageData = cvs.toDataURL(fileType, 0.8);   //重新生成图片，<span style="font-family: Arial, Helvetica, sans-serif;">fileType为用户选择的图片类型</span>
+                    console.log(newImageData);
                     var sendData = newImageData.replace("data:" + fileType + ";base64,", '');
-                    $.post('/upload', {type: 'photo', value: sendData}, function (data) {
+                    var _action1 =  $('#photo').data('action');
+
+                    $.post(_action1, {type: 'photo', value: sendData}, function (data) {
                         if (data.error == '0') {
                             $('.modify_img').attr('src', newImageData);
                             $("#imgInput").attr("value", data.message);

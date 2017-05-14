@@ -20,7 +20,7 @@
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-                    <form class="layui-form form-container ajax-form" action="/brand/add" method="post">
+                    <form class="layui-form form-container ajax-form" action="${webRoot}/brand/add" method="post">
 
                         <div class="layui-form-item">
                             <label class="layui-form-label">品牌名称</label>
@@ -39,7 +39,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">品牌LOGO</label>
                             <div class="layui-input-inline">
-                                <input type="file" id="photo" accept="image/*">
+                                <input type="file" id="photo" data-action="${webRoot}/upload" accept="image/*">
                             </div>
                             <div class="layui-form-mid layui-word-aux"> 选择文件
                                 请上传图片，做为品牌的LOGO！
@@ -48,7 +48,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">文件路径 </label>
                             <div class="layui-input-block">
-                                <input id="imgInput" type="text" name="siteUrl" class="layui-input">
+                                <input id="imgInput" type="text" name="b" class="layui-input" readonly>
                             </div>
                         </div>
                         <div class="layui-form-item">

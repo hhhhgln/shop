@@ -8,10 +8,16 @@ import com.zknu.shop.util.ShopResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.util.List;
 
 
 /**
@@ -57,8 +63,36 @@ public class BrandController {
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     @ResponseBody
-    public ShopResult addBrand(EcsBrand brand) {
-        return brandService.addBrand(brand);
+    public ShopResult addBrand(EcsBrand brand, HttpServletRequest request) {
 
+        return brandService.addBrand(brand, request);
+
+    }
+
+    /**
+     * 转到编辑页面
+     *
+     * @return
+     */
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+    public String editBrandView(@PathVariable int id, Model model) {
+        EcsBrand brand = brandService.getBrandById(id);
+        model.addAttribute("brand", brand);
+        return "/brand/edit";
+    }
+
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @ResponseBody
+    public ShopResult editBrand(EcsBrand brand, HttpServletRequest request) throws ServletException, IOException {
+
+
+        return brandService.updateBrand(brand, request);
+
+    }
+
+    @RequestMapping(value = "/delete")
+    @ResponseBody
+    public ShopResult deleteBrand(short[] ids, HttpServletRequest request) {
+        return brandService.deleteBrand(ids, request);
     }
 }

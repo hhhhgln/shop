@@ -4,6 +4,8 @@ import com.zknu.shop.pojo.EcsBrand;
 import com.zknu.shop.util.PageResult;
 import com.zknu.shop.util.ShopResult;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @Description: 品牌管理
  * @Author: 张士鹏
@@ -23,21 +25,33 @@ public interface BrandService {
     /**
      * 添加
      * @param brand
+     * @param request
      * @return  ShopResult
      */
-    ShopResult addBrand(EcsBrand brand);
+    ShopResult addBrand(EcsBrand brand, HttpServletRequest request);
 
-    /**
-     * 编辑
-     * @param brand
-     * @return  ShopResult
-     */
-    ShopResult editBrand(EcsBrand brand);
+
 
     /**
      * 删除
      * @param brandID
+     * @param request
      * @return ShopResult
      */
-    ShopResult deleteBrand(int brandID);
+    ShopResult deleteBrand(short[] brandID, HttpServletRequest request);
+
+    /**
+     * 根据id获取品牌信息
+     * @param id
+     * @return
+     */
+    EcsBrand getBrandById(int id);
+
+    /**
+     * 编辑
+     * @param brand
+     * @param request
+     * @return
+     */
+    ShopResult updateBrand(EcsBrand brand, HttpServletRequest request);
 }

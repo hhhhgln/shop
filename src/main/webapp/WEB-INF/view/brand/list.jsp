@@ -58,8 +58,8 @@
                                     </td>
 
                                     <td>
-                                        <a href="/regex/edit/${regex.id}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
-                                        <a href="/regex/delete?ids=${regex.id}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                                        <a href="${webRoot}/brand/edit/${brand.brandId}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                                        <a href="${webRoot}/brand/delete?ids=${brand.brandId}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -69,7 +69,7 @@
 
                            <div class="admin-table-page left">
 
-                                   <button type="button" class="layui-btn layui-btn-normal layui-btn-small ajax-action" data-action="/regex/delete">删除选中</button>
+                                   <button type="button" class="layui-btn layui-btn-normal layui-btn-small ajax-action" data-action="${webRoot}/brand/delete">删除选中</button>
                                </div>
                                <div id="page" class="page">
                                </div>
@@ -109,7 +109,7 @@
                 var curr = obj.curr;
                 if (!first) {
                     //layer.msg('第 ' + obj.curr + ' 页');
-                    location.href ="/brand/list?page="+obj.curr+"&keyWord=${keyWord}";
+                    location.href ="${webRoot}/brand/list?page="+obj.curr+"&keyWord=${keyWord}";
 
                 }
             }
