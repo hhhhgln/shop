@@ -24,7 +24,7 @@
 <!--底部-->
 <div class="layui-footer footer">
     <div class="layui-main">
-        <p>2016 &copy; <a href="https://github.com/xiayulei/think_admin" target="_blank">Think Admin</a></p>
+        <p>2016 &copy; <a href="#" target="_blank">java版b2b2c商城</a></p>
     </div>
 </div>
 <!--end-Footer-part-->

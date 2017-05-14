@@ -27,7 +27,7 @@
             <%--<a href="" data-url="#" id="clear-cache"><i class="fa fa-trash-o"></i> 清除缓存</a>--%>
             <%--</li>--%>
             <li class="layui-nav-item">
-                <a href="/regex/list"><i class="fa fa-trash-o}"></i> 正则管理</a>
+                <a href="/brand/list"><i class="fa fa-trash-o}"></i> 品牌管理</a>
             </li>
             <li class="layui-nav-item">
                 <a href="/news/list"><i class="fa fa-trash-o}"></i> 新闻管理</a>
