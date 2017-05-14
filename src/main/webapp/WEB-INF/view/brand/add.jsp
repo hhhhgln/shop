@@ -3,46 +3,87 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="zh-CN">
 <head>
-    <jsp:include page="../common/head.jsp"/>
+    <%@include file="../common/head.jsp" %>
 </head>
 
 <body>
 <div class="layui-layout layui-layout-admin">
-    <jsp:include page="../common/nav.jsp"/>
+    <%@ include file="../common/nav.jsp" %>
 
     <!--主体-->
     <div class="layui-body">
         <!--tab标签-->
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
-                <li class=""><a href="/regex/list">正则表达式管理</a></li>
-                <li class="layui-this">添加正则表达式</li>
+                <li class=""><a href="${webRoot}/brand/list">品牌管理</a></li>
+                <li class="layui-this">添加品牌</li>
             </ul>
             <div class="layui-tab-content">
                 <div class="layui-tab-item layui-show">
-                    <form class="layui-form form-container ajax-form" action="/regex/save" method="post">
+                    <form class="layui-form form-container ajax-form" action="/brand/add" method="post">
+
                         <div class="layui-form-item">
-                            <label class="layui-form-label">网址</label>
+                            <label class="layui-form-label">品牌名称</label>
+                            <div class="layui-input-inline">
+                                <input type="text" name="brandName" required lay-verify="required" autocomplete="off"
+                                       class="layui-input">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"><em style="color: red">*</em></div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">品牌网址 </label>
                             <div class="layui-input-block">
-                                <input type="text" name="url" value="" required  lay-verify="url" placeholder="请输入网址" class="layui-input">
+                                <input type="text" name="siteUrl" class="layui-input">
                             </div>
                         </div>
                         <div class="layui-form-item">
-                            <label class="layui-form-label">新闻标题和链接的正则</label>
-                            <div class="layui-input-block">
-                                <input type="text" name="regex" value="" required  lay-verify="required" placeholder="请输入正则表达式" class="layui-input">
+                            <label class="layui-form-label">品牌LOGO</label>
+                            <div class="layui-input-inline">
+                                <input type="file" id="photo" accept="image/*">
+                            </div>
+                            <div class="layui-form-mid layui-word-aux"> 选择文件
+                                请上传图片，做为品牌的LOGO！
                             </div>
                         </div>
                         <div class="layui-form-item">
-                            <label class="layui-form-label">内容的正则</label>
+                            <label class="layui-form-label">文件路径 </label>
                             <div class="layui-input-block">
-                                <input type="text" name="contentRegex" value="" required  lay-verify="required" placeholder="请输入正则表达式" class="layui-input">
+                                <input id="imgInput" type="text" name="siteUrl" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">预览图 </label>
+                            <div class="layui-input-block">
+                                <img class="modify_img" src='' height="200px"/><br>
+                            </div>
+                        </div>
+
+                        <div class="layui-form-item layui-form-text">
+                            <label class="layui-form-label">品牌描述</label>
+                            <div class="layui-input-block">
+                                <textarea name="brandDesc" class="layui-textarea"></textarea>
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">排序 </label>
+                            <div class="layui-input-block">
+                                <input type="number" name="sortOrder" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="layui-form-item">
+                            <label class="layui-form-label">是否显示</label>
+                            <div class="layui-input-inline">
+                                <input type="radio" name="isShow" value="1" title="是" checked>
+                                <input type="radio" name="isShow" value="0" title="否">
+
+                            </div>
+                            <div class="layui-form-mid layui-word-aux">
+                                (当品牌下还没有商品的时候，首页及分类页的品牌区将不会显示该品牌。)
                             </div>
                         </div>
                         <div class="layui-form-item">
                             <div class="layui-input-block">
-                                <button class="layui-btn"  id="regex_test" data-action="/news/test">测试</button>
-                                <button class="layui-btn" lay-submit lay-filter="*">保存</button>
+                                <button class="layui-btn" lay-submit lay-filter="*">确定</button>
                                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                             </div>
                         </div>
@@ -53,17 +94,17 @@
     </div>
 
     <!--底部-->
-    <jsp:include page="../common/footer.jsp"/>
+    <%@include file="../common/footer.jsp" %>
 </div>
 
-<jsp:include page="../common/bottom.jsp"/>
+<%@include file="../common/bottom.jsp" %>
 
 <!--页面JS脚本-->
 <script>
 
     var GV = {
 
-        current_controller: "/regex"
+        current_controller: "/brand"
     };
 </script>
 </body>

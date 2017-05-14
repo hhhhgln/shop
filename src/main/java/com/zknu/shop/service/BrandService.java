@@ -15,9 +15,10 @@ public interface BrandService {
      * 列表 分页展示
      * @param page 当前页
      * @param rows 每页数目
+     * @param keyWord  搜索关键词 品牌名称
      * @return pageResult
      */
-    PageResult listBrand(int page,int rows);
+    PageResult listBrand(int page,int rows,String keyWord);
 
     /**
      * 添加

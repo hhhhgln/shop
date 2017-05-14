@@ -203,24 +203,63 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
         });
     });
 
-    $(function () {
-        $.ajax({
-            url: "/news/loadCid",
-            success: function (info) {
-                if (info.status === 200) {
-                    console.log("123213");
-                    for(var i=0;i<info.data.length;i++){
-                        console.log(document.getElementById("cid").innerHTML);
-                        document.getElementById("cid").innerHTML+="<option value="+info.data[i].id+">"+info.data[i].newsclass+"</option>"
-                        form.render('select'); //刷新select选择框渲染
-
+// 图片上传
+    $('#photo').change(function () {
+        var _this = $(this)[0],
+            _file = _this.files[0],
+            fileType = _file.type;
+        console.log(_file.size);
+        if (/image\/\w+/.test(fileType)) {
+            //提示
+            var index = layer.open({
+                content: '图片上传中...'
+                , skin: 'msg'
+            });
+            var fileReader = new FileReader();
+            fileReader.readAsDataURL(_file);
+            fileReader.onload = function (event) {
+                var result = event.target.result;   //返回的dataURL
+                var image = new Image();
+                image.src = result;
+                image.onload = function () {  //创建一个image对象，给canvas绘制使用
+                    var cvs = document.createElement('canvas');
+                    var scale = 1;
+                    if (this.width > 1000 || this.height > 1000) {  //1000只是示例，可以根据具体的要求去设定
+                        if (this.width > this.height) {
+                            scale = 1000 / this.width;
+                        } else {
+                            scale = 1000 / this.height;
+                        }
                     }
-
+                    cvs.width = this.width * scale;
+                    cvs.height = this.height * scale;     //计算等比缩小后图片宽高
+                    var ctx = cvs.getContext('2d');
+                    ctx.drawImage(this, 0, 0, cvs.width, cvs.height);
+                    var newImageData = cvs.toDataURL(fileType, 0.8);   //重新生成图片，<span style="font-family: Arial, Helvetica, sans-serif;">fileType为用户选择的图片类型</span>
+                    var sendData = newImageData.replace("data:" + fileType + ";base64,", '');
+                    $.post('/upload', {type: 'photo', value: sendData}, function (data) {
+                        if (data.error == '0') {
+                            $('.modify_img').attr('src', newImageData);
+                            $("#imgInput").attr("value", data.message);
+                            layer.closeAll();
+                        } else {
+                            layer.closeAll();
+                            layer.open({
+                                content: data.message
+                                , skin: 'msg'
+                            });
+                        }
+                    });
                 }
 
             }
-        });
-    })
+        } else {
+            layer.open({
+                content: '请选择图片格式文件'
+                , skin: 'msg'
+            });
+        }
+    });
 
     exports('admin', {});
 

@@ -16,15 +16,17 @@
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
                 <li class="layui-this">品牌管理</li>
-                <li class=""><a href="${webRoot}/brand/add">添加品牌管理</a></li>
+                <li class=""><a href="${webRoot}/brand/add">添加品牌</a></li>
             </ul>
             <div class="layui-tab-content">
+           <form action="" method="get" >
+               <input type="hidden" name="page" value="1">
+               <input type="text" name="keyWord"  lay-verify="required" placeholder="品牌名称" autocomplete="off" class="layui-input layui-input-inline" style="width: 200px" value="${keyWord}">
 
+               <button type="submit" class="layui-btn layui-btn-normal layui-btn-small" data-action="/brand/list">搜索</button>
+           </form>
 
                 <form action="" method="post" class="ajax-form">
-                    <input type="text" name="title" required lay-verify="required" placeholder="品牌名称" autocomplete="off" class="layui-input layui-input-inline" style="width: 200px">
-
-                    <button type="button" class="layui-btn layui-btn-normal layui-btn-small ajax-action" data-action="/regex/delete">搜索</button>
                     <div class="layui-tab-item layui-show">
                         <table class="layui-table">
                             <thead>
@@ -99,6 +101,7 @@
             ,
             groups: 5 //连续显示分页数
             ,
+            skip:true,
             curr:${pageResult.curr}
             ,
             jump: function (obj, first) {
@@ -106,7 +109,7 @@
                 var curr = obj.curr;
                 if (!first) {
                     //layer.msg('第 ' + obj.curr + ' 页');
-                    location.href ="/brand/list?page="+obj.curr;
+                    location.href ="/brand/list?page="+obj.curr+"&keyWord=${keyWord}";
 
                 }
             }

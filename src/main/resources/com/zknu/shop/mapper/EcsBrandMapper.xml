@@ -5,14 +5,12 @@
     <id column="brand_id" property="brandId" jdbcType="SMALLINT" />
     <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
     <result column="brand_logo" property="brandLogo" jdbcType="VARCHAR" />
-    <result column="brand_img" property="brandImg" jdbcType="VARCHAR" />
     <result column="site_url" property="siteUrl" jdbcType="VARCHAR" />
     <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
     <result column="is_show" property="isShow" jdbcType="BIT" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBrandWithBLOBs" extends="BaseResultMap" >
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBrand" extends="BaseResultMap" >
     <result column="brand_desc" property="brandDesc" jdbcType="LONGVARCHAR" />
-    <result column="wap_brand_desc" property="wapBrandDesc" jdbcType="LONGVARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -73,10 +71,10 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    brand_id, brand_name, brand_logo, brand_img, site_url, sort_order, is_show
+    brand_id, brand_name, brand_logo, site_url, sort_order, is_show
   </sql>
   <sql id="Blob_Column_List" >
-    brand_desc, wap_brand_desc
+    brand_desc
   </sql>
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBrandExample" >
     select
@@ -126,17 +124,15 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsBrandWithBLOBs" >
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsBrand" >
     insert into ecs_brand (brand_id, brand_name, brand_logo, 
-      brand_img, site_url, sort_order, 
-      is_show, brand_desc, wap_brand_desc
-      )
+      site_url, sort_order, is_show, 
+      brand_desc)
     values (#{brandId,jdbcType=SMALLINT}, #{brandName,jdbcType=VARCHAR}, #{brandLogo,jdbcType=VARCHAR}, 
-      #{brandImg,jdbcType=VARCHAR}, #{siteUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, 
-      #{isShow,jdbcType=BIT}, #{brandDesc,jdbcType=LONGVARCHAR}, #{wapBrandDesc,jdbcType=LONGVARCHAR}
-      )
+      #{siteUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, #{isShow,jdbcType=BIT}, 
+      #{brandDesc,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBrandWithBLOBs" >
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBrand" >
     insert into ecs_brand
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="brandId != null" >
@@ -147,9 +143,6 @@
       </if>
       <if test="brandLogo != null" >
         brand_logo,
-      </if>
-      <if test="brandImg != null" >
-        brand_img,
       </if>
       <if test="siteUrl != null" >
         site_url,
@@ -163,9 +156,6 @@
       <if test="brandDesc != null" >
         brand_desc,
       </if>
-      <if test="wapBrandDesc != null" >
-        wap_brand_desc,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="brandId != null" >
@@ -176,9 +166,6 @@
       </if>
       <if test="brandLogo != null" >
         #{brandLogo,jdbcType=VARCHAR},
-      </if>
-      <if test="brandImg != null" >
-        #{brandImg,jdbcType=VARCHAR},
       </if>
       <if test="siteUrl != null" >
         #{siteUrl,jdbcType=VARCHAR},
@@ -191,9 +178,6 @@
       </if>
       <if test="brandDesc != null" >
         #{brandDesc,jdbcType=LONGVARCHAR},
-      </if>
-      <if test="wapBrandDesc != null" >
-        #{wapBrandDesc,jdbcType=LONGVARCHAR},
       </if>
     </trim>
   </insert>
@@ -215,9 +199,6 @@
       <if test="record.brandLogo != null" >
         brand_logo = #{record.brandLogo,jdbcType=VARCHAR},
       </if>
-      <if test="record.brandImg != null" >
-        brand_img = #{record.brandImg,jdbcType=VARCHAR},
-      </if>
       <if test="record.siteUrl != null" >
         site_url = #{record.siteUrl,jdbcType=VARCHAR},
       </if>
@@ -230,9 +211,6 @@
       <if test="record.brandDesc != null" >
         brand_desc = #{record.brandDesc,jdbcType=LONGVARCHAR},
       </if>
-      <if test="record.wapBrandDesc != null" >
-        wap_brand_desc = #{record.wapBrandDesc,jdbcType=LONGVARCHAR},
-      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -243,12 +221,10 @@
     set brand_id = #{record.brandId,jdbcType=SMALLINT},
       brand_name = #{record.brandName,jdbcType=VARCHAR},
       brand_logo = #{record.brandLogo,jdbcType=VARCHAR},
-      brand_img = #{record.brandImg,jdbcType=VARCHAR},
       site_url = #{record.siteUrl,jdbcType=VARCHAR},
       sort_order = #{record.sortOrder,jdbcType=TINYINT},
       is_show = #{record.isShow,jdbcType=BIT},
-      brand_desc = #{record.brandDesc,jdbcType=LONGVARCHAR},
-      wap_brand_desc = #{record.wapBrandDesc,jdbcType=LONGVARCHAR}
+      brand_desc = #{record.brandDesc,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -258,7 +234,6 @@
     set brand_id = #{record.brandId,jdbcType=SMALLINT},
       brand_name = #{record.brandName,jdbcType=VARCHAR},
       brand_logo = #{record.brandLogo,jdbcType=VARCHAR},
-      brand_img = #{record.brandImg,jdbcType=VARCHAR},
       site_url = #{record.siteUrl,jdbcType=VARCHAR},
       sort_order = #{record.sortOrder,jdbcType=TINYINT},
       is_show = #{record.isShow,jdbcType=BIT}
@@ -266,7 +241,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsBrandWithBLOBs" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsBrand" >
     update ecs_brand
     <set >
       <if test="brandName != null" >
@@ -274,9 +249,6 @@
       </if>
       <if test="brandLogo != null" >
         brand_logo = #{brandLogo,jdbcType=VARCHAR},
-      </if>
-      <if test="brandImg != null" >
-        brand_img = #{brandImg,jdbcType=VARCHAR},
       </if>
       <if test="siteUrl != null" >
         site_url = #{siteUrl,jdbcType=VARCHAR},
@@ -290,29 +262,23 @@
       <if test="brandDesc != null" >
         brand_desc = #{brandDesc,jdbcType=LONGVARCHAR},
       </if>
-      <if test="wapBrandDesc != null" >
-        wap_brand_desc = #{wapBrandDesc,jdbcType=LONGVARCHAR},
-      </if>
     </set>
     where brand_id = #{brandId,jdbcType=SMALLINT}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBrandWithBLOBs" >
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBrand" >
     update ecs_brand
     set brand_name = #{brandName,jdbcType=VARCHAR},
       brand_logo = #{brandLogo,jdbcType=VARCHAR},
-      brand_img = #{brandImg,jdbcType=VARCHAR},
       site_url = #{siteUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=TINYINT},
       is_show = #{isShow,jdbcType=BIT},
-      brand_desc = #{brandDesc,jdbcType=LONGVARCHAR},
-      wap_brand_desc = #{wapBrandDesc,jdbcType=LONGVARCHAR}
+      brand_desc = #{brandDesc,jdbcType=LONGVARCHAR}
     where brand_id = #{brandId,jdbcType=SMALLINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsBrand" >
     update ecs_brand
     set brand_name = #{brandName,jdbcType=VARCHAR},
       brand_logo = #{brandLogo,jdbcType=VARCHAR},
-      brand_img = #{brandImg,jdbcType=VARCHAR},
       site_url = #{siteUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=TINYINT},
       is_show = #{isShow,jdbcType=BIT}

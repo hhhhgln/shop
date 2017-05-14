@@ -7,13 +7,13 @@ public class EcsBrand {
 
     private String brandLogo;
 
-    private String brandImg;
-
     private String siteUrl;
 
     private Byte sortOrder;
 
     private Boolean isShow;
+
+    private String brandDesc;
 
     public Short getBrandId() {
         return brandId;
@@ -39,14 +39,6 @@ public class EcsBrand {
         this.brandLogo = brandLogo == null ? null : brandLogo.trim();
     }
 
-    public String getBrandImg() {
-        return brandImg;
-    }
-
-    public void setBrandImg(String brandImg) {
-        this.brandImg = brandImg == null ? null : brandImg.trim();
-    }
-
     public String getSiteUrl() {
         return siteUrl;
     }
@@ -69,5 +61,13 @@ public class EcsBrand {
 
     public void setIsShow(Boolean isShow) {
         this.isShow = isShow;
+    }
+
+    public String getBrandDesc() {
+        return brandDesc;
+    }
+
+    public void setBrandDesc(String brandDesc) {
+        this.brandDesc = brandDesc == null ? null : brandDesc.trim();
     }
 }

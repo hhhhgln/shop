@@ -199,6 +199,7 @@
         <configuration>
           <port>80</port>
           <path>/</path>
+          <uriEncoding>UTF-8</uriEncoding>
           <!--远程热部署使用 tomcat7:deploy /tomcat7:redeploy-->
           <!--<url>****/manger/text</url>-->
           <!--<username></username>-->
