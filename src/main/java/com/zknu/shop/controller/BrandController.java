@@ -32,7 +32,7 @@ public class BrandController {
     @Autowired
     BrandService brandService;
 
-    /**
+    /**f
      * 品牌列表
      */
     @RequestMapping("/list")
