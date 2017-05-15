@@ -81,6 +81,14 @@ public class BrandController {
         return "/brand/edit";
     }
 
+    /**
+     * 编辑
+     * @param brand
+     * @param request
+     * @return
+     * @throws ServletException
+     * @throws IOException
+     */
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     @ResponseBody
     public ShopResult editBrand(EcsBrand brand, HttpServletRequest request) throws ServletException, IOException {
@@ -90,6 +98,12 @@ public class BrandController {
 
     }
 
+    /**
+     * 删除
+     * @param ids
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/delete")
     @ResponseBody
     public ShopResult deleteBrand(short[] ids, HttpServletRequest request) {
