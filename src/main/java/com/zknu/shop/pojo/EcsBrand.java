@@ -1,4 +1,4 @@
-package com.zknu.shop.pojo;
+﻿package com.zknu.shop.pojo;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -6,7 +6,6 @@ public class EcsBrand {
     private Short brandId;
     @NotEmpty(message = "品牌名称不能为空")
     private String brandName;
-
     private String brandLogo;
 
     private String siteUrl;
