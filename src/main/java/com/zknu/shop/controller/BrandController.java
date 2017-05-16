@@ -37,7 +37,7 @@ public class BrandController {
                             Model model) {
         PageResult pageResult = brandService.listBrand(page, row, keyWord);
         model.addAttribute("pageResult", pageResult);
-        model.addAttribute("keyWord", keyWord);git
+        model.addAttribute("keyWord", keyWord);
         return "/brand/list";
     }
 
