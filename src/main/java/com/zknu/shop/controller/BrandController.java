@@ -8,16 +8,11 @@ import com.zknu.shop.util.ShopResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.List;
 
 
 /**
@@ -42,7 +37,7 @@ public class BrandController {
                             Model model) {
         PageResult pageResult = brandService.listBrand(page, row, keyWord);
         model.addAttribute("pageResult", pageResult);
-        model.addAttribute("keyWord", keyWord);
+        model.addAttribute("keyWord", keyWord);git
         return "/brand/list";
     }
 
@@ -65,7 +60,7 @@ public class BrandController {
     @ResponseBody
     public ShopResult addBrand(EcsBrand brand, HttpServletRequest request) {
 
-        return brandService.addBrand(brand, request);
+        return brandService.saveBrand(brand, request);
 
     }
 
@@ -83,6 +78,7 @@ public class BrandController {
 
     /**
      * 编辑
+     *
      * @param brand
      * @param request
      * @return
@@ -100,6 +96,7 @@ public class BrandController {
 
     /**
      * 删除
+     *
      * @param ids
      * @param request
      * @return

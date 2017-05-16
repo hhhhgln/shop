@@ -37,7 +37,7 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public ShopResult addBrand(EcsBrand brand, HttpServletRequest request) {
+    public ShopResult saveBrand(EcsBrand brand, HttpServletRequest request) {
         try {
             brandMapper.insertSelective(brand);
             return ShopResult.build(200, "添加成功", request.getContextPath() + "/brand/list");
