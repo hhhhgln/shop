@@ -92,11 +92,7 @@ public class AdController {
 - 不得擅自修改数据库 需要修改数据库必须在群里提出申请说明，防止成员数据库出现不一样的情况。
 - 不得擅自修改mapper。
 - 不得删除公有文件
-
-
-
-
-          
+       
 # git多人协作开发流程 （多分支版）（目前采用的方案）
 1. 在master下git pull 
 2. git checkout -b 你的分支  origin/你的分支
@@ -108,19 +104,19 @@ git push origin 你的分支
 5. 回到宿舍 想要继续开发  git pull origin 你的分支 继续开发
 6. 每天来到实验室 git pull origin 你的分支 继续开发
 7. 几天后你的模块开发完毕，想要提交了。（提交前确保自己经过的大量测试，保证自己的模块没问题了）
- 
-> 更新一下master 看看是不是别人有开发完的模块已经提交了    
- git checkout master         
- git pull origin master                    
- git checkout 你的分支                 
- git merge master //把最新的master 合并到你的分支         
- git push origin 你的分支   
- 进去coding  代码->合并请求->新建合并请求->源分支（你的分支） 目标分支（master）分支  代码评审选择
+ 提交之前，请先执行以下命令与主库的代码保持同步。在这个过程中，你可能需要处理冲突。(PS：该过程必须要经常做，时刻让本地的代码与主库代码保持一致，这样做有助于减少冲突。)
+> git checkout master         
+  git pull origin master                    
+  git checkout 你的分支                 
+  git merge master //把最新的master 合并到你的分支         
+  git push origin 你的分支
+    
+8进去coding  代码->合并请求->新建合并请求->源分支（你的分支） 目标分支（master）分支  代码评审选择
  **geekzsp** 标题（xx模块开发完毕）和描述写清楚         
 然后提交 如果提示不可自动合并 请重试第7步 手动合并  
           
-8 我对你的代码进行审核测试，如果没问题 合并到master ，有问题 修改 重新申请合并。      
-9 接到新的开发任务  重复1-8
+9 我对你的代码进行审核测试，如果没问题 合并到master ，有问题 修改 重新申请合并。      
+10 接到新的开发任务  重复1-8
 
 # git多人协作流程（单分支版）
 因此，多人协作的工作模式通常是这样：
