@@ -48,7 +48,7 @@ A) Service 层方法命名规约
 3） 获取统计值的方法用 count 做前缀。      
 4） 插入的方法用 save（推荐）或 insert 做前缀。          
 5） 删除的方法用 remove（推荐）或 delete 做前缀。          
-6） 修改的方法用 update 做前缀。 
+6） 修改的方法用 update 做前缀。         
 B)url/jsp命名公约        
 例如：品牌管理
 - 品牌列表   /brand/list
