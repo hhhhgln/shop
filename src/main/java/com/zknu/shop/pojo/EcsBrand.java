@@ -1,4 +1,4 @@
-﻿package com.zknu.shop.pojo;
+package com.zknu.shop.pojo;
 
 import org.hibernate.validator.constraints.NotEmpty;
 

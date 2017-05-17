@@ -48,7 +48,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">文件路径 </label>
                             <div class="layui-input-block">
-                                <input id="imgInput" type="text" name="b" class="layui-input" readonly>
+                                <input id="imgInput" type="text" name="brandLogo" class="layui-input" readonly>
                             </div>
                         </div>
                         <div class="layui-form-item">

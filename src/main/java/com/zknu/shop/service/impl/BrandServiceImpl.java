@@ -37,8 +37,16 @@ public class BrandServiceImpl implements BrandService {
     }
 
     @Override
-    public ShopResult addBrand(EcsBrand brand, HttpServletRequest request) {
+    public ShopResult saveBrand(EcsBrand brand, HttpServletRequest request) {
         try {
+            //先判断该品牌是否存在
+            EcsBrandExample brandExample = new EcsBrandExample();
+            EcsBrandExample.Criteria criteria = brandExample.createCriteria();
+            criteria.andBrandNameEqualTo(brand.getBrandName());
+            List<EcsBrand> ecsBrands = brandMapper.selectByExample(brandExample);
+            if (ecsBrands != null && !ecsBrands.isEmpty()) {
+                return ShopResult.build(500, "该品牌已经存在");
+            }
             brandMapper.insertSelective(brand);
             return ShopResult.build(200, "添加成功", request.getContextPath() + "/brand/list");
         } catch (Exception e) {
@@ -73,7 +81,7 @@ public class BrandServiceImpl implements BrandService {
     public ShopResult updateBrand(EcsBrand brand, HttpServletRequest request) {
         try {
             brandMapper.updateByPrimaryKeySelective(brand);
-            return ShopResult.build(200, "编辑成功", request.getContextPath()+"/brand/list");
+            return ShopResult.build(200, "编辑成功", request.getContextPath() + "/brand/list");
         } catch (Exception e) {
             e.printStackTrace();
         }

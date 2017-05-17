@@ -28,7 +28,7 @@ public interface BrandService {
      * @param request
      * @return  ShopResult
      */
-    ShopResult addBrand(EcsBrand brand, HttpServletRequest request);
+    ShopResult saveBrand(EcsBrand brand, HttpServletRequest request);
 
 
 
