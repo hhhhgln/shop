@@ -109,15 +109,15 @@ git push origin 你的分支
 6. 每天来到实验室 git pull origin 你的分支 继续开发
 7. 几天后你的模块开发完毕，想要提交了。（提交前确保自己经过的大量测试，保证自己的模块没问题了）
  
-- 更新一下master 看看是不是别人有开发完的模块已经提交了
-- git checkout master    
-- git pull origin master          
-- git checkout 你的分支           
-- git merge master //把最新的master 合并到你的分支
-- git push origin 你的分支
-- 进去coding  代码->合并请求->新建合并请求->源分支（你的分支） 目标分支（master）分支  代码评审选择
-**geekzsp** 标题（xx模块开发完毕）和描述写清楚 
-然后提交 如果提示不可自动合并 请重试第7步 手动合并
+> 更新一下master 看看是不是别人有开发完的模块已经提交了    
+ git checkout master         
+ git pull origin master                    
+ git checkout 你的分支                 
+ git merge master //把最新的master 合并到你的分支         
+ git push origin 你的分支   
+ 进去coding  代码->合并请求->新建合并请求->源分支（你的分支） 目标分支（master）分支  代码评审选择
+ **geekzsp** 标题（xx模块开发完毕）和描述写清楚         
+然后提交 如果提示不可自动合并 请重试第7步 手动合并            
 8. 我对你的代码进行审核测试，如果没问题 合并到master ，有问题 修改 重新申请合并。
 9. 接到新的开发任务  重复1-8
 
