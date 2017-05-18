@@ -49,10 +49,10 @@
                                     <td>${brand.siteUrl}</td>
                                     <td>${brand.sortOrder}</td>
                                     <td>
-                                        <c:if test="${brand.isShow==true}">
+                                        <c:if test="${brand.isShow==1}">
                                             <img src="${webRoot}/static/images/yes.gif" alt="">
                                         </c:if>
-                                        <c:if test="${brand.isShow!=true}">
+                                        <c:if test="${brand.isShow!=1}">
                                             <img src="${webRoot}/static/images/no.gif" alt="">
                                         </c:if>
                                     </td>

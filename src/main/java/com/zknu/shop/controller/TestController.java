@@ -1,6 +1,10 @@
 package com.zknu.shop.controller;
 
+import com.zknu.shop.service.TestService;
+import com.zknu.shop.util.TreeGridResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -12,8 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/test")
 public class TestController {
+    @Autowired
+    TestService testService;
     @RequestMapping("/tree-grid")
-    public  String treeGrid(){
+    public  String treeGrid(Model model){
+        TreeGridResult treeGridResult = testService.listArticleCat();
+        model.addAttribute("treeGridResult",treeGridResult);
         return "test/tree-grid";
     }
+
 }
