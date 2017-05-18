@@ -9,8 +9,6 @@
 - 赵梦迪
 - 马倩
 
-ZJ的分支
-lwy的分支
 
 
 # 开发环境
@@ -22,6 +20,7 @@ lwy的分支
 - IDEA版本:不做要求   
 - Git版本：2.8.1            
 - 代码仓库：git@git.coding.net:geekzsp/shop.git
+- 数据库文档 [在线查看](http://geekzsp.coding.me/shop/sql/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E6%A1%A3%E5%BC%80%E5%8F%91%E7%89%88.html)
 
 # 参考资料
 - ECSHOP数据库结构说明
