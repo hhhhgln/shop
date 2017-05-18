@@ -9,11 +9,11 @@ public class EcsOrderAction {
 
     private String actionUser;
 
-    private Boolean orderStatus;
+    private Byte orderStatus;
 
-    private Boolean shippingStatus;
+    private Byte shippingStatus;
 
-    private Boolean payStatus;
+    private Byte payStatus;
 
     private String actionNote;
 
@@ -43,27 +43,27 @@ public class EcsOrderAction {
         this.actionUser = actionUser == null ? null : actionUser.trim();
     }
 
-    public Boolean getOrderStatus() {
+    public Byte getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(Boolean orderStatus) {
+    public void setOrderStatus(Byte orderStatus) {
         this.orderStatus = orderStatus;
     }
 
-    public Boolean getShippingStatus() {
+    public Byte getShippingStatus() {
         return shippingStatus;
     }
 
-    public void setShippingStatus(Boolean shippingStatus) {
+    public void setShippingStatus(Byte shippingStatus) {
         this.shippingStatus = shippingStatus;
     }
 
-    public Boolean getPayStatus() {
+    public Byte getPayStatus() {
         return payStatus;
     }
 
-    public void setPayStatus(Boolean payStatus) {
+    public void setPayStatus(Byte payStatus) {
         this.payStatus = payStatus;
     }
 

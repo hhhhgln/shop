@@ -11,11 +11,11 @@
     <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
     <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
     <result column="send_number" property="sendNumber" jdbcType="SMALLINT" />
-    <result column="back_type" property="backType" jdbcType="BIT" />
+    <result column="back_type" property="backType" jdbcType="TINYINT" />
     <result column="back_goods_price" property="backGoodsPrice" jdbcType="DECIMAL" />
     <result column="back_goods_number" property="backGoodsNumber" jdbcType="SMALLINT" />
-    <result column="status_back" property="statusBack" jdbcType="BIT" />
-    <result column="status_refund" property="statusRefund" jdbcType="BIT" />
+    <result column="status_back" property="statusBack" jdbcType="TINYINT" />
+    <result column="status_refund" property="statusRefund" jdbcType="TINYINT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBackGoods" extends="BaseResultMap" >
     <result column="goods_attr" property="goodsAttr" jdbcType="LONGVARCHAR" />
@@ -143,8 +143,8 @@
     values (#{recId,jdbcType=INTEGER}, #{backId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
       #{productId,jdbcType=INTEGER}, #{productSn,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, 
       #{brandName,jdbcType=VARCHAR}, #{goodsSn,jdbcType=VARCHAR}, #{sendNumber,jdbcType=SMALLINT}, 
-      #{backType,jdbcType=BIT}, #{backGoodsPrice,jdbcType=DECIMAL}, #{backGoodsNumber,jdbcType=SMALLINT}, 
-      #{statusBack,jdbcType=BIT}, #{statusRefund,jdbcType=BIT}, #{goodsAttr,jdbcType=LONGVARCHAR}
+      #{backType,jdbcType=TINYINT}, #{backGoodsPrice,jdbcType=DECIMAL}, #{backGoodsNumber,jdbcType=SMALLINT}, 
+      #{statusBack,jdbcType=TINYINT}, #{statusRefund,jdbcType=TINYINT}, #{goodsAttr,jdbcType=LONGVARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
@@ -225,7 +225,7 @@
         #{sendNumber,jdbcType=SMALLINT},
       </if>
       <if test="backType != null" >
-        #{backType,jdbcType=BIT},
+        #{backType,jdbcType=TINYINT},
       </if>
       <if test="backGoodsPrice != null" >
         #{backGoodsPrice,jdbcType=DECIMAL},
@@ -234,10 +234,10 @@
         #{backGoodsNumber,jdbcType=SMALLINT},
       </if>
       <if test="statusBack != null" >
-        #{statusBack,jdbcType=BIT},
+        #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        #{statusRefund,jdbcType=BIT},
+        #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="goodsAttr != null" >
         #{goodsAttr,jdbcType=LONGVARCHAR},
@@ -281,7 +281,7 @@
         send_number = #{record.sendNumber,jdbcType=SMALLINT},
       </if>
       <if test="record.backType != null" >
-        back_type = #{record.backType,jdbcType=BIT},
+        back_type = #{record.backType,jdbcType=TINYINT},
       </if>
       <if test="record.backGoodsPrice != null" >
         back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
@@ -290,10 +290,10 @@
         back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
       </if>
       <if test="record.statusBack != null" >
-        status_back = #{record.statusBack,jdbcType=BIT},
+        status_back = #{record.statusBack,jdbcType=TINYINT},
       </if>
       <if test="record.statusRefund != null" >
-        status_refund = #{record.statusRefund,jdbcType=BIT},
+        status_refund = #{record.statusRefund,jdbcType=TINYINT},
       </if>
       <if test="record.goodsAttr != null" >
         goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR},
@@ -314,11 +314,11 @@
       brand_name = #{record.brandName,jdbcType=VARCHAR},
       goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
       send_number = #{record.sendNumber,jdbcType=SMALLINT},
-      back_type = #{record.backType,jdbcType=BIT},
+      back_type = #{record.backType,jdbcType=TINYINT},
       back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
       back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
-      status_back = #{record.statusBack,jdbcType=BIT},
-      status_refund = #{record.statusRefund,jdbcType=BIT},
+      status_back = #{record.statusBack,jdbcType=TINYINT},
+      status_refund = #{record.statusRefund,jdbcType=TINYINT},
       goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -335,11 +335,11 @@
       brand_name = #{record.brandName,jdbcType=VARCHAR},
       goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
       send_number = #{record.sendNumber,jdbcType=SMALLINT},
-      back_type = #{record.backType,jdbcType=BIT},
+      back_type = #{record.backType,jdbcType=TINYINT},
       back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
       back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
-      status_back = #{record.statusBack,jdbcType=BIT},
-      status_refund = #{record.statusRefund,jdbcType=BIT}
+      status_back = #{record.statusBack,jdbcType=TINYINT},
+      status_refund = #{record.statusRefund,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -372,7 +372,7 @@
         send_number = #{sendNumber,jdbcType=SMALLINT},
       </if>
       <if test="backType != null" >
-        back_type = #{backType,jdbcType=BIT},
+        back_type = #{backType,jdbcType=TINYINT},
       </if>
       <if test="backGoodsPrice != null" >
         back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
@@ -381,10 +381,10 @@
         back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
       </if>
       <if test="statusBack != null" >
-        status_back = #{statusBack,jdbcType=BIT},
+        status_back = #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        status_refund = #{statusRefund,jdbcType=BIT},
+        status_refund = #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="goodsAttr != null" >
         goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR},
@@ -402,11 +402,11 @@
       brand_name = #{brandName,jdbcType=VARCHAR},
       goods_sn = #{goodsSn,jdbcType=VARCHAR},
       send_number = #{sendNumber,jdbcType=SMALLINT},
-      back_type = #{backType,jdbcType=BIT},
+      back_type = #{backType,jdbcType=TINYINT},
       back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
       back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
-      status_back = #{statusBack,jdbcType=BIT},
-      status_refund = #{statusRefund,jdbcType=BIT},
+      status_back = #{statusBack,jdbcType=TINYINT},
+      status_refund = #{statusRefund,jdbcType=TINYINT},
       goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR}
     where rec_id = #{recId,jdbcType=INTEGER}
   </update>
@@ -420,11 +420,11 @@
       brand_name = #{brandName,jdbcType=VARCHAR},
       goods_sn = #{goodsSn,jdbcType=VARCHAR},
       send_number = #{sendNumber,jdbcType=SMALLINT},
-      back_type = #{backType,jdbcType=BIT},
+      back_type = #{backType,jdbcType=TINYINT},
       back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
       back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
-      status_back = #{statusBack,jdbcType=BIT},
-      status_refund = #{statusRefund,jdbcType=BIT}
+      status_back = #{statusBack,jdbcType=TINYINT},
+      status_refund = #{statusRefund,jdbcType=TINYINT}
     where rec_id = #{recId,jdbcType=INTEGER}
   </update>
 </mapper>

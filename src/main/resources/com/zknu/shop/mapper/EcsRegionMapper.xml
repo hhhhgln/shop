@@ -5,7 +5,7 @@
     <id column="region_id" property="regionId" jdbcType="SMALLINT" />
     <result column="parent_id" property="parentId" jdbcType="SMALLINT" />
     <result column="region_name" property="regionName" jdbcType="VARCHAR" />
-    <result column="region_type" property="regionType" jdbcType="BIT" />
+    <result column="region_type" property="regionType" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -102,7 +102,7 @@
     insert into ecs_region (region_id, parent_id, region_name, 
       region_type)
     values (#{regionId,jdbcType=SMALLINT}, #{parentId,jdbcType=SMALLINT}, #{regionName,jdbcType=VARCHAR}, 
-      #{regionType,jdbcType=BIT})
+      #{regionType,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsRegion" >
     insert into ecs_region
@@ -131,7 +131,7 @@
         #{regionName,jdbcType=VARCHAR},
       </if>
       <if test="regionType != null" >
-        #{regionType,jdbcType=BIT},
+        #{regionType,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -154,7 +154,7 @@
         region_name = #{record.regionName,jdbcType=VARCHAR},
       </if>
       <if test="record.regionType != null" >
-        region_type = #{record.regionType,jdbcType=BIT},
+        region_type = #{record.regionType,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,7 +166,7 @@
     set region_id = #{record.regionId,jdbcType=SMALLINT},
       parent_id = #{record.parentId,jdbcType=SMALLINT},
       region_name = #{record.regionName,jdbcType=VARCHAR},
-      region_type = #{record.regionType,jdbcType=BIT}
+      region_type = #{record.regionType,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -181,7 +181,7 @@
         region_name = #{regionName,jdbcType=VARCHAR},
       </if>
       <if test="regionType != null" >
-        region_type = #{regionType,jdbcType=BIT},
+        region_type = #{regionType,jdbcType=TINYINT},
       </if>
     </set>
     where region_id = #{regionId,jdbcType=SMALLINT}
@@ -190,7 +190,7 @@
     update ecs_region
     set parent_id = #{parentId,jdbcType=SMALLINT},
       region_name = #{regionName,jdbcType=VARCHAR},
-      region_type = #{regionType,jdbcType=BIT}
+      region_type = #{regionType,jdbcType=TINYINT}
     where region_id = #{regionId,jdbcType=SMALLINT}
   </update>
 </mapper>

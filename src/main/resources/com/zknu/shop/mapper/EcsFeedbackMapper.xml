@@ -8,8 +8,8 @@
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="user_email" property="userEmail" jdbcType="VARCHAR" />
     <result column="msg_title" property="msgTitle" jdbcType="VARCHAR" />
-    <result column="msg_type" property="msgType" jdbcType="BIT" />
-    <result column="msg_status" property="msgStatus" jdbcType="BIT" />
+    <result column="msg_type" property="msgType" jdbcType="TINYINT" />
+    <result column="msg_status" property="msgStatus" jdbcType="TINYINT" />
     <result column="msg_time" property="msgTime" jdbcType="TIMESTAMP" />
     <result column="message_img" property="messageImg" jdbcType="VARCHAR" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
@@ -138,7 +138,7 @@
       )
     values (#{msgId,jdbcType=INTEGER}, #{parentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
       #{userName,jdbcType=VARCHAR}, #{userEmail,jdbcType=VARCHAR}, #{msgTitle,jdbcType=VARCHAR}, 
-      #{msgType,jdbcType=BIT}, #{msgStatus,jdbcType=BIT}, #{msgTime,jdbcType=TIMESTAMP}, 
+      #{msgType,jdbcType=TINYINT}, #{msgStatus,jdbcType=TINYINT}, #{msgTime,jdbcType=TIMESTAMP}, 
       #{messageImg,jdbcType=VARCHAR}, #{orderId,jdbcType=INTEGER}, #{msgContent,jdbcType=LONGVARCHAR}
       )
   </insert>
@@ -202,10 +202,10 @@
         #{msgTitle,jdbcType=VARCHAR},
       </if>
       <if test="msgType != null" >
-        #{msgType,jdbcType=BIT},
+        #{msgType,jdbcType=TINYINT},
       </if>
       <if test="msgStatus != null" >
-        #{msgStatus,jdbcType=BIT},
+        #{msgStatus,jdbcType=TINYINT},
       </if>
       <if test="msgTime != null" >
         #{msgTime,jdbcType=TIMESTAMP},
@@ -249,10 +249,10 @@
         msg_title = #{record.msgTitle,jdbcType=VARCHAR},
       </if>
       <if test="record.msgType != null" >
-        msg_type = #{record.msgType,jdbcType=BIT},
+        msg_type = #{record.msgType,jdbcType=TINYINT},
       </if>
       <if test="record.msgStatus != null" >
-        msg_status = #{record.msgStatus,jdbcType=BIT},
+        msg_status = #{record.msgStatus,jdbcType=TINYINT},
       </if>
       <if test="record.msgTime != null" >
         msg_time = #{record.msgTime,jdbcType=TIMESTAMP},
@@ -279,8 +279,8 @@
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
       msg_title = #{record.msgTitle,jdbcType=VARCHAR},
-      msg_type = #{record.msgType,jdbcType=BIT},
-      msg_status = #{record.msgStatus,jdbcType=BIT},
+      msg_type = #{record.msgType,jdbcType=TINYINT},
+      msg_status = #{record.msgStatus,jdbcType=TINYINT},
       msg_time = #{record.msgTime,jdbcType=TIMESTAMP},
       message_img = #{record.messageImg,jdbcType=VARCHAR},
       order_id = #{record.orderId,jdbcType=INTEGER},
@@ -297,8 +297,8 @@
       user_name = #{record.userName,jdbcType=VARCHAR},
       user_email = #{record.userEmail,jdbcType=VARCHAR},
       msg_title = #{record.msgTitle,jdbcType=VARCHAR},
-      msg_type = #{record.msgType,jdbcType=BIT},
-      msg_status = #{record.msgStatus,jdbcType=BIT},
+      msg_type = #{record.msgType,jdbcType=TINYINT},
+      msg_status = #{record.msgStatus,jdbcType=TINYINT},
       msg_time = #{record.msgTime,jdbcType=TIMESTAMP},
       message_img = #{record.messageImg,jdbcType=VARCHAR},
       order_id = #{record.orderId,jdbcType=INTEGER}
@@ -325,10 +325,10 @@
         msg_title = #{msgTitle,jdbcType=VARCHAR},
       </if>
       <if test="msgType != null" >
-        msg_type = #{msgType,jdbcType=BIT},
+        msg_type = #{msgType,jdbcType=TINYINT},
       </if>
       <if test="msgStatus != null" >
-        msg_status = #{msgStatus,jdbcType=BIT},
+        msg_status = #{msgStatus,jdbcType=TINYINT},
       </if>
       <if test="msgTime != null" >
         msg_time = #{msgTime,jdbcType=TIMESTAMP},
@@ -352,8 +352,8 @@
       user_name = #{userName,jdbcType=VARCHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
       msg_title = #{msgTitle,jdbcType=VARCHAR},
-      msg_type = #{msgType,jdbcType=BIT},
-      msg_status = #{msgStatus,jdbcType=BIT},
+      msg_type = #{msgType,jdbcType=TINYINT},
+      msg_status = #{msgStatus,jdbcType=TINYINT},
       msg_time = #{msgTime,jdbcType=TIMESTAMP},
       message_img = #{messageImg,jdbcType=VARCHAR},
       order_id = #{orderId,jdbcType=INTEGER},
@@ -367,8 +367,8 @@
       user_name = #{userName,jdbcType=VARCHAR},
       user_email = #{userEmail,jdbcType=VARCHAR},
       msg_title = #{msgTitle,jdbcType=VARCHAR},
-      msg_type = #{msgType,jdbcType=BIT},
-      msg_status = #{msgStatus,jdbcType=BIT},
+      msg_type = #{msgType,jdbcType=TINYINT},
+      msg_status = #{msgStatus,jdbcType=TINYINT},
       msg_time = #{msgTime,jdbcType=TIMESTAMP},
       message_img = #{messageImg,jdbcType=VARCHAR},
       order_id = #{orderId,jdbcType=INTEGER}

@@ -11,7 +11,7 @@ public class EcsBrand {
 
     private Byte sortOrder;
 
-    private Boolean isShow;
+    private Byte isShow;
 
     private String brandDesc;
 
@@ -55,11 +55,11 @@ public class EcsBrand {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsShow() {
+    public Byte getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Byte isShow) {
         this.isShow = isShow;
     }
 

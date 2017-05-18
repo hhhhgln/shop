@@ -4,11 +4,11 @@
   <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsArticleCat" >
     <id column="cat_id" property="catId" jdbcType="SMALLINT" />
     <result column="cat_name" property="catName" jdbcType="VARCHAR" />
-    <result column="cat_type" property="catType" jdbcType="BIT" />
+    <result column="cat_type" property="catType" jdbcType="TINYINT" />
     <result column="keywords" property="keywords" jdbcType="VARCHAR" />
     <result column="cat_desc" property="catDesc" jdbcType="VARCHAR" />
     <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
-    <result column="show_in_nav" property="showInNav" jdbcType="BIT" />
+    <result column="show_in_nav" property="showInNav" jdbcType="TINYINT" />
     <result column="parent_id" property="parentId" jdbcType="SMALLINT" />
     <result column="path_name" property="pathName" jdbcType="VARCHAR" />
   </resultMap>
@@ -109,9 +109,9 @@
       keywords, cat_desc, sort_order, 
       show_in_nav, parent_id, path_name
       )
-    values (#{catId,jdbcType=SMALLINT}, #{catName,jdbcType=VARCHAR}, #{catType,jdbcType=BIT}, 
+    values (#{catId,jdbcType=SMALLINT}, #{catName,jdbcType=VARCHAR}, #{catType,jdbcType=TINYINT}, 
       #{keywords,jdbcType=VARCHAR}, #{catDesc,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, 
-      #{showInNav,jdbcType=BIT}, #{parentId,jdbcType=SMALLINT}, #{pathName,jdbcType=VARCHAR}
+      #{showInNav,jdbcType=TINYINT}, #{parentId,jdbcType=SMALLINT}, #{pathName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsArticleCat" >
@@ -153,7 +153,7 @@
         #{catName,jdbcType=VARCHAR},
       </if>
       <if test="catType != null" >
-        #{catType,jdbcType=BIT},
+        #{catType,jdbcType=TINYINT},
       </if>
       <if test="keywords != null" >
         #{keywords,jdbcType=VARCHAR},
@@ -165,7 +165,7 @@
         #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="showInNav != null" >
-        #{showInNav,jdbcType=BIT},
+        #{showInNav,jdbcType=TINYINT},
       </if>
       <if test="parentId != null" >
         #{parentId,jdbcType=SMALLINT},
@@ -191,7 +191,7 @@
         cat_name = #{record.catName,jdbcType=VARCHAR},
       </if>
       <if test="record.catType != null" >
-        cat_type = #{record.catType,jdbcType=BIT},
+        cat_type = #{record.catType,jdbcType=TINYINT},
       </if>
       <if test="record.keywords != null" >
         keywords = #{record.keywords,jdbcType=VARCHAR},
@@ -203,7 +203,7 @@
         sort_order = #{record.sortOrder,jdbcType=TINYINT},
       </if>
       <if test="record.showInNav != null" >
-        show_in_nav = #{record.showInNav,jdbcType=BIT},
+        show_in_nav = #{record.showInNav,jdbcType=TINYINT},
       </if>
       <if test="record.parentId != null" >
         parent_id = #{record.parentId,jdbcType=SMALLINT},
@@ -220,11 +220,11 @@
     update ecs_article_cat
     set cat_id = #{record.catId,jdbcType=SMALLINT},
       cat_name = #{record.catName,jdbcType=VARCHAR},
-      cat_type = #{record.catType,jdbcType=BIT},
+      cat_type = #{record.catType,jdbcType=TINYINT},
       keywords = #{record.keywords,jdbcType=VARCHAR},
       cat_desc = #{record.catDesc,jdbcType=VARCHAR},
       sort_order = #{record.sortOrder,jdbcType=TINYINT},
-      show_in_nav = #{record.showInNav,jdbcType=BIT},
+      show_in_nav = #{record.showInNav,jdbcType=TINYINT},
       parent_id = #{record.parentId,jdbcType=SMALLINT},
       path_name = #{record.pathName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
@@ -238,7 +238,7 @@
         cat_name = #{catName,jdbcType=VARCHAR},
       </if>
       <if test="catType != null" >
-        cat_type = #{catType,jdbcType=BIT},
+        cat_type = #{catType,jdbcType=TINYINT},
       </if>
       <if test="keywords != null" >
         keywords = #{keywords,jdbcType=VARCHAR},
@@ -250,7 +250,7 @@
         sort_order = #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="showInNav != null" >
-        show_in_nav = #{showInNav,jdbcType=BIT},
+        show_in_nav = #{showInNav,jdbcType=TINYINT},
       </if>
       <if test="parentId != null" >
         parent_id = #{parentId,jdbcType=SMALLINT},
@@ -264,11 +264,11 @@
   <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsArticleCat" >
     update ecs_article_cat
     set cat_name = #{catName,jdbcType=VARCHAR},
-      cat_type = #{catType,jdbcType=BIT},
+      cat_type = #{catType,jdbcType=TINYINT},
       keywords = #{keywords,jdbcType=VARCHAR},
       cat_desc = #{catDesc,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=TINYINT},
-      show_in_nav = #{showInNav,jdbcType=BIT},
+      show_in_nav = #{showInNav,jdbcType=TINYINT},
       parent_id = #{parentId,jdbcType=SMALLINT},
       path_name = #{pathName,jdbcType=VARCHAR}
     where cat_id = #{catId,jdbcType=SMALLINT}

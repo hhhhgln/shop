@@ -44,11 +44,11 @@ public class EcsBackOrder {
 
     private Date updateTime;
 
-    private Boolean status;
+    private Byte status;
 
     private Date returnTime;
 
-    private Boolean refundType;
+    private Byte refundType;
 
     private String refundDesc;
 
@@ -62,9 +62,9 @@ public class EcsBackOrder {
 
     private String goodsName;
 
-    private Boolean statusBack;
+    private Byte statusBack;
 
-    private Boolean statusRefund;
+    private Byte statusRefund;
 
     private String backType;
 
@@ -232,11 +232,11 @@ public class EcsBackOrder {
         this.updateTime = updateTime;
     }
 
-    public Boolean getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 
@@ -248,11 +248,11 @@ public class EcsBackOrder {
         this.returnTime = returnTime;
     }
 
-    public Boolean getRefundType() {
+    public Byte getRefundType() {
         return refundType;
     }
 
-    public void setRefundType(Boolean refundType) {
+    public void setRefundType(Byte refundType) {
         this.refundType = refundType;
     }
 
@@ -304,19 +304,19 @@ public class EcsBackOrder {
         this.goodsName = goodsName == null ? null : goodsName.trim();
     }
 
-    public Boolean getStatusBack() {
+    public Byte getStatusBack() {
         return statusBack;
     }
 
-    public void setStatusBack(Boolean statusBack) {
+    public void setStatusBack(Byte statusBack) {
         this.statusBack = statusBack;
     }
 
-    public Boolean getStatusRefund() {
+    public Byte getStatusRefund() {
         return statusRefund;
     }
 
-    public void setStatusRefund(Boolean statusRefund) {
+    public void setStatusRefund(Byte statusRefund) {
         this.statusRefund = statusRefund;
     }
 

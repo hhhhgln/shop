@@ -5,8 +5,8 @@
     <id column="action_id" property="actionId" jdbcType="INTEGER" />
     <result column="back_id" property="backId" jdbcType="INTEGER" />
     <result column="action_user" property="actionUser" jdbcType="VARCHAR" />
-    <result column="status_back" property="statusBack" jdbcType="BIT" />
-    <result column="status_refund" property="statusRefund" jdbcType="BIT" />
+    <result column="status_back" property="statusBack" jdbcType="TINYINT" />
+    <result column="status_refund" property="statusRefund" jdbcType="TINYINT" />
     <result column="action_note" property="actionNote" jdbcType="VARCHAR" />
     <result column="log_time" property="logTime" jdbcType="TIMESTAMP" />
   </resultMap>
@@ -106,7 +106,7 @@
       status_back, status_refund, action_note, 
       log_time)
     values (#{actionId,jdbcType=INTEGER}, #{backId,jdbcType=INTEGER}, #{actionUser,jdbcType=VARCHAR}, 
-      #{statusBack,jdbcType=BIT}, #{statusRefund,jdbcType=BIT}, #{actionNote,jdbcType=VARCHAR}, 
+      #{statusBack,jdbcType=TINYINT}, #{statusRefund,jdbcType=TINYINT}, #{actionNote,jdbcType=VARCHAR}, 
       #{logTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBackAction" >
@@ -145,10 +145,10 @@
         #{actionUser,jdbcType=VARCHAR},
       </if>
       <if test="statusBack != null" >
-        #{statusBack,jdbcType=BIT},
+        #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        #{statusRefund,jdbcType=BIT},
+        #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="actionNote != null" >
         #{actionNote,jdbcType=VARCHAR},
@@ -177,10 +177,10 @@
         action_user = #{record.actionUser,jdbcType=VARCHAR},
       </if>
       <if test="record.statusBack != null" >
-        status_back = #{record.statusBack,jdbcType=BIT},
+        status_back = #{record.statusBack,jdbcType=TINYINT},
       </if>
       <if test="record.statusRefund != null" >
-        status_refund = #{record.statusRefund,jdbcType=BIT},
+        status_refund = #{record.statusRefund,jdbcType=TINYINT},
       </if>
       <if test="record.actionNote != null" >
         action_note = #{record.actionNote,jdbcType=VARCHAR},
@@ -198,8 +198,8 @@
     set action_id = #{record.actionId,jdbcType=INTEGER},
       back_id = #{record.backId,jdbcType=INTEGER},
       action_user = #{record.actionUser,jdbcType=VARCHAR},
-      status_back = #{record.statusBack,jdbcType=BIT},
-      status_refund = #{record.statusRefund,jdbcType=BIT},
+      status_back = #{record.statusBack,jdbcType=TINYINT},
+      status_refund = #{record.statusRefund,jdbcType=TINYINT},
       action_note = #{record.actionNote,jdbcType=VARCHAR},
       log_time = #{record.logTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
@@ -216,10 +216,10 @@
         action_user = #{actionUser,jdbcType=VARCHAR},
       </if>
       <if test="statusBack != null" >
-        status_back = #{statusBack,jdbcType=BIT},
+        status_back = #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        status_refund = #{statusRefund,jdbcType=BIT},
+        status_refund = #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="actionNote != null" >
         action_note = #{actionNote,jdbcType=VARCHAR},
@@ -234,8 +234,8 @@
     update ecs_back_action
     set back_id = #{backId,jdbcType=INTEGER},
       action_user = #{actionUser,jdbcType=VARCHAR},
-      status_back = #{statusBack,jdbcType=BIT},
-      status_refund = #{statusRefund,jdbcType=BIT},
+      status_back = #{statusBack,jdbcType=TINYINT},
+      status_refund = #{statusRefund,jdbcType=TINYINT},
       action_note = #{actionNote,jdbcType=VARCHAR},
       log_time = #{logTime,jdbcType=TIMESTAMP}
     where action_id = #{actionId,jdbcType=INTEGER}

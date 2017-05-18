@@ -304,52 +304,52 @@ public class EcsRegionExample {
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeEqualTo(Boolean value) {
+        public Criteria andRegionTypeEqualTo(Byte value) {
             addCriterion("region_type =", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeNotEqualTo(Boolean value) {
+        public Criteria andRegionTypeNotEqualTo(Byte value) {
             addCriterion("region_type <>", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeGreaterThan(Boolean value) {
+        public Criteria andRegionTypeGreaterThan(Byte value) {
             addCriterion("region_type >", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andRegionTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("region_type >=", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeLessThan(Boolean value) {
+        public Criteria andRegionTypeLessThan(Byte value) {
             addCriterion("region_type <", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andRegionTypeLessThanOrEqualTo(Byte value) {
             addCriterion("region_type <=", value, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeIn(List<Boolean> values) {
+        public Criteria andRegionTypeIn(List<Byte> values) {
             addCriterion("region_type in", values, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeNotIn(List<Boolean> values) {
+        public Criteria andRegionTypeNotIn(List<Byte> values) {
             addCriterion("region_type not in", values, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andRegionTypeBetween(Byte value1, Byte value2) {
             addCriterion("region_type between", value1, value2, "regionType");
             return (Criteria) this;
         }
 
-        public Criteria andRegionTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andRegionTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("region_type not between", value1, value2, "regionType");
             return (Criteria) this;
         }

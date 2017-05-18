@@ -1426,52 +1426,52 @@ public class EcsBackOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Boolean value) {
+        public Criteria andStatusEqualTo(Byte value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Boolean value) {
+        public Criteria andStatusNotEqualTo(Byte value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Boolean value) {
+        public Criteria andStatusGreaterThan(Byte value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Boolean value) {
+        public Criteria andStatusLessThan(Byte value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Boolean value) {
+        public Criteria andStatusLessThanOrEqualTo(Byte value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Boolean> values) {
+        public Criteria andStatusIn(List<Byte> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Boolean> values) {
+        public Criteria andStatusNotIn(List<Byte> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusBetween(Byte value1, Byte value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }
@@ -1546,52 +1546,52 @@ public class EcsBackOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeEqualTo(Boolean value) {
+        public Criteria andRefundTypeEqualTo(Byte value) {
             addCriterion("refund_type =", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeNotEqualTo(Boolean value) {
+        public Criteria andRefundTypeNotEqualTo(Byte value) {
             addCriterion("refund_type <>", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeGreaterThan(Boolean value) {
+        public Criteria andRefundTypeGreaterThan(Byte value) {
             addCriterion("refund_type >", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andRefundTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("refund_type >=", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeLessThan(Boolean value) {
+        public Criteria andRefundTypeLessThan(Byte value) {
             addCriterion("refund_type <", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andRefundTypeLessThanOrEqualTo(Byte value) {
             addCriterion("refund_type <=", value, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeIn(List<Boolean> values) {
+        public Criteria andRefundTypeIn(List<Byte> values) {
             addCriterion("refund_type in", values, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeNotIn(List<Boolean> values) {
+        public Criteria andRefundTypeNotIn(List<Byte> values) {
             addCriterion("refund_type not in", values, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andRefundTypeBetween(Byte value1, Byte value2) {
             addCriterion("refund_type between", value1, value2, "refundType");
             return (Criteria) this;
         }
 
-        public Criteria andRefundTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andRefundTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("refund_type not between", value1, value2, "refundType");
             return (Criteria) this;
         }
@@ -1996,52 +1996,52 @@ public class EcsBackOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackEqualTo(Boolean value) {
+        public Criteria andStatusBackEqualTo(Byte value) {
             addCriterion("status_back =", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackNotEqualTo(Boolean value) {
+        public Criteria andStatusBackNotEqualTo(Byte value) {
             addCriterion("status_back <>", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackGreaterThan(Boolean value) {
+        public Criteria andStatusBackGreaterThan(Byte value) {
             addCriterion("status_back >", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andStatusBackGreaterThanOrEqualTo(Byte value) {
             addCriterion("status_back >=", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackLessThan(Boolean value) {
+        public Criteria andStatusBackLessThan(Byte value) {
             addCriterion("status_back <", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackLessThanOrEqualTo(Boolean value) {
+        public Criteria andStatusBackLessThanOrEqualTo(Byte value) {
             addCriterion("status_back <=", value, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackIn(List<Boolean> values) {
+        public Criteria andStatusBackIn(List<Byte> values) {
             addCriterion("status_back in", values, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackNotIn(List<Boolean> values) {
+        public Criteria andStatusBackNotIn(List<Byte> values) {
             addCriterion("status_back not in", values, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusBackBetween(Byte value1, Byte value2) {
             addCriterion("status_back between", value1, value2, "statusBack");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBackNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusBackNotBetween(Byte value1, Byte value2) {
             addCriterion("status_back not between", value1, value2, "statusBack");
             return (Criteria) this;
         }
@@ -2056,52 +2056,52 @@ public class EcsBackOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundEqualTo(Boolean value) {
+        public Criteria andStatusRefundEqualTo(Byte value) {
             addCriterion("status_refund =", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundNotEqualTo(Boolean value) {
+        public Criteria andStatusRefundNotEqualTo(Byte value) {
             addCriterion("status_refund <>", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundGreaterThan(Boolean value) {
+        public Criteria andStatusRefundGreaterThan(Byte value) {
             addCriterion("status_refund >", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andStatusRefundGreaterThanOrEqualTo(Byte value) {
             addCriterion("status_refund >=", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundLessThan(Boolean value) {
+        public Criteria andStatusRefundLessThan(Byte value) {
             addCriterion("status_refund <", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundLessThanOrEqualTo(Boolean value) {
+        public Criteria andStatusRefundLessThanOrEqualTo(Byte value) {
             addCriterion("status_refund <=", value, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundIn(List<Boolean> values) {
+        public Criteria andStatusRefundIn(List<Byte> values) {
             addCriterion("status_refund in", values, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundNotIn(List<Boolean> values) {
+        public Criteria andStatusRefundNotIn(List<Byte> values) {
             addCriterion("status_refund not in", values, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusRefundBetween(Byte value1, Byte value2) {
             addCriterion("status_refund between", value1, value2, "statusRefund");
             return (Criteria) this;
         }
 
-        public Criteria andStatusRefundNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusRefundNotBetween(Byte value1, Byte value2) {
             addCriterion("status_refund not between", value1, value2, "statusRefund");
             return (Criteria) this;
         }

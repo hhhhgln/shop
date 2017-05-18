@@ -2,9 +2,8 @@ package com.zknu.shop.mapper;
 
 import com.zknu.shop.pojo.EcsOrderInfo;
 import com.zknu.shop.pojo.EcsOrderInfoExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface EcsOrderInfoMapper {
     int countByExample(EcsOrderInfoExample example);

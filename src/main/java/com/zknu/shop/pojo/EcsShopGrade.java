@@ -11,19 +11,19 @@ public class EcsShopGrade {
 
     private Date addTime;
 
-    private Boolean commentRank;
+    private Byte commentRank;
 
-    private Boolean server;
+    private Byte server;
 
-    private Boolean send;
+    private Byte send;
 
-    private Boolean shipping;
+    private Byte shipping;
 
     private Integer orderId;
 
     private String orderSn;
 
-    private Boolean isComment;
+    private Byte isComment;
 
     public Integer getGradeId() {
         return gradeId;
@@ -57,35 +57,35 @@ public class EcsShopGrade {
         this.addTime = addTime;
     }
 
-    public Boolean getCommentRank() {
+    public Byte getCommentRank() {
         return commentRank;
     }
 
-    public void setCommentRank(Boolean commentRank) {
+    public void setCommentRank(Byte commentRank) {
         this.commentRank = commentRank;
     }
 
-    public Boolean getServer() {
+    public Byte getServer() {
         return server;
     }
 
-    public void setServer(Boolean server) {
+    public void setServer(Byte server) {
         this.server = server;
     }
 
-    public Boolean getSend() {
+    public Byte getSend() {
         return send;
     }
 
-    public void setSend(Boolean send) {
+    public void setSend(Byte send) {
         this.send = send;
     }
 
-    public Boolean getShipping() {
+    public Byte getShipping() {
         return shipping;
     }
 
-    public void setShipping(Boolean shipping) {
+    public void setShipping(Byte shipping) {
         this.shipping = shipping;
     }
 
@@ -105,11 +105,11 @@ public class EcsShopGrade {
         this.orderSn = orderSn == null ? null : orderSn.trim();
     }
 
-    public Boolean getIsComment() {
+    public Byte getIsComment() {
         return isComment;
     }
 
-    public void setIsComment(Boolean isComment) {
+    public void setIsComment(Byte isComment) {
         this.isComment = isComment;
     }
 }

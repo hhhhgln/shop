@@ -574,52 +574,52 @@ public class EcsGoodsGalleryExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageEqualTo(Boolean value) {
+        public Criteria andIsAttrImageEqualTo(Byte value) {
             addCriterion("is_attr_image =", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageNotEqualTo(Boolean value) {
+        public Criteria andIsAttrImageNotEqualTo(Byte value) {
             addCriterion("is_attr_image <>", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageGreaterThan(Boolean value) {
+        public Criteria andIsAttrImageGreaterThan(Byte value) {
             addCriterion("is_attr_image >", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttrImageGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_attr_image >=", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageLessThan(Boolean value) {
+        public Criteria andIsAttrImageLessThan(Byte value) {
             addCriterion("is_attr_image <", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttrImageLessThanOrEqualTo(Byte value) {
             addCriterion("is_attr_image <=", value, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageIn(List<Boolean> values) {
+        public Criteria andIsAttrImageIn(List<Byte> values) {
             addCriterion("is_attr_image in", values, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageNotIn(List<Boolean> values) {
+        public Criteria andIsAttrImageNotIn(List<Byte> values) {
             addCriterion("is_attr_image not in", values, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttrImageBetween(Byte value1, Byte value2) {
             addCriterion("is_attr_image between", value1, value2, "isAttrImage");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrImageNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttrImageNotBetween(Byte value1, Byte value2) {
             addCriterion("is_attr_image not between", value1, value2, "isAttrImage");
             return (Criteria) this;
         }

@@ -356,52 +356,52 @@ public class EcsSupplierRebateExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkEqualTo(Boolean value) {
+        public Criteria andIsPayOkEqualTo(Byte value) {
             addCriterion("is_pay_ok =", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkNotEqualTo(Boolean value) {
+        public Criteria andIsPayOkNotEqualTo(Byte value) {
             addCriterion("is_pay_ok <>", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkGreaterThan(Boolean value) {
+        public Criteria andIsPayOkGreaterThan(Byte value) {
             addCriterion("is_pay_ok >", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsPayOkGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_pay_ok >=", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkLessThan(Boolean value) {
+        public Criteria andIsPayOkLessThan(Byte value) {
             addCriterion("is_pay_ok <", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsPayOkLessThanOrEqualTo(Byte value) {
             addCriterion("is_pay_ok <=", value, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkIn(List<Boolean> values) {
+        public Criteria andIsPayOkIn(List<Byte> values) {
             addCriterion("is_pay_ok in", values, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkNotIn(List<Boolean> values) {
+        public Criteria andIsPayOkNotIn(List<Byte> values) {
             addCriterion("is_pay_ok not in", values, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPayOkBetween(Byte value1, Byte value2) {
             addCriterion("is_pay_ok between", value1, value2, "isPayOk");
             return (Criteria) this;
         }
 
-        public Criteria andIsPayOkNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPayOkNotBetween(Byte value1, Byte value2) {
             addCriterion("is_pay_ok not between", value1, value2, "isPayOk");
             return (Criteria) this;
         }

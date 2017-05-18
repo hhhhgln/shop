@@ -7,11 +7,11 @@ public class EcsStreetCategory {
 
     private String strStyle;
 
-    private Boolean sortOrder;
+    private Byte sortOrder;
 
-    private Boolean isGroom;
+    private Byte isGroom;
 
-    private Boolean isShow;
+    private Byte isShow;
 
     public Short getStrId() {
         return strId;
@@ -37,27 +37,27 @@ public class EcsStreetCategory {
         this.strStyle = strStyle == null ? null : strStyle.trim();
     }
 
-    public Boolean getSortOrder() {
+    public Byte getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(Boolean sortOrder) {
+    public void setSortOrder(Byte sortOrder) {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsGroom() {
+    public Byte getIsGroom() {
         return isGroom;
     }
 
-    public void setIsGroom(Boolean isGroom) {
+    public void setIsGroom(Byte isGroom) {
         this.isGroom = isGroom;
     }
 
-    public Boolean getIsShow() {
+    public Byte getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Byte isShow) {
         this.isShow = isShow;
     }
 }

@@ -15,7 +15,7 @@ public class EcsGoodsGallery {
 
     private Integer goodsAttrId;
 
-    private Boolean isAttrImage;
+    private Byte isAttrImage;
 
     private Byte imgSort;
 
@@ -75,11 +75,11 @@ public class EcsGoodsGallery {
         this.goodsAttrId = goodsAttrId;
     }
 
-    public Boolean getIsAttrImage() {
+    public Byte getIsAttrImage() {
         return isAttrImage;
     }
 
-    public void setIsAttrImage(Boolean isAttrImage) {
+    public void setIsAttrImage(Byte isAttrImage) {
         this.isAttrImage = isAttrImage;
     }
 

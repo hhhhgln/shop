@@ -5,7 +5,7 @@ import java.util.Date;
 public class EcsSupplierStreet {
     private Integer supplierId;
 
-    private Boolean supplierType;
+    private Byte supplierType;
 
     private String supplierName;
 
@@ -19,9 +19,9 @@ public class EcsSupplierStreet {
 
     private Byte isShow;
 
-    private Boolean sortOrder;
+    private Byte sortOrder;
 
-    private Boolean status;
+    private Byte status;
 
     private Date addTime;
 
@@ -33,11 +33,11 @@ public class EcsSupplierStreet {
         this.supplierId = supplierId;
     }
 
-    public Boolean getSupplierType() {
+    public Byte getSupplierType() {
         return supplierType;
     }
 
-    public void setSupplierType(Boolean supplierType) {
+    public void setSupplierType(Byte supplierType) {
         this.supplierType = supplierType;
     }
 
@@ -89,19 +89,19 @@ public class EcsSupplierStreet {
         this.isShow = isShow;
     }
 
-    public Boolean getSortOrder() {
+    public Byte getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(Boolean sortOrder) {
+    public void setSortOrder(Byte sortOrder) {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 

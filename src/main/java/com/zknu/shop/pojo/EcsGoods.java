@@ -42,19 +42,19 @@ public class EcsGoods {
 
     private Date addTime;
 
-    private Boolean isOnSale;
+    private Byte isOnSale;
 
     private Short sortOrder;
 
-    private Boolean isDelete;
+    private Byte isDelete;
 
-    private Boolean isBest;
+    private Byte isBest;
 
-    private Boolean isNew;
+    private Byte isNew;
 
-    private Boolean isHot;
+    private Byte isHot;
 
-    private Boolean isPromote;
+    private Byte isPromote;
 
     private Date lastUpdate;
 
@@ -64,7 +64,7 @@ public class EcsGoods {
 
     private Integer supplierId;
 
-    private Boolean supplierStatus;
+    private Byte supplierStatus;
 
     public Integer getGoodsId() {
         return goodsId;
@@ -218,11 +218,11 @@ public class EcsGoods {
         this.addTime = addTime;
     }
 
-    public Boolean getIsOnSale() {
+    public Byte getIsOnSale() {
         return isOnSale;
     }
 
-    public void setIsOnSale(Boolean isOnSale) {
+    public void setIsOnSale(Byte isOnSale) {
         this.isOnSale = isOnSale;
     }
 
@@ -234,43 +234,43 @@ public class EcsGoods {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsDelete() {
+    public Byte getIsDelete() {
         return isDelete;
     }
 
-    public void setIsDelete(Boolean isDelete) {
+    public void setIsDelete(Byte isDelete) {
         this.isDelete = isDelete;
     }
 
-    public Boolean getIsBest() {
+    public Byte getIsBest() {
         return isBest;
     }
 
-    public void setIsBest(Boolean isBest) {
+    public void setIsBest(Byte isBest) {
         this.isBest = isBest;
     }
 
-    public Boolean getIsNew() {
+    public Byte getIsNew() {
         return isNew;
     }
 
-    public void setIsNew(Boolean isNew) {
+    public void setIsNew(Byte isNew) {
         this.isNew = isNew;
     }
 
-    public Boolean getIsHot() {
+    public Byte getIsHot() {
         return isHot;
     }
 
-    public void setIsHot(Boolean isHot) {
+    public void setIsHot(Byte isHot) {
         this.isHot = isHot;
     }
 
-    public Boolean getIsPromote() {
+    public Byte getIsPromote() {
         return isPromote;
     }
 
-    public void setIsPromote(Boolean isPromote) {
+    public void setIsPromote(Byte isPromote) {
         this.isPromote = isPromote;
     }
 
@@ -306,11 +306,11 @@ public class EcsGoods {
         this.supplierId = supplierId;
     }
 
-    public Boolean getSupplierStatus() {
+    public Byte getSupplierStatus() {
         return supplierStatus;
     }
 
-    public void setSupplierStatus(Boolean supplierStatus) {
+    public void setSupplierStatus(Byte supplierStatus) {
         this.supplierStatus = supplierStatus;
     }
 }

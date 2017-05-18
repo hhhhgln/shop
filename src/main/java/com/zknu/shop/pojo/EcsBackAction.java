@@ -9,9 +9,9 @@ public class EcsBackAction {
 
     private String actionUser;
 
-    private Boolean statusBack;
+    private Byte statusBack;
 
-    private Boolean statusRefund;
+    private Byte statusRefund;
 
     private String actionNote;
 
@@ -41,19 +41,19 @@ public class EcsBackAction {
         this.actionUser = actionUser == null ? null : actionUser.trim();
     }
 
-    public Boolean getStatusBack() {
+    public Byte getStatusBack() {
         return statusBack;
     }
 
-    public void setStatusBack(Boolean statusBack) {
+    public void setStatusBack(Byte statusBack) {
         this.statusBack = statusBack;
     }
 
-    public Boolean getStatusRefund() {
+    public Byte getStatusRefund() {
         return statusRefund;
     }
 
-    public void setStatusRefund(Boolean statusRefund) {
+    public void setStatusRefund(Byte statusRefund) {
         this.statusRefund = statusRefund;
     }
 

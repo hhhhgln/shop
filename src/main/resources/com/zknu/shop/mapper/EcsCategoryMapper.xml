@@ -7,11 +7,11 @@
     <result column="keywords" property="keywords" jdbcType="VARCHAR" />
     <result column="cat_desc" property="catDesc" jdbcType="VARCHAR" />
     <result column="parent_id" property="parentId" jdbcType="SMALLINT" />
-    <result column="sort_order" property="sortOrder" jdbcType="BIT" />
+    <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
     <result column="measure_unit" property="measureUnit" jdbcType="VARCHAR" />
-    <result column="show_in_nav" property="showInNav" jdbcType="BIT" />
+    <result column="show_in_nav" property="showInNav" jdbcType="TINYINT" />
     <result column="style" property="style" jdbcType="VARCHAR" />
-    <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="is_show" property="isShow" jdbcType="TINYINT" />
     <result column="grade" property="grade" jdbcType="TINYINT" />
     <result column="filter_attr" property="filterAttr" jdbcType="VARCHAR" />
     <result column="show_goods_num" property="showGoodsNum" jdbcType="INTEGER" />
@@ -115,9 +115,9 @@
       is_show, grade, filter_attr, 
       show_goods_num)
     values (#{catId,jdbcType=SMALLINT}, #{catName,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
-      #{catDesc,jdbcType=VARCHAR}, #{parentId,jdbcType=SMALLINT}, #{sortOrder,jdbcType=BIT}, 
-      #{measureUnit,jdbcType=VARCHAR}, #{showInNav,jdbcType=BIT}, #{style,jdbcType=VARCHAR}, 
-      #{isShow,jdbcType=BIT}, #{grade,jdbcType=TINYINT}, #{filterAttr,jdbcType=VARCHAR}, 
+      #{catDesc,jdbcType=VARCHAR}, #{parentId,jdbcType=SMALLINT}, #{sortOrder,jdbcType=TINYINT}, 
+      #{measureUnit,jdbcType=VARCHAR}, #{showInNav,jdbcType=TINYINT}, #{style,jdbcType=VARCHAR}, 
+      #{isShow,jdbcType=TINYINT}, #{grade,jdbcType=TINYINT}, #{filterAttr,jdbcType=VARCHAR}, 
       #{showGoodsNum,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsCategory" >
@@ -180,19 +180,19 @@
         #{parentId,jdbcType=SMALLINT},
       </if>
       <if test="sortOrder != null" >
-        #{sortOrder,jdbcType=BIT},
+        #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="measureUnit != null" >
         #{measureUnit,jdbcType=VARCHAR},
       </if>
       <if test="showInNav != null" >
-        #{showInNav,jdbcType=BIT},
+        #{showInNav,jdbcType=TINYINT},
       </if>
       <if test="style != null" >
         #{style,jdbcType=VARCHAR},
       </if>
       <if test="isShow != null" >
-        #{isShow,jdbcType=BIT},
+        #{isShow,jdbcType=TINYINT},
       </if>
       <if test="grade != null" >
         #{grade,jdbcType=TINYINT},
@@ -230,19 +230,19 @@
         parent_id = #{record.parentId,jdbcType=SMALLINT},
       </if>
       <if test="record.sortOrder != null" >
-        sort_order = #{record.sortOrder,jdbcType=BIT},
+        sort_order = #{record.sortOrder,jdbcType=TINYINT},
       </if>
       <if test="record.measureUnit != null" >
         measure_unit = #{record.measureUnit,jdbcType=VARCHAR},
       </if>
       <if test="record.showInNav != null" >
-        show_in_nav = #{record.showInNav,jdbcType=BIT},
+        show_in_nav = #{record.showInNav,jdbcType=TINYINT},
       </if>
       <if test="record.style != null" >
         style = #{record.style,jdbcType=VARCHAR},
       </if>
       <if test="record.isShow != null" >
-        is_show = #{record.isShow,jdbcType=BIT},
+        is_show = #{record.isShow,jdbcType=TINYINT},
       </if>
       <if test="record.grade != null" >
         grade = #{record.grade,jdbcType=TINYINT},
@@ -265,11 +265,11 @@
       keywords = #{record.keywords,jdbcType=VARCHAR},
       cat_desc = #{record.catDesc,jdbcType=VARCHAR},
       parent_id = #{record.parentId,jdbcType=SMALLINT},
-      sort_order = #{record.sortOrder,jdbcType=BIT},
+      sort_order = #{record.sortOrder,jdbcType=TINYINT},
       measure_unit = #{record.measureUnit,jdbcType=VARCHAR},
-      show_in_nav = #{record.showInNav,jdbcType=BIT},
+      show_in_nav = #{record.showInNav,jdbcType=TINYINT},
       style = #{record.style,jdbcType=VARCHAR},
-      is_show = #{record.isShow,jdbcType=BIT},
+      is_show = #{record.isShow,jdbcType=TINYINT},
       grade = #{record.grade,jdbcType=TINYINT},
       filter_attr = #{record.filterAttr,jdbcType=VARCHAR},
       show_goods_num = #{record.showGoodsNum,jdbcType=INTEGER}
@@ -293,19 +293,19 @@
         parent_id = #{parentId,jdbcType=SMALLINT},
       </if>
       <if test="sortOrder != null" >
-        sort_order = #{sortOrder,jdbcType=BIT},
+        sort_order = #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="measureUnit != null" >
         measure_unit = #{measureUnit,jdbcType=VARCHAR},
       </if>
       <if test="showInNav != null" >
-        show_in_nav = #{showInNav,jdbcType=BIT},
+        show_in_nav = #{showInNav,jdbcType=TINYINT},
       </if>
       <if test="style != null" >
         style = #{style,jdbcType=VARCHAR},
       </if>
       <if test="isShow != null" >
-        is_show = #{isShow,jdbcType=BIT},
+        is_show = #{isShow,jdbcType=TINYINT},
       </if>
       <if test="grade != null" >
         grade = #{grade,jdbcType=TINYINT},
@@ -325,11 +325,11 @@
       keywords = #{keywords,jdbcType=VARCHAR},
       cat_desc = #{catDesc,jdbcType=VARCHAR},
       parent_id = #{parentId,jdbcType=SMALLINT},
-      sort_order = #{sortOrder,jdbcType=BIT},
+      sort_order = #{sortOrder,jdbcType=TINYINT},
       measure_unit = #{measureUnit,jdbcType=VARCHAR},
-      show_in_nav = #{showInNav,jdbcType=BIT},
+      show_in_nav = #{showInNav,jdbcType=TINYINT},
       style = #{style,jdbcType=VARCHAR},
-      is_show = #{isShow,jdbcType=BIT},
+      is_show = #{isShow,jdbcType=TINYINT},
       grade = #{grade,jdbcType=TINYINT},
       filter_attr = #{filterAttr,jdbcType=VARCHAR},
       show_goods_num = #{showGoodsNum,jdbcType=INTEGER}

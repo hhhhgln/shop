@@ -15,7 +15,7 @@ public class EcsComment {
 
     private String userName;
 
-    private Boolean commentRank;
+    private Byte commentRank;
 
     private Date addTime;
 
@@ -35,7 +35,7 @@ public class EcsComment {
 
     private Integer goodNum;
 
-    private Boolean hideUsername;
+    private Byte hideUsername;
 
     private Integer orderId;
 
@@ -89,11 +89,11 @@ public class EcsComment {
         this.userName = userName == null ? null : userName.trim();
     }
 
-    public Boolean getCommentRank() {
+    public Byte getCommentRank() {
         return commentRank;
     }
 
-    public void setCommentRank(Boolean commentRank) {
+    public void setCommentRank(Byte commentRank) {
         this.commentRank = commentRank;
     }
 
@@ -169,11 +169,11 @@ public class EcsComment {
         this.goodNum = goodNum;
     }
 
-    public Boolean getHideUsername() {
+    public Byte getHideUsername() {
         return hideUsername;
     }
 
-    public void setHideUsername(Boolean hideUsername) {
+    public void setHideUsername(Byte hideUsername) {
         this.hideUsername = hideUsername;
     }
 

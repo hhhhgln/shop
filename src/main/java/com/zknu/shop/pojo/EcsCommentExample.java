@@ -505,52 +505,52 @@ public class EcsCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankEqualTo(Boolean value) {
+        public Criteria andCommentRankEqualTo(Byte value) {
             addCriterion("comment_rank =", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotEqualTo(Boolean value) {
+        public Criteria andCommentRankNotEqualTo(Byte value) {
             addCriterion("comment_rank <>", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankGreaterThan(Boolean value) {
+        public Criteria andCommentRankGreaterThan(Byte value) {
             addCriterion("comment_rank >", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andCommentRankGreaterThanOrEqualTo(Byte value) {
             addCriterion("comment_rank >=", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankLessThan(Boolean value) {
+        public Criteria andCommentRankLessThan(Byte value) {
             addCriterion("comment_rank <", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankLessThanOrEqualTo(Boolean value) {
+        public Criteria andCommentRankLessThanOrEqualTo(Byte value) {
             addCriterion("comment_rank <=", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankIn(List<Boolean> values) {
+        public Criteria andCommentRankIn(List<Byte> values) {
             addCriterion("comment_rank in", values, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotIn(List<Boolean> values) {
+        public Criteria andCommentRankNotIn(List<Byte> values) {
             addCriterion("comment_rank not in", values, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentRankBetween(Byte value1, Byte value2) {
             addCriterion("comment_rank between", value1, value2, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentRankNotBetween(Byte value1, Byte value2) {
             addCriterion("comment_rank not between", value1, value2, "commentRank");
             return (Criteria) this;
         }
@@ -1125,52 +1125,52 @@ public class EcsCommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameEqualTo(Boolean value) {
+        public Criteria andHideUsernameEqualTo(Byte value) {
             addCriterion("hide_username =", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameNotEqualTo(Boolean value) {
+        public Criteria andHideUsernameNotEqualTo(Byte value) {
             addCriterion("hide_username <>", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameGreaterThan(Boolean value) {
+        public Criteria andHideUsernameGreaterThan(Byte value) {
             addCriterion("hide_username >", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andHideUsernameGreaterThanOrEqualTo(Byte value) {
             addCriterion("hide_username >=", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameLessThan(Boolean value) {
+        public Criteria andHideUsernameLessThan(Byte value) {
             addCriterion("hide_username <", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameLessThanOrEqualTo(Boolean value) {
+        public Criteria andHideUsernameLessThanOrEqualTo(Byte value) {
             addCriterion("hide_username <=", value, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameIn(List<Boolean> values) {
+        public Criteria andHideUsernameIn(List<Byte> values) {
             addCriterion("hide_username in", values, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameNotIn(List<Boolean> values) {
+        public Criteria andHideUsernameNotIn(List<Byte> values) {
             addCriterion("hide_username not in", values, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameBetween(Boolean value1, Boolean value2) {
+        public Criteria andHideUsernameBetween(Byte value1, Byte value2) {
             addCriterion("hide_username between", value1, value2, "hideUsername");
             return (Criteria) this;
         }
 
-        public Criteria andHideUsernameNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andHideUsernameNotBetween(Byte value1, Byte value2) {
             addCriterion("hide_username not between", value1, value2, "hideUsername");
             return (Criteria) this;
         }

@@ -444,52 +444,52 @@ public class EcsCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderEqualTo(Boolean value) {
+        public Criteria andSortOrderEqualTo(Byte value) {
             addCriterion("sort_order =", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotEqualTo(Boolean value) {
+        public Criteria andSortOrderNotEqualTo(Byte value) {
             addCriterion("sort_order <>", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderGreaterThan(Boolean value) {
+        public Criteria andSortOrderGreaterThan(Byte value) {
             addCriterion("sort_order >", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSortOrderGreaterThanOrEqualTo(Byte value) {
             addCriterion("sort_order >=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderLessThan(Boolean value) {
+        public Criteria andSortOrderLessThan(Byte value) {
             addCriterion("sort_order <", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderLessThanOrEqualTo(Boolean value) {
+        public Criteria andSortOrderLessThanOrEqualTo(Byte value) {
             addCriterion("sort_order <=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderIn(List<Boolean> values) {
+        public Criteria andSortOrderIn(List<Byte> values) {
             addCriterion("sort_order in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotIn(List<Boolean> values) {
+        public Criteria andSortOrderNotIn(List<Byte> values) {
             addCriterion("sort_order not in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderBetween(Boolean value1, Boolean value2) {
+        public Criteria andSortOrderBetween(Byte value1, Byte value2) {
             addCriterion("sort_order between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSortOrderNotBetween(Byte value1, Byte value2) {
             addCriterion("sort_order not between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
@@ -574,52 +574,52 @@ public class EcsCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavEqualTo(Boolean value) {
+        public Criteria andShowInNavEqualTo(Byte value) {
             addCriterion("show_in_nav =", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavNotEqualTo(Boolean value) {
+        public Criteria andShowInNavNotEqualTo(Byte value) {
             addCriterion("show_in_nav <>", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavGreaterThan(Boolean value) {
+        public Criteria andShowInNavGreaterThan(Byte value) {
             addCriterion("show_in_nav >", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andShowInNavGreaterThanOrEqualTo(Byte value) {
             addCriterion("show_in_nav >=", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavLessThan(Boolean value) {
+        public Criteria andShowInNavLessThan(Byte value) {
             addCriterion("show_in_nav <", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavLessThanOrEqualTo(Boolean value) {
+        public Criteria andShowInNavLessThanOrEqualTo(Byte value) {
             addCriterion("show_in_nav <=", value, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavIn(List<Boolean> values) {
+        public Criteria andShowInNavIn(List<Byte> values) {
             addCriterion("show_in_nav in", values, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavNotIn(List<Boolean> values) {
+        public Criteria andShowInNavNotIn(List<Byte> values) {
             addCriterion("show_in_nav not in", values, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavBetween(Boolean value1, Boolean value2) {
+        public Criteria andShowInNavBetween(Byte value1, Byte value2) {
             addCriterion("show_in_nav between", value1, value2, "showInNav");
             return (Criteria) this;
         }
 
-        public Criteria andShowInNavNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andShowInNavNotBetween(Byte value1, Byte value2) {
             addCriterion("show_in_nav not between", value1, value2, "showInNav");
             return (Criteria) this;
         }
@@ -704,52 +704,52 @@ public class EcsCategoryExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsShowEqualTo(Boolean value) {
+        public Criteria andIsShowEqualTo(Byte value) {
             addCriterion("is_show =", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowNotEqualTo(Boolean value) {
+        public Criteria andIsShowNotEqualTo(Byte value) {
             addCriterion("is_show <>", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowGreaterThan(Boolean value) {
+        public Criteria andIsShowGreaterThan(Byte value) {
             addCriterion("is_show >", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsShowGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_show >=", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowLessThan(Boolean value) {
+        public Criteria andIsShowLessThan(Byte value) {
             addCriterion("is_show <", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsShowLessThanOrEqualTo(Byte value) {
             addCriterion("is_show <=", value, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowIn(List<Boolean> values) {
+        public Criteria andIsShowIn(List<Byte> values) {
             addCriterion("is_show in", values, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowNotIn(List<Boolean> values) {
+        public Criteria andIsShowNotIn(List<Byte> values) {
             addCriterion("is_show not in", values, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsShowBetween(Byte value1, Byte value2) {
             addCriterion("is_show between", value1, value2, "isShow");
             return (Criteria) this;
         }
 
-        public Criteria andIsShowNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsShowNotBetween(Byte value1, Byte value2) {
             addCriterion("is_show not between", value1, value2, "isShow");
             return (Criteria) this;
         }

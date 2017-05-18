@@ -5,9 +5,9 @@
     <id column="order_id" property="orderId" jdbcType="INTEGER" />
     <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
-    <result column="order_status" property="orderStatus" jdbcType="BIT" />
-    <result column="shipping_status" property="shippingStatus" jdbcType="BIT" />
-    <result column="pay_status" property="payStatus" jdbcType="BIT" />
+    <result column="order_status" property="orderStatus" jdbcType="TINYINT" />
+    <result column="shipping_status" property="shippingStatus" jdbcType="TINYINT" />
+    <result column="pay_status" property="payStatus" jdbcType="TINYINT" />
     <result column="consignee" property="consignee" jdbcType="VARCHAR" />
     <result column="country" property="country" jdbcType="SMALLINT" />
     <result column="province" property="province" jdbcType="SMALLINT" />
@@ -143,7 +143,7 @@
       shipping_time_end, to_buyer, pay_note, 
       supplier_id, froms)
     values (#{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
-      #{orderStatus,jdbcType=BIT}, #{shippingStatus,jdbcType=BIT}, #{payStatus,jdbcType=BIT}, 
+      #{orderStatus,jdbcType=TINYINT}, #{shippingStatus,jdbcType=TINYINT}, #{payStatus,jdbcType=TINYINT}, 
       #{consignee,jdbcType=VARCHAR}, #{country,jdbcType=SMALLINT}, #{province,jdbcType=SMALLINT}, 
       #{city,jdbcType=SMALLINT}, #{district,jdbcType=SMALLINT}, #{address,jdbcType=VARCHAR}, 
       #{zipcode,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
@@ -265,13 +265,13 @@
         #{userId,jdbcType=INTEGER},
       </if>
       <if test="orderStatus != null" >
-        #{orderStatus,jdbcType=BIT},
+        #{orderStatus,jdbcType=TINYINT},
       </if>
       <if test="shippingStatus != null" >
-        #{shippingStatus,jdbcType=BIT},
+        #{shippingStatus,jdbcType=TINYINT},
       </if>
       <if test="payStatus != null" >
-        #{payStatus,jdbcType=BIT},
+        #{payStatus,jdbcType=TINYINT},
       </if>
       <if test="consignee != null" >
         #{consignee,jdbcType=VARCHAR},
@@ -372,13 +372,13 @@
         user_id = #{record.userId,jdbcType=INTEGER},
       </if>
       <if test="record.orderStatus != null" >
-        order_status = #{record.orderStatus,jdbcType=BIT},
+        order_status = #{record.orderStatus,jdbcType=TINYINT},
       </if>
       <if test="record.shippingStatus != null" >
-        shipping_status = #{record.shippingStatus,jdbcType=BIT},
+        shipping_status = #{record.shippingStatus,jdbcType=TINYINT},
       </if>
       <if test="record.payStatus != null" >
-        pay_status = #{record.payStatus,jdbcType=BIT},
+        pay_status = #{record.payStatus,jdbcType=TINYINT},
       </if>
       <if test="record.consignee != null" >
         consignee = #{record.consignee,jdbcType=VARCHAR},
@@ -468,9 +468,9 @@
     set order_id = #{record.orderId,jdbcType=INTEGER},
       order_sn = #{record.orderSn,jdbcType=VARCHAR},
       user_id = #{record.userId,jdbcType=INTEGER},
-      order_status = #{record.orderStatus,jdbcType=BIT},
-      shipping_status = #{record.shippingStatus,jdbcType=BIT},
-      pay_status = #{record.payStatus,jdbcType=BIT},
+      order_status = #{record.orderStatus,jdbcType=TINYINT},
+      shipping_status = #{record.shippingStatus,jdbcType=TINYINT},
+      pay_status = #{record.payStatus,jdbcType=TINYINT},
       consignee = #{record.consignee,jdbcType=VARCHAR},
       country = #{record.country,jdbcType=SMALLINT},
       province = #{record.province,jdbcType=SMALLINT},
@@ -511,13 +511,13 @@
         user_id = #{userId,jdbcType=INTEGER},
       </if>
       <if test="orderStatus != null" >
-        order_status = #{orderStatus,jdbcType=BIT},
+        order_status = #{orderStatus,jdbcType=TINYINT},
       </if>
       <if test="shippingStatus != null" >
-        shipping_status = #{shippingStatus,jdbcType=BIT},
+        shipping_status = #{shippingStatus,jdbcType=TINYINT},
       </if>
       <if test="payStatus != null" >
-        pay_status = #{payStatus,jdbcType=BIT},
+        pay_status = #{payStatus,jdbcType=TINYINT},
       </if>
       <if test="consignee != null" >
         consignee = #{consignee,jdbcType=VARCHAR},
@@ -604,9 +604,9 @@
     update ecs_order_info
     set order_sn = #{orderSn,jdbcType=VARCHAR},
       user_id = #{userId,jdbcType=INTEGER},
-      order_status = #{orderStatus,jdbcType=BIT},
-      shipping_status = #{shippingStatus,jdbcType=BIT},
-      pay_status = #{payStatus,jdbcType=BIT},
+      order_status = #{orderStatus,jdbcType=TINYINT},
+      shipping_status = #{shippingStatus,jdbcType=TINYINT},
+      pay_status = #{payStatus,jdbcType=TINYINT},
       consignee = #{consignee,jdbcType=VARCHAR},
       country = #{country,jdbcType=SMALLINT},
       province = #{province,jdbcType=SMALLINT},

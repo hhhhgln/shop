@@ -12,7 +12,7 @@ public class EcsSupplierRebate {
 
     private Integer supplierId;
 
-    private Boolean isPayOk;
+    private Byte isPayOk;
 
     private String payType;
 
@@ -64,11 +64,11 @@ public class EcsSupplierRebate {
         this.supplierId = supplierId;
     }
 
-    public Boolean getIsPayOk() {
+    public Byte getIsPayOk() {
         return isPayOk;
     }
 
-    public void setIsPayOk(Boolean isPayOk) {
+    public void setIsPayOk(Byte isPayOk) {
         this.isPayOk = isPayOk;
     }
 

@@ -8,8 +8,8 @@
     <result column="author" property="author" jdbcType="VARCHAR" />
     <result column="author_email" property="authorEmail" jdbcType="VARCHAR" />
     <result column="keywords" property="keywords" jdbcType="VARCHAR" />
-    <result column="article_type" property="articleType" jdbcType="BIT" />
-    <result column="is_open" property="isOpen" jdbcType="BIT" />
+    <result column="article_type" property="articleType" jdbcType="TINYINT" />
+    <result column="is_open" property="isOpen" jdbcType="TINYINT" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
     <result column="file_url" property="fileUrl" jdbcType="VARCHAR" />
     <result column="link" property="link" jdbcType="VARCHAR" />
@@ -139,7 +139,7 @@
       content)
     values (#{articleId,jdbcType=INTEGER}, #{catId,jdbcType=SMALLINT}, #{title,jdbcType=VARCHAR}, 
       #{author,jdbcType=VARCHAR}, #{authorEmail,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
-      #{articleType,jdbcType=BIT}, #{isOpen,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{articleType,jdbcType=TINYINT}, #{isOpen,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, 
       #{fileUrl,jdbcType=VARCHAR}, #{link,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
@@ -206,10 +206,10 @@
         #{keywords,jdbcType=VARCHAR},
       </if>
       <if test="articleType != null" >
-        #{articleType,jdbcType=BIT},
+        #{articleType,jdbcType=TINYINT},
       </if>
       <if test="isOpen != null" >
-        #{isOpen,jdbcType=BIT},
+        #{isOpen,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         #{addTime,jdbcType=TIMESTAMP},
@@ -256,10 +256,10 @@
         keywords = #{record.keywords,jdbcType=VARCHAR},
       </if>
       <if test="record.articleType != null" >
-        article_type = #{record.articleType,jdbcType=BIT},
+        article_type = #{record.articleType,jdbcType=TINYINT},
       </if>
       <if test="record.isOpen != null" >
-        is_open = #{record.isOpen,jdbcType=BIT},
+        is_open = #{record.isOpen,jdbcType=TINYINT},
       </if>
       <if test="record.addTime != null" >
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -289,8 +289,8 @@
       author = #{record.author,jdbcType=VARCHAR},
       author_email = #{record.authorEmail,jdbcType=VARCHAR},
       keywords = #{record.keywords,jdbcType=VARCHAR},
-      article_type = #{record.articleType,jdbcType=BIT},
-      is_open = #{record.isOpen,jdbcType=BIT},
+      article_type = #{record.articleType,jdbcType=TINYINT},
+      is_open = #{record.isOpen,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       file_url = #{record.fileUrl,jdbcType=VARCHAR},
       link = #{record.link,jdbcType=VARCHAR},
@@ -308,8 +308,8 @@
       author = #{record.author,jdbcType=VARCHAR},
       author_email = #{record.authorEmail,jdbcType=VARCHAR},
       keywords = #{record.keywords,jdbcType=VARCHAR},
-      article_type = #{record.articleType,jdbcType=BIT},
-      is_open = #{record.isOpen,jdbcType=BIT},
+      article_type = #{record.articleType,jdbcType=TINYINT},
+      is_open = #{record.isOpen,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       file_url = #{record.fileUrl,jdbcType=VARCHAR},
       link = #{record.link,jdbcType=VARCHAR},
@@ -337,10 +337,10 @@
         keywords = #{keywords,jdbcType=VARCHAR},
       </if>
       <if test="articleType != null" >
-        article_type = #{articleType,jdbcType=BIT},
+        article_type = #{articleType,jdbcType=TINYINT},
       </if>
       <if test="isOpen != null" >
-        is_open = #{isOpen,jdbcType=BIT},
+        is_open = #{isOpen,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -367,8 +367,8 @@
       author = #{author,jdbcType=VARCHAR},
       author_email = #{authorEmail,jdbcType=VARCHAR},
       keywords = #{keywords,jdbcType=VARCHAR},
-      article_type = #{articleType,jdbcType=BIT},
-      is_open = #{isOpen,jdbcType=BIT},
+      article_type = #{articleType,jdbcType=TINYINT},
+      is_open = #{isOpen,jdbcType=TINYINT},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       file_url = #{fileUrl,jdbcType=VARCHAR},
       link = #{link,jdbcType=VARCHAR},
@@ -383,8 +383,8 @@
       author = #{author,jdbcType=VARCHAR},
       author_email = #{authorEmail,jdbcType=VARCHAR},
       keywords = #{keywords,jdbcType=VARCHAR},
-      article_type = #{articleType,jdbcType=BIT},
-      is_open = #{isOpen,jdbcType=BIT},
+      article_type = #{articleType,jdbcType=TINYINT},
+      is_open = #{isOpen,jdbcType=TINYINT},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       file_url = #{fileUrl,jdbcType=VARCHAR},
       link = #{link,jdbcType=VARCHAR},

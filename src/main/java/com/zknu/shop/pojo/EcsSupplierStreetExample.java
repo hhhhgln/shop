@@ -175,52 +175,52 @@ public class EcsSupplierStreetExample {
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeEqualTo(Boolean value) {
+        public Criteria andSupplierTypeEqualTo(Byte value) {
             addCriterion("supplier_type =", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeNotEqualTo(Boolean value) {
+        public Criteria andSupplierTypeNotEqualTo(Byte value) {
             addCriterion("supplier_type <>", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeGreaterThan(Boolean value) {
+        public Criteria andSupplierTypeGreaterThan(Byte value) {
             addCriterion("supplier_type >", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSupplierTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("supplier_type >=", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeLessThan(Boolean value) {
+        public Criteria andSupplierTypeLessThan(Byte value) {
             addCriterion("supplier_type <", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andSupplierTypeLessThanOrEqualTo(Byte value) {
             addCriterion("supplier_type <=", value, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeIn(List<Boolean> values) {
+        public Criteria andSupplierTypeIn(List<Byte> values) {
             addCriterion("supplier_type in", values, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeNotIn(List<Boolean> values) {
+        public Criteria andSupplierTypeNotIn(List<Byte> values) {
             addCriterion("supplier_type not in", values, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andSupplierTypeBetween(Byte value1, Byte value2) {
             addCriterion("supplier_type between", value1, value2, "supplierType");
             return (Criteria) this;
         }
 
-        public Criteria andSupplierTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSupplierTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("supplier_type not between", value1, value2, "supplierType");
             return (Criteria) this;
         }
@@ -635,52 +635,52 @@ public class EcsSupplierStreetExample {
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderEqualTo(Boolean value) {
+        public Criteria andSortOrderEqualTo(Byte value) {
             addCriterion("sort_order =", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotEqualTo(Boolean value) {
+        public Criteria andSortOrderNotEqualTo(Byte value) {
             addCriterion("sort_order <>", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderGreaterThan(Boolean value) {
+        public Criteria andSortOrderGreaterThan(Byte value) {
             addCriterion("sort_order >", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSortOrderGreaterThanOrEqualTo(Byte value) {
             addCriterion("sort_order >=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderLessThan(Boolean value) {
+        public Criteria andSortOrderLessThan(Byte value) {
             addCriterion("sort_order <", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderLessThanOrEqualTo(Boolean value) {
+        public Criteria andSortOrderLessThanOrEqualTo(Byte value) {
             addCriterion("sort_order <=", value, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderIn(List<Boolean> values) {
+        public Criteria andSortOrderIn(List<Byte> values) {
             addCriterion("sort_order in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotIn(List<Boolean> values) {
+        public Criteria andSortOrderNotIn(List<Byte> values) {
             addCriterion("sort_order not in", values, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderBetween(Boolean value1, Boolean value2) {
+        public Criteria andSortOrderBetween(Byte value1, Byte value2) {
             addCriterion("sort_order between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
 
-        public Criteria andSortOrderNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSortOrderNotBetween(Byte value1, Byte value2) {
             addCriterion("sort_order not between", value1, value2, "sortOrder");
             return (Criteria) this;
         }
@@ -695,52 +695,52 @@ public class EcsSupplierStreetExample {
             return (Criteria) this;
         }
 
-        public Criteria andStatusEqualTo(Boolean value) {
+        public Criteria andStatusEqualTo(Byte value) {
             addCriterion("status =", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotEqualTo(Boolean value) {
+        public Criteria andStatusNotEqualTo(Byte value) {
             addCriterion("status <>", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThan(Boolean value) {
+        public Criteria andStatusGreaterThan(Byte value) {
             addCriterion("status >", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andStatusGreaterThanOrEqualTo(Byte value) {
             addCriterion("status >=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThan(Boolean value) {
+        public Criteria andStatusLessThan(Byte value) {
             addCriterion("status <", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusLessThanOrEqualTo(Boolean value) {
+        public Criteria andStatusLessThanOrEqualTo(Byte value) {
             addCriterion("status <=", value, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusIn(List<Boolean> values) {
+        public Criteria andStatusIn(List<Byte> values) {
             addCriterion("status in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotIn(List<Boolean> values) {
+        public Criteria andStatusNotIn(List<Byte> values) {
             addCriterion("status not in", values, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusBetween(Byte value1, Byte value2) {
             addCriterion("status between", value1, value2, "status");
             return (Criteria) this;
         }
 
-        public Criteria andStatusNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andStatusNotBetween(Byte value1, Byte value2) {
             addCriterion("status not between", value1, value2, "status");
             return (Criteria) this;
         }

@@ -7,21 +7,21 @@ public class EcsAttribute {
 
     private String attrName;
 
-    private Boolean attrInputType;
+    private Byte attrInputType;
 
-    private Boolean attrType;
+    private Byte attrType;
 
-    private Boolean attrIndex;
+    private Byte attrIndex;
 
     private Byte sortOrder;
 
-    private Boolean isLinked;
+    private Byte isLinked;
 
-    private Boolean attrGroup;
+    private Byte attrGroup;
 
-    private Boolean isAttrGallery;
+    private Byte isAttrGallery;
 
-    private Boolean attrTxm;
+    private Byte attrTxm;
 
     private String attrValues;
 
@@ -49,27 +49,27 @@ public class EcsAttribute {
         this.attrName = attrName == null ? null : attrName.trim();
     }
 
-    public Boolean getAttrInputType() {
+    public Byte getAttrInputType() {
         return attrInputType;
     }
 
-    public void setAttrInputType(Boolean attrInputType) {
+    public void setAttrInputType(Byte attrInputType) {
         this.attrInputType = attrInputType;
     }
 
-    public Boolean getAttrType() {
+    public Byte getAttrType() {
         return attrType;
     }
 
-    public void setAttrType(Boolean attrType) {
+    public void setAttrType(Byte attrType) {
         this.attrType = attrType;
     }
 
-    public Boolean getAttrIndex() {
+    public Byte getAttrIndex() {
         return attrIndex;
     }
 
-    public void setAttrIndex(Boolean attrIndex) {
+    public void setAttrIndex(Byte attrIndex) {
         this.attrIndex = attrIndex;
     }
 
@@ -81,35 +81,35 @@ public class EcsAttribute {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getIsLinked() {
+    public Byte getIsLinked() {
         return isLinked;
     }
 
-    public void setIsLinked(Boolean isLinked) {
+    public void setIsLinked(Byte isLinked) {
         this.isLinked = isLinked;
     }
 
-    public Boolean getAttrGroup() {
+    public Byte getAttrGroup() {
         return attrGroup;
     }
 
-    public void setAttrGroup(Boolean attrGroup) {
+    public void setAttrGroup(Byte attrGroup) {
         this.attrGroup = attrGroup;
     }
 
-    public Boolean getIsAttrGallery() {
+    public Byte getIsAttrGallery() {
         return isAttrGallery;
     }
 
-    public void setIsAttrGallery(Boolean isAttrGallery) {
+    public void setIsAttrGallery(Byte isAttrGallery) {
         this.isAttrGallery = isAttrGallery;
     }
 
-    public Boolean getAttrTxm() {
+    public Byte getAttrTxm() {
         return attrTxm;
     }
 
-    public void setAttrTxm(Boolean attrTxm) {
+    public void setAttrTxm(Byte attrTxm) {
         this.attrTxm = attrTxm;
     }
 

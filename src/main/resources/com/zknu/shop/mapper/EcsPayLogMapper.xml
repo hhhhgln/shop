@@ -5,7 +5,7 @@
     <id column="log_id" property="logId" jdbcType="INTEGER" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
     <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
-    <result column="is_paid" property="isPaid" jdbcType="BIT" />
+    <result column="is_paid" property="isPaid" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -102,7 +102,7 @@
     insert into ecs_pay_log (log_id, order_id, order_amount, 
       is_paid)
     values (#{logId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{orderAmount,jdbcType=DECIMAL}, 
-      #{isPaid,jdbcType=BIT})
+      #{isPaid,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsPayLog" >
     insert into ecs_pay_log
@@ -131,7 +131,7 @@
         #{orderAmount,jdbcType=DECIMAL},
       </if>
       <if test="isPaid != null" >
-        #{isPaid,jdbcType=BIT},
+        #{isPaid,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -154,7 +154,7 @@
         order_amount = #{record.orderAmount,jdbcType=DECIMAL},
       </if>
       <if test="record.isPaid != null" >
-        is_paid = #{record.isPaid,jdbcType=BIT},
+        is_paid = #{record.isPaid,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -166,7 +166,7 @@
     set log_id = #{record.logId,jdbcType=INTEGER},
       order_id = #{record.orderId,jdbcType=INTEGER},
       order_amount = #{record.orderAmount,jdbcType=DECIMAL},
-      is_paid = #{record.isPaid,jdbcType=BIT}
+      is_paid = #{record.isPaid,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -181,7 +181,7 @@
         order_amount = #{orderAmount,jdbcType=DECIMAL},
       </if>
       <if test="isPaid != null" >
-        is_paid = #{isPaid,jdbcType=BIT},
+        is_paid = #{isPaid,jdbcType=TINYINT},
       </if>
     </set>
     where log_id = #{logId,jdbcType=INTEGER}
@@ -190,7 +190,7 @@
     update ecs_pay_log
     set order_id = #{orderId,jdbcType=INTEGER},
       order_amount = #{orderAmount,jdbcType=DECIMAL},
-      is_paid = #{isPaid,jdbcType=BIT}
+      is_paid = #{isPaid,jdbcType=TINYINT}
     where log_id = #{logId,jdbcType=INTEGER}
   </update>
 </mapper>

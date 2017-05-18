@@ -9,7 +9,7 @@ public class EcsPayLog {
 
     private BigDecimal orderAmount;
 
-    private Boolean isPaid;
+    private Byte isPaid;
 
     public Integer getLogId() {
         return logId;
@@ -35,11 +35,11 @@ public class EcsPayLog {
         this.orderAmount = orderAmount;
     }
 
-    public Boolean getIsPaid() {
+    public Byte getIsPaid() {
         return isPaid;
     }
 
-    public void setIsPaid(Boolean isPaid) {
+    public void setIsPaid(Byte isPaid) {
         this.isPaid = isPaid;
     }
 }

@@ -15,9 +15,9 @@ public class EcsArticle {
 
     private String keywords;
 
-    private Boolean articleType;
+    private Byte articleType;
 
-    private Boolean isOpen;
+    private Byte isOpen;
 
     private Date addTime;
 
@@ -77,19 +77,19 @@ public class EcsArticle {
         this.keywords = keywords == null ? null : keywords.trim();
     }
 
-    public Boolean getArticleType() {
+    public Byte getArticleType() {
         return articleType;
     }
 
-    public void setArticleType(Boolean articleType) {
+    public void setArticleType(Byte articleType) {
         this.articleType = articleType;
     }
 
-    public Boolean getIsOpen() {
+    public Byte getIsOpen() {
         return isOpen;
     }
 
-    public void setIsOpen(Boolean isOpen) {
+    public void setIsOpen(Byte isOpen) {
         this.isOpen = isOpen;
     }
 

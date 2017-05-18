@@ -7,7 +7,7 @@
     <result column="brand_logo" property="brandLogo" jdbcType="VARCHAR" />
     <result column="site_url" property="siteUrl" jdbcType="VARCHAR" />
     <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
-    <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="is_show" property="isShow" jdbcType="TINYINT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBrand" extends="BaseResultMap" >
     <result column="brand_desc" property="brandDesc" jdbcType="LONGVARCHAR" />
@@ -129,7 +129,7 @@
       site_url, sort_order, is_show, 
       brand_desc)
     values (#{brandId,jdbcType=SMALLINT}, #{brandName,jdbcType=VARCHAR}, #{brandLogo,jdbcType=VARCHAR}, 
-      #{siteUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, #{isShow,jdbcType=BIT}, 
+      #{siteUrl,jdbcType=VARCHAR}, #{sortOrder,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, 
       #{brandDesc,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBrand" >
@@ -174,7 +174,7 @@
         #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="isShow != null" >
-        #{isShow,jdbcType=BIT},
+        #{isShow,jdbcType=TINYINT},
       </if>
       <if test="brandDesc != null" >
         #{brandDesc,jdbcType=LONGVARCHAR},
@@ -206,7 +206,7 @@
         sort_order = #{record.sortOrder,jdbcType=TINYINT},
       </if>
       <if test="record.isShow != null" >
-        is_show = #{record.isShow,jdbcType=BIT},
+        is_show = #{record.isShow,jdbcType=TINYINT},
       </if>
       <if test="record.brandDesc != null" >
         brand_desc = #{record.brandDesc,jdbcType=LONGVARCHAR},
@@ -223,7 +223,7 @@
       brand_logo = #{record.brandLogo,jdbcType=VARCHAR},
       site_url = #{record.siteUrl,jdbcType=VARCHAR},
       sort_order = #{record.sortOrder,jdbcType=TINYINT},
-      is_show = #{record.isShow,jdbcType=BIT},
+      is_show = #{record.isShow,jdbcType=TINYINT},
       brand_desc = #{record.brandDesc,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -236,7 +236,7 @@
       brand_logo = #{record.brandLogo,jdbcType=VARCHAR},
       site_url = #{record.siteUrl,jdbcType=VARCHAR},
       sort_order = #{record.sortOrder,jdbcType=TINYINT},
-      is_show = #{record.isShow,jdbcType=BIT}
+      is_show = #{record.isShow,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -257,7 +257,7 @@
         sort_order = #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="isShow != null" >
-        is_show = #{isShow,jdbcType=BIT},
+        is_show = #{isShow,jdbcType=TINYINT},
       </if>
       <if test="brandDesc != null" >
         brand_desc = #{brandDesc,jdbcType=LONGVARCHAR},
@@ -271,7 +271,7 @@
       brand_logo = #{brandLogo,jdbcType=VARCHAR},
       site_url = #{siteUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=TINYINT},
-      is_show = #{isShow,jdbcType=BIT},
+      is_show = #{isShow,jdbcType=TINYINT},
       brand_desc = #{brandDesc,jdbcType=LONGVARCHAR}
     where brand_id = #{brandId,jdbcType=SMALLINT}
   </update>
@@ -281,7 +281,7 @@
       brand_logo = #{brandLogo,jdbcType=VARCHAR},
       site_url = #{siteUrl,jdbcType=VARCHAR},
       sort_order = #{sortOrder,jdbcType=TINYINT},
-      is_show = #{isShow,jdbcType=BIT}
+      is_show = #{isShow,jdbcType=TINYINT}
     where brand_id = #{brandId,jdbcType=SMALLINT}
   </update>
 </mapper>

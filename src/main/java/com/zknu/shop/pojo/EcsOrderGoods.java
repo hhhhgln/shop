@@ -23,9 +23,9 @@ public class EcsOrderGoods {
 
     private String goodsAttrId;
 
-    private Boolean commentState;
+    private Byte commentState;
 
-    private Boolean isBack;
+    private Byte isBack;
 
     private BigDecimal costPrice;
 
@@ -113,19 +113,19 @@ public class EcsOrderGoods {
         this.goodsAttrId = goodsAttrId == null ? null : goodsAttrId.trim();
     }
 
-    public Boolean getCommentState() {
+    public Byte getCommentState() {
         return commentState;
     }
 
-    public void setCommentState(Boolean commentState) {
+    public void setCommentState(Byte commentState) {
         this.commentState = commentState;
     }
 
-    public Boolean getIsBack() {
+    public Byte getIsBack() {
         return isBack;
     }
 
-    public void setIsBack(Boolean isBack) {
+    public void setIsBack(Byte isBack) {
         this.isBack = isBack;
     }
 

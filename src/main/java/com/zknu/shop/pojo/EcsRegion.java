@@ -7,7 +7,7 @@ public class EcsRegion {
 
     private String regionName;
 
-    private Boolean regionType;
+    private Byte regionType;
 
     public Short getRegionId() {
         return regionId;
@@ -33,11 +33,11 @@ public class EcsRegion {
         this.regionName = regionName == null ? null : regionName.trim();
     }
 
-    public Boolean getRegionType() {
+    public Byte getRegionType() {
         return regionType;
     }
 
-    public void setRegionType(Boolean regionType) {
+    public void setRegionType(Byte regionType) {
         this.regionType = regionType;
     }
 }

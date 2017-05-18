@@ -22,17 +22,17 @@
     <result column="best_time" property="bestTime" jdbcType="VARCHAR" />
     <result column="postscript" property="postscript" jdbcType="VARCHAR" />
     <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
-    <result column="status" property="status" jdbcType="BIT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="return_time" property="returnTime" jdbcType="TIMESTAMP" />
-    <result column="refund_type" property="refundType" jdbcType="BIT" />
+    <result column="refund_type" property="refundType" jdbcType="TINYINT" />
     <result column="refund_desc" property="refundDesc" jdbcType="VARCHAR" />
     <result column="refund_money_1" property="refundMoney1" jdbcType="DECIMAL" />
     <result column="refund_money_2" property="refundMoney2" jdbcType="DECIMAL" />
     <result column="back_reason" property="backReason" jdbcType="VARCHAR" />
     <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
     <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
-    <result column="status_back" property="statusBack" jdbcType="BIT" />
-    <result column="status_refund" property="statusRefund" jdbcType="BIT" />
+    <result column="status_back" property="statusBack" jdbcType="TINYINT" />
+    <result column="status_refund" property="statusRefund" jdbcType="TINYINT" />
     <result column="back_type" property="backType" jdbcType="VARCHAR" />
     <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
   </resultMap>
@@ -174,11 +174,11 @@
       #{country,jdbcType=SMALLINT}, #{province,jdbcType=SMALLINT}, #{city,jdbcType=SMALLINT}, 
       #{district,jdbcType=SMALLINT}, #{email,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, 
       #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{bestTime,jdbcType=VARCHAR}, 
-      #{postscript,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BIT}, 
-      #{returnTime,jdbcType=TIMESTAMP}, #{refundType,jdbcType=BIT}, #{refundDesc,jdbcType=VARCHAR}, 
+      #{postscript,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=TINYINT}, 
+      #{returnTime,jdbcType=TIMESTAMP}, #{refundType,jdbcType=TINYINT}, #{refundDesc,jdbcType=VARCHAR}, 
       #{refundMoney1,jdbcType=DECIMAL}, #{refundMoney2,jdbcType=DECIMAL}, #{backReason,jdbcType=VARCHAR}, 
-      #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{statusBack,jdbcType=BIT}, 
-      #{statusRefund,jdbcType=BIT}, #{backType,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
+      #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{statusBack,jdbcType=TINYINT}, 
+      #{statusRefund,jdbcType=TINYINT}, #{backType,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
       #{imgs,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
@@ -349,13 +349,13 @@
         #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=BIT},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="returnTime != null" >
         #{returnTime,jdbcType=TIMESTAMP},
       </if>
       <if test="refundType != null" >
-        #{refundType,jdbcType=BIT},
+        #{refundType,jdbcType=TINYINT},
       </if>
       <if test="refundDesc != null" >
         #{refundDesc,jdbcType=VARCHAR},
@@ -376,10 +376,10 @@
         #{goodsName,jdbcType=VARCHAR},
       </if>
       <if test="statusBack != null" >
-        #{statusBack,jdbcType=BIT},
+        #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        #{statusRefund,jdbcType=BIT},
+        #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="backType != null" >
         #{backType,jdbcType=VARCHAR},
@@ -462,13 +462,13 @@
         update_time = #{record.updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.status != null" >
-        status = #{record.status,jdbcType=BIT},
+        status = #{record.status,jdbcType=TINYINT},
       </if>
       <if test="record.returnTime != null" >
         return_time = #{record.returnTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.refundType != null" >
-        refund_type = #{record.refundType,jdbcType=BIT},
+        refund_type = #{record.refundType,jdbcType=TINYINT},
       </if>
       <if test="record.refundDesc != null" >
         refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
@@ -489,10 +489,10 @@
         goods_name = #{record.goodsName,jdbcType=VARCHAR},
       </if>
       <if test="record.statusBack != null" >
-        status_back = #{record.statusBack,jdbcType=BIT},
+        status_back = #{record.statusBack,jdbcType=TINYINT},
       </if>
       <if test="record.statusRefund != null" >
-        status_refund = #{record.statusRefund,jdbcType=BIT},
+        status_refund = #{record.statusRefund,jdbcType=TINYINT},
       </if>
       <if test="record.backType != null" >
         back_type = #{record.backType,jdbcType=VARCHAR},
@@ -530,17 +530,17 @@
       best_time = #{record.bestTime,jdbcType=VARCHAR},
       postscript = #{record.postscript,jdbcType=VARCHAR},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      status = #{record.status,jdbcType=BIT},
+      status = #{record.status,jdbcType=TINYINT},
       return_time = #{record.returnTime,jdbcType=TIMESTAMP},
-      refund_type = #{record.refundType,jdbcType=BIT},
+      refund_type = #{record.refundType,jdbcType=TINYINT},
       refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
       refund_money_1 = #{record.refundMoney1,jdbcType=DECIMAL},
       refund_money_2 = #{record.refundMoney2,jdbcType=DECIMAL},
       back_reason = #{record.backReason,jdbcType=VARCHAR},
       goods_id = #{record.goodsId,jdbcType=INTEGER},
       goods_name = #{record.goodsName,jdbcType=VARCHAR},
-      status_back = #{record.statusBack,jdbcType=BIT},
-      status_refund = #{record.statusRefund,jdbcType=BIT},
+      status_back = #{record.statusBack,jdbcType=TINYINT},
+      status_refund = #{record.statusRefund,jdbcType=TINYINT},
       back_type = #{record.backType,jdbcType=VARCHAR},
       supplier_id = #{record.supplierId,jdbcType=INTEGER},
       imgs = #{record.imgs,jdbcType=LONGVARCHAR}
@@ -570,17 +570,17 @@
       best_time = #{record.bestTime,jdbcType=VARCHAR},
       postscript = #{record.postscript,jdbcType=VARCHAR},
       update_time = #{record.updateTime,jdbcType=TIMESTAMP},
-      status = #{record.status,jdbcType=BIT},
+      status = #{record.status,jdbcType=TINYINT},
       return_time = #{record.returnTime,jdbcType=TIMESTAMP},
-      refund_type = #{record.refundType,jdbcType=BIT},
+      refund_type = #{record.refundType,jdbcType=TINYINT},
       refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
       refund_money_1 = #{record.refundMoney1,jdbcType=DECIMAL},
       refund_money_2 = #{record.refundMoney2,jdbcType=DECIMAL},
       back_reason = #{record.backReason,jdbcType=VARCHAR},
       goods_id = #{record.goodsId,jdbcType=INTEGER},
       goods_name = #{record.goodsName,jdbcType=VARCHAR},
-      status_back = #{record.statusBack,jdbcType=BIT},
-      status_refund = #{record.statusRefund,jdbcType=BIT},
+      status_back = #{record.statusBack,jdbcType=TINYINT},
+      status_refund = #{record.statusRefund,jdbcType=TINYINT},
       back_type = #{record.backType,jdbcType=VARCHAR},
       supplier_id = #{record.supplierId,jdbcType=INTEGER}
     <if test="_parameter != null" >
@@ -648,13 +648,13 @@
         update_time = #{updateTime,jdbcType=TIMESTAMP},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=BIT},
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="returnTime != null" >
         return_time = #{returnTime,jdbcType=TIMESTAMP},
       </if>
       <if test="refundType != null" >
-        refund_type = #{refundType,jdbcType=BIT},
+        refund_type = #{refundType,jdbcType=TINYINT},
       </if>
       <if test="refundDesc != null" >
         refund_desc = #{refundDesc,jdbcType=VARCHAR},
@@ -675,10 +675,10 @@
         goods_name = #{goodsName,jdbcType=VARCHAR},
       </if>
       <if test="statusBack != null" >
-        status_back = #{statusBack,jdbcType=BIT},
+        status_back = #{statusBack,jdbcType=TINYINT},
       </if>
       <if test="statusRefund != null" >
-        status_refund = #{statusRefund,jdbcType=BIT},
+        status_refund = #{statusRefund,jdbcType=TINYINT},
       </if>
       <if test="backType != null" >
         back_type = #{backType,jdbcType=VARCHAR},
@@ -713,17 +713,17 @@
       best_time = #{bestTime,jdbcType=VARCHAR},
       postscript = #{postscript,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=BIT},
+      status = #{status,jdbcType=TINYINT},
       return_time = #{returnTime,jdbcType=TIMESTAMP},
-      refund_type = #{refundType,jdbcType=BIT},
+      refund_type = #{refundType,jdbcType=TINYINT},
       refund_desc = #{refundDesc,jdbcType=VARCHAR},
       refund_money_1 = #{refundMoney1,jdbcType=DECIMAL},
       refund_money_2 = #{refundMoney2,jdbcType=DECIMAL},
       back_reason = #{backReason,jdbcType=VARCHAR},
       goods_id = #{goodsId,jdbcType=INTEGER},
       goods_name = #{goodsName,jdbcType=VARCHAR},
-      status_back = #{statusBack,jdbcType=BIT},
-      status_refund = #{statusRefund,jdbcType=BIT},
+      status_back = #{statusBack,jdbcType=TINYINT},
+      status_refund = #{statusRefund,jdbcType=TINYINT},
       back_type = #{backType,jdbcType=VARCHAR},
       supplier_id = #{supplierId,jdbcType=INTEGER},
       imgs = #{imgs,jdbcType=LONGVARCHAR}
@@ -750,17 +750,17 @@
       best_time = #{bestTime,jdbcType=VARCHAR},
       postscript = #{postscript,jdbcType=VARCHAR},
       update_time = #{updateTime,jdbcType=TIMESTAMP},
-      status = #{status,jdbcType=BIT},
+      status = #{status,jdbcType=TINYINT},
       return_time = #{returnTime,jdbcType=TIMESTAMP},
-      refund_type = #{refundType,jdbcType=BIT},
+      refund_type = #{refundType,jdbcType=TINYINT},
       refund_desc = #{refundDesc,jdbcType=VARCHAR},
       refund_money_1 = #{refundMoney1,jdbcType=DECIMAL},
       refund_money_2 = #{refundMoney2,jdbcType=DECIMAL},
       back_reason = #{backReason,jdbcType=VARCHAR},
       goods_id = #{goodsId,jdbcType=INTEGER},
       goods_name = #{goodsName,jdbcType=VARCHAR},
-      status_back = #{statusBack,jdbcType=BIT},
-      status_refund = #{statusRefund,jdbcType=BIT},
+      status_back = #{statusBack,jdbcType=TINYINT},
+      status_refund = #{statusRefund,jdbcType=TINYINT},
       back_type = #{backType,jdbcType=VARCHAR},
       supplier_id = #{supplierId,jdbcType=INTEGER}
     where back_id = #{backId,jdbcType=INTEGER}

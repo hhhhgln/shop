@@ -5,7 +5,7 @@ public class EcsArticleCat {
 
     private String catName;
 
-    private Boolean catType;
+    private Byte catType;
 
     private String keywords;
 
@@ -13,7 +13,7 @@ public class EcsArticleCat {
 
     private Byte sortOrder;
 
-    private Boolean showInNav;
+    private Byte showInNav;
 
     private Short parentId;
 
@@ -35,11 +35,11 @@ public class EcsArticleCat {
         this.catName = catName == null ? null : catName.trim();
     }
 
-    public Boolean getCatType() {
+    public Byte getCatType() {
         return catType;
     }
 
-    public void setCatType(Boolean catType) {
+    public void setCatType(Byte catType) {
         this.catType = catType;
     }
 
@@ -67,11 +67,11 @@ public class EcsArticleCat {
         this.sortOrder = sortOrder;
     }
 
-    public Boolean getShowInNav() {
+    public Byte getShowInNav() {
         return showInNav;
     }
 
-    public void setShowInNav(Boolean showInNav) {
+    public void setShowInNav(Byte showInNav) {
         this.showInNav = showInNav;
     }
 

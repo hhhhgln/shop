@@ -2,9 +2,8 @@ package com.zknu.shop.mapper;
 
 import com.zknu.shop.pojo.EcsAttribute;
 import com.zknu.shop.pojo.EcsAttributeExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface EcsAttributeMapper {
     int countByExample(EcsAttributeExample example);

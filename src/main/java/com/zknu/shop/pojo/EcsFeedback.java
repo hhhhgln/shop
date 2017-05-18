@@ -15,9 +15,9 @@ public class EcsFeedback {
 
     private String msgTitle;
 
-    private Boolean msgType;
+    private Byte msgType;
 
-    private Boolean msgStatus;
+    private Byte msgStatus;
 
     private Date msgTime;
 
@@ -75,19 +75,19 @@ public class EcsFeedback {
         this.msgTitle = msgTitle == null ? null : msgTitle.trim();
     }
 
-    public Boolean getMsgType() {
+    public Byte getMsgType() {
         return msgType;
     }
 
-    public void setMsgType(Boolean msgType) {
+    public void setMsgType(Byte msgType) {
         this.msgType = msgType;
     }
 
-    public Boolean getMsgStatus() {
+    public Byte getMsgStatus() {
         return msgStatus;
     }
 
-    public void setMsgStatus(Boolean msgStatus) {
+    public void setMsgStatus(Byte msgStatus) {
         this.msgStatus = msgStatus;
     }
 

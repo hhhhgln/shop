@@ -21,18 +21,18 @@
     <result column="goods_thumb" property="goodsThumb" jdbcType="VARCHAR" />
     <result column="goods_img" property="goodsImg" jdbcType="VARCHAR" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
-    <result column="is_on_sale" property="isOnSale" jdbcType="BIT" />
+    <result column="is_on_sale" property="isOnSale" jdbcType="TINYINT" />
     <result column="sort_order" property="sortOrder" jdbcType="SMALLINT" />
-    <result column="is_delete" property="isDelete" jdbcType="BIT" />
-    <result column="is_best" property="isBest" jdbcType="BIT" />
-    <result column="is_new" property="isNew" jdbcType="BIT" />
-    <result column="is_hot" property="isHot" jdbcType="BIT" />
-    <result column="is_promote" property="isPromote" jdbcType="BIT" />
+    <result column="is_delete" property="isDelete" jdbcType="TINYINT" />
+    <result column="is_best" property="isBest" jdbcType="TINYINT" />
+    <result column="is_new" property="isNew" jdbcType="TINYINT" />
+    <result column="is_hot" property="isHot" jdbcType="TINYINT" />
+    <result column="is_promote" property="isPromote" jdbcType="TINYINT" />
     <result column="last_update" property="lastUpdate" jdbcType="TIMESTAMP" />
     <result column="goods_type" property="goodsType" jdbcType="SMALLINT" />
     <result column="seller_note" property="sellerNote" jdbcType="VARCHAR" />
     <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
-    <result column="supplier_status" property="supplierStatus" jdbcType="BIT" />
+    <result column="supplier_status" property="supplierStatus" jdbcType="TINYINT" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsGoodsWithBLOBs" extends="BaseResultMap" >
     <result column="goods_desc" property="goodsDesc" jdbcType="LONGVARCHAR" />
@@ -162,21 +162,23 @@
       promote_start_date, promote_end_date, keywords, 
       goods_brief, goods_thumb, goods_img, 
       add_time, is_on_sale, sort_order, 
-      is_delete, is_best, is_new, is_hot, 
-      is_promote, last_update, goods_type, 
-      seller_note, supplier_id, supplier_status, 
-      goods_desc, supplier_status_text)
+      is_delete, is_best, is_new, 
+      is_hot, is_promote, last_update, 
+      goods_type, seller_note, supplier_id, 
+      supplier_status, goods_desc, supplier_status_text
+      )
     values (#{goodsId,jdbcType=INTEGER}, #{catId,jdbcType=SMALLINT}, #{goodsSn,jdbcType=VARCHAR}, 
       #{goodsName,jdbcType=VARCHAR}, #{goodsNameStyle,jdbcType=VARCHAR}, #{clickCount,jdbcType=INTEGER}, 
       #{brandId,jdbcType=SMALLINT}, #{goodsWeight,jdbcType=DECIMAL}, #{goodsNumber,jdbcType=SMALLINT}, 
       #{marketPrice,jdbcType=DECIMAL}, #{shopPrice,jdbcType=DECIMAL}, #{promotePrice,jdbcType=DECIMAL}, 
       #{promoteStartDate,jdbcType=TIMESTAMP}, #{promoteEndDate,jdbcType=TIMESTAMP}, #{keywords,jdbcType=VARCHAR}, 
       #{goodsBrief,jdbcType=VARCHAR}, #{goodsThumb,jdbcType=VARCHAR}, #{goodsImg,jdbcType=VARCHAR}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{isOnSale,jdbcType=BIT}, #{sortOrder,jdbcType=SMALLINT}, 
-      #{isDelete,jdbcType=BIT}, #{isBest,jdbcType=BIT}, #{isNew,jdbcType=BIT}, #{isHot,jdbcType=BIT}, 
-      #{isPromote,jdbcType=BIT}, #{lastUpdate,jdbcType=TIMESTAMP}, #{goodsType,jdbcType=SMALLINT}, 
-      #{sellerNote,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, #{supplierStatus,jdbcType=BIT}, 
-      #{goodsDesc,jdbcType=LONGVARCHAR}, #{supplierStatusText,jdbcType=LONGVARCHAR})
+      #{addTime,jdbcType=TIMESTAMP}, #{isOnSale,jdbcType=TINYINT}, #{sortOrder,jdbcType=SMALLINT}, 
+      #{isDelete,jdbcType=TINYINT}, #{isBest,jdbcType=TINYINT}, #{isNew,jdbcType=TINYINT}, 
+      #{isHot,jdbcType=TINYINT}, #{isPromote,jdbcType=TINYINT}, #{lastUpdate,jdbcType=TIMESTAMP}, 
+      #{goodsType,jdbcType=SMALLINT}, #{sellerNote,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
+      #{supplierStatus,jdbcType=TINYINT}, #{goodsDesc,jdbcType=LONGVARCHAR}, #{supplierStatusText,jdbcType=LONGVARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsGoodsWithBLOBs" >
     insert into ecs_goods
@@ -340,25 +342,25 @@
         #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isOnSale != null" >
-        #{isOnSale,jdbcType=BIT},
+        #{isOnSale,jdbcType=TINYINT},
       </if>
       <if test="sortOrder != null" >
         #{sortOrder,jdbcType=SMALLINT},
       </if>
       <if test="isDelete != null" >
-        #{isDelete,jdbcType=BIT},
+        #{isDelete,jdbcType=TINYINT},
       </if>
       <if test="isBest != null" >
-        #{isBest,jdbcType=BIT},
+        #{isBest,jdbcType=TINYINT},
       </if>
       <if test="isNew != null" >
-        #{isNew,jdbcType=BIT},
+        #{isNew,jdbcType=TINYINT},
       </if>
       <if test="isHot != null" >
-        #{isHot,jdbcType=BIT},
+        #{isHot,jdbcType=TINYINT},
       </if>
       <if test="isPromote != null" >
-        #{isPromote,jdbcType=BIT},
+        #{isPromote,jdbcType=TINYINT},
       </if>
       <if test="lastUpdate != null" >
         #{lastUpdate,jdbcType=TIMESTAMP},
@@ -373,7 +375,7 @@
         #{supplierId,jdbcType=INTEGER},
       </if>
       <if test="supplierStatus != null" >
-        #{supplierStatus,jdbcType=BIT},
+        #{supplierStatus,jdbcType=TINYINT},
       </if>
       <if test="goodsDesc != null" >
         #{goodsDesc,jdbcType=LONGVARCHAR},
@@ -450,25 +452,25 @@
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.isOnSale != null" >
-        is_on_sale = #{record.isOnSale,jdbcType=BIT},
+        is_on_sale = #{record.isOnSale,jdbcType=TINYINT},
       </if>
       <if test="record.sortOrder != null" >
         sort_order = #{record.sortOrder,jdbcType=SMALLINT},
       </if>
       <if test="record.isDelete != null" >
-        is_delete = #{record.isDelete,jdbcType=BIT},
+        is_delete = #{record.isDelete,jdbcType=TINYINT},
       </if>
       <if test="record.isBest != null" >
-        is_best = #{record.isBest,jdbcType=BIT},
+        is_best = #{record.isBest,jdbcType=TINYINT},
       </if>
       <if test="record.isNew != null" >
-        is_new = #{record.isNew,jdbcType=BIT},
+        is_new = #{record.isNew,jdbcType=TINYINT},
       </if>
       <if test="record.isHot != null" >
-        is_hot = #{record.isHot,jdbcType=BIT},
+        is_hot = #{record.isHot,jdbcType=TINYINT},
       </if>
       <if test="record.isPromote != null" >
-        is_promote = #{record.isPromote,jdbcType=BIT},
+        is_promote = #{record.isPromote,jdbcType=TINYINT},
       </if>
       <if test="record.lastUpdate != null" >
         last_update = #{record.lastUpdate,jdbcType=TIMESTAMP},
@@ -483,7 +485,7 @@
         supplier_id = #{record.supplierId,jdbcType=INTEGER},
       </if>
       <if test="record.supplierStatus != null" >
-        supplier_status = #{record.supplierStatus,jdbcType=BIT},
+        supplier_status = #{record.supplierStatus,jdbcType=TINYINT},
       </if>
       <if test="record.goodsDesc != null" >
         goods_desc = #{record.goodsDesc,jdbcType=LONGVARCHAR},
@@ -517,18 +519,18 @@
       goods_thumb = #{record.goodsThumb,jdbcType=VARCHAR},
       goods_img = #{record.goodsImg,jdbcType=VARCHAR},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      is_on_sale = #{record.isOnSale,jdbcType=BIT},
+      is_on_sale = #{record.isOnSale,jdbcType=TINYINT},
       sort_order = #{record.sortOrder,jdbcType=SMALLINT},
-      is_delete = #{record.isDelete,jdbcType=BIT},
-      is_best = #{record.isBest,jdbcType=BIT},
-      is_new = #{record.isNew,jdbcType=BIT},
-      is_hot = #{record.isHot,jdbcType=BIT},
-      is_promote = #{record.isPromote,jdbcType=BIT},
+      is_delete = #{record.isDelete,jdbcType=TINYINT},
+      is_best = #{record.isBest,jdbcType=TINYINT},
+      is_new = #{record.isNew,jdbcType=TINYINT},
+      is_hot = #{record.isHot,jdbcType=TINYINT},
+      is_promote = #{record.isPromote,jdbcType=TINYINT},
       last_update = #{record.lastUpdate,jdbcType=TIMESTAMP},
       goods_type = #{record.goodsType,jdbcType=SMALLINT},
       seller_note = #{record.sellerNote,jdbcType=VARCHAR},
       supplier_id = #{record.supplierId,jdbcType=INTEGER},
-      supplier_status = #{record.supplierStatus,jdbcType=BIT},
+      supplier_status = #{record.supplierStatus,jdbcType=TINYINT},
       goods_desc = #{record.goodsDesc,jdbcType=LONGVARCHAR},
       supplier_status_text = #{record.supplierStatusText,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
@@ -556,18 +558,18 @@
       goods_thumb = #{record.goodsThumb,jdbcType=VARCHAR},
       goods_img = #{record.goodsImg,jdbcType=VARCHAR},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      is_on_sale = #{record.isOnSale,jdbcType=BIT},
+      is_on_sale = #{record.isOnSale,jdbcType=TINYINT},
       sort_order = #{record.sortOrder,jdbcType=SMALLINT},
-      is_delete = #{record.isDelete,jdbcType=BIT},
-      is_best = #{record.isBest,jdbcType=BIT},
-      is_new = #{record.isNew,jdbcType=BIT},
-      is_hot = #{record.isHot,jdbcType=BIT},
-      is_promote = #{record.isPromote,jdbcType=BIT},
+      is_delete = #{record.isDelete,jdbcType=TINYINT},
+      is_best = #{record.isBest,jdbcType=TINYINT},
+      is_new = #{record.isNew,jdbcType=TINYINT},
+      is_hot = #{record.isHot,jdbcType=TINYINT},
+      is_promote = #{record.isPromote,jdbcType=TINYINT},
       last_update = #{record.lastUpdate,jdbcType=TIMESTAMP},
       goods_type = #{record.goodsType,jdbcType=SMALLINT},
       seller_note = #{record.sellerNote,jdbcType=VARCHAR},
       supplier_id = #{record.supplierId,jdbcType=INTEGER},
-      supplier_status = #{record.supplierStatus,jdbcType=BIT}
+      supplier_status = #{record.supplierStatus,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -630,25 +632,25 @@
         add_time = #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isOnSale != null" >
-        is_on_sale = #{isOnSale,jdbcType=BIT},
+        is_on_sale = #{isOnSale,jdbcType=TINYINT},
       </if>
       <if test="sortOrder != null" >
         sort_order = #{sortOrder,jdbcType=SMALLINT},
       </if>
       <if test="isDelete != null" >
-        is_delete = #{isDelete,jdbcType=BIT},
+        is_delete = #{isDelete,jdbcType=TINYINT},
       </if>
       <if test="isBest != null" >
-        is_best = #{isBest,jdbcType=BIT},
+        is_best = #{isBest,jdbcType=TINYINT},
       </if>
       <if test="isNew != null" >
-        is_new = #{isNew,jdbcType=BIT},
+        is_new = #{isNew,jdbcType=TINYINT},
       </if>
       <if test="isHot != null" >
-        is_hot = #{isHot,jdbcType=BIT},
+        is_hot = #{isHot,jdbcType=TINYINT},
       </if>
       <if test="isPromote != null" >
-        is_promote = #{isPromote,jdbcType=BIT},
+        is_promote = #{isPromote,jdbcType=TINYINT},
       </if>
       <if test="lastUpdate != null" >
         last_update = #{lastUpdate,jdbcType=TIMESTAMP},
@@ -663,7 +665,7 @@
         supplier_id = #{supplierId,jdbcType=INTEGER},
       </if>
       <if test="supplierStatus != null" >
-        supplier_status = #{supplierStatus,jdbcType=BIT},
+        supplier_status = #{supplierStatus,jdbcType=TINYINT},
       </if>
       <if test="goodsDesc != null" >
         goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
@@ -694,18 +696,18 @@
       goods_thumb = #{goodsThumb,jdbcType=VARCHAR},
       goods_img = #{goodsImg,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
-      is_on_sale = #{isOnSale,jdbcType=BIT},
+      is_on_sale = #{isOnSale,jdbcType=TINYINT},
       sort_order = #{sortOrder,jdbcType=SMALLINT},
-      is_delete = #{isDelete,jdbcType=BIT},
-      is_best = #{isBest,jdbcType=BIT},
-      is_new = #{isNew,jdbcType=BIT},
-      is_hot = #{isHot,jdbcType=BIT},
-      is_promote = #{isPromote,jdbcType=BIT},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      is_best = #{isBest,jdbcType=TINYINT},
+      is_new = #{isNew,jdbcType=TINYINT},
+      is_hot = #{isHot,jdbcType=TINYINT},
+      is_promote = #{isPromote,jdbcType=TINYINT},
       last_update = #{lastUpdate,jdbcType=TIMESTAMP},
       goods_type = #{goodsType,jdbcType=SMALLINT},
       seller_note = #{sellerNote,jdbcType=VARCHAR},
       supplier_id = #{supplierId,jdbcType=INTEGER},
-      supplier_status = #{supplierStatus,jdbcType=BIT},
+      supplier_status = #{supplierStatus,jdbcType=TINYINT},
       goods_desc = #{goodsDesc,jdbcType=LONGVARCHAR},
       supplier_status_text = #{supplierStatusText,jdbcType=LONGVARCHAR}
     where goods_id = #{goodsId,jdbcType=INTEGER}
@@ -730,18 +732,18 @@
       goods_thumb = #{goodsThumb,jdbcType=VARCHAR},
       goods_img = #{goodsImg,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
-      is_on_sale = #{isOnSale,jdbcType=BIT},
+      is_on_sale = #{isOnSale,jdbcType=TINYINT},
       sort_order = #{sortOrder,jdbcType=SMALLINT},
-      is_delete = #{isDelete,jdbcType=BIT},
-      is_best = #{isBest,jdbcType=BIT},
-      is_new = #{isNew,jdbcType=BIT},
-      is_hot = #{isHot,jdbcType=BIT},
-      is_promote = #{isPromote,jdbcType=BIT},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      is_best = #{isBest,jdbcType=TINYINT},
+      is_new = #{isNew,jdbcType=TINYINT},
+      is_hot = #{isHot,jdbcType=TINYINT},
+      is_promote = #{isPromote,jdbcType=TINYINT},
       last_update = #{lastUpdate,jdbcType=TIMESTAMP},
       goods_type = #{goodsType,jdbcType=SMALLINT},
       seller_note = #{sellerNote,jdbcType=VARCHAR},
       supplier_id = #{supplierId,jdbcType=INTEGER},
-      supplier_status = #{supplierStatus,jdbcType=BIT}
+      supplier_status = #{supplierStatus,jdbcType=TINYINT}
     where goods_id = #{goodsId,jdbcType=INTEGER}
   </update>
 </mapper>

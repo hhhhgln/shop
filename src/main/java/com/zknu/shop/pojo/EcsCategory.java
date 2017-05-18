@@ -11,15 +11,15 @@ public class EcsCategory {
 
     private Short parentId;
 
-    private Boolean sortOrder;
+    private Byte sortOrder;
 
     private String measureUnit;
 
-    private Boolean showInNav;
+    private Byte showInNav;
 
     private String style;
 
-    private Boolean isShow;
+    private Byte isShow;
 
     private Byte grade;
 
@@ -67,11 +67,11 @@ public class EcsCategory {
         this.parentId = parentId;
     }
 
-    public Boolean getSortOrder() {
+    public Byte getSortOrder() {
         return sortOrder;
     }
 
-    public void setSortOrder(Boolean sortOrder) {
+    public void setSortOrder(Byte sortOrder) {
         this.sortOrder = sortOrder;
     }
 
@@ -83,11 +83,11 @@ public class EcsCategory {
         this.measureUnit = measureUnit == null ? null : measureUnit.trim();
     }
 
-    public Boolean getShowInNav() {
+    public Byte getShowInNav() {
         return showInNav;
     }
 
-    public void setShowInNav(Boolean showInNav) {
+    public void setShowInNav(Byte showInNav) {
         this.showInNav = showInNav;
     }
 
@@ -99,11 +99,11 @@ public class EcsCategory {
         this.style = style == null ? null : style.trim();
     }
 
-    public Boolean getIsShow() {
+    public Byte getIsShow() {
         return isShow;
     }
 
-    public void setIsShow(Boolean isShow) {
+    public void setIsShow(Byte isShow) {
         this.isShow = isShow;
     }
 

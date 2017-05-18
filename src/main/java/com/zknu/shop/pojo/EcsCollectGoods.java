@@ -11,7 +11,7 @@ public class EcsCollectGoods {
 
     private Date addTime;
 
-    private Boolean isAttention;
+    private Byte isAttention;
 
     public Integer getRecId() {
         return recId;
@@ -45,11 +45,11 @@ public class EcsCollectGoods {
         this.addTime = addTime;
     }
 
-    public Boolean getIsAttention() {
+    public Byte getIsAttention() {
         return isAttention;
     }
 
-    public void setIsAttention(Boolean isAttention) {
+    public void setIsAttention(Byte isAttention) {
         this.isAttention = isAttention;
     }
 }

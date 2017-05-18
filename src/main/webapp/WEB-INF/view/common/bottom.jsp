@@ -23,18 +23,18 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <!--JS引用-->
-<script src="${webRoot}/static/js/jquery.min.js"></script>
+<%--<script src="${webRoot}/static/js/jquery.min.js"></script>--%>
 <script src="${webRoot}/static/layui/layui.js"></script>
 
-<script>
-    // 定义全局JS变量
-//    var GV = {
-//
-//        current_controller: "admin/{$controller}"
-//    };
-    layui.config({
-        base: '${webRoot}/static/js/'
-    }).use('admin');
+<%--<script>--%>
+    <%--// 定义全局JS变量--%>
+<%--//    var GV = {--%>
+<%--//--%>
+<%--//        current_controller: "admin/{$controller}"--%>
+<%--//    };--%>
+    <%--layui.config({--%>
+        <%--base: '${webRoot}/static/js/'--%>
+    <%--}).use('admin');--%>
 
-    <%--alert(${pageContext.request.requestURI});--%>
-</script>
+    <%--&lt;%&ndash;alert(${pageContext.request.requestURI});&ndash;%&gt;--%>
+<%--</script>--%>

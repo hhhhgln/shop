@@ -11,7 +11,7 @@ public class EcsUsers {
 
     private String password;
 
-    private Boolean sex;
+    private Byte sex;
 
     private Date birthday;
 
@@ -85,11 +85,11 @@ public class EcsUsers {
         this.password = password == null ? null : password.trim();
     }
 
-    public Boolean getSex() {
+    public Byte getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(Byte sex) {
         this.sex = sex;
     }
 

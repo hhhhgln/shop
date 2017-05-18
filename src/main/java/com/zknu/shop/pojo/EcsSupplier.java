@@ -29,7 +29,7 @@ public class EcsSupplier {
 
     private String companyType;
 
-    private Boolean status;
+    private Byte status;
 
     private Date addTime;
 
@@ -141,11 +141,11 @@ public class EcsSupplier {
         this.companyType = companyType == null ? null : companyType.trim();
     }
 
-    public Boolean getStatus() {
+    public Byte getStatus() {
         return status;
     }
 
-    public void setStatus(Boolean status) {
+    public void setStatus(Byte status) {
         this.status = status;
     }
 

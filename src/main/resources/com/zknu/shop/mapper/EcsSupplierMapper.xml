@@ -15,7 +15,7 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="guimo" property="guimo" jdbcType="VARCHAR" />
     <result column="company_type" property="companyType" jdbcType="VARCHAR" />
-    <result column="status" property="status" jdbcType="BIT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
     <result column="contacts_name" property="contactsName" jdbcType="VARCHAR" />
     <result column="contacts_phone" property="contactsPhone" jdbcType="VARCHAR" />
@@ -123,7 +123,7 @@
       #{companyName,jdbcType=VARCHAR}, #{country,jdbcType=SMALLINT}, #{province,jdbcType=SMALLINT}, 
       #{city,jdbcType=SMALLINT}, #{district,jdbcType=SMALLINT}, #{address,jdbcType=VARCHAR}, 
       #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{guimo,jdbcType=VARCHAR}, 
-      #{companyType,jdbcType=VARCHAR}, #{status,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, 
+      #{companyType,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, 
       #{contactsName,jdbcType=VARCHAR}, #{contactsPhone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsSupplier" >
@@ -222,7 +222,7 @@
         #{companyType,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=BIT},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         #{addTime,jdbcType=TIMESTAMP},
@@ -284,7 +284,7 @@
         company_type = #{record.companyType,jdbcType=VARCHAR},
       </if>
       <if test="record.status != null" >
-        status = #{record.status,jdbcType=BIT},
+        status = #{record.status,jdbcType=TINYINT},
       </if>
       <if test="record.addTime != null" >
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -315,7 +315,7 @@
       email = #{record.email,jdbcType=VARCHAR},
       guimo = #{record.guimo,jdbcType=VARCHAR},
       company_type = #{record.companyType,jdbcType=VARCHAR},
-      status = #{record.status,jdbcType=BIT},
+      status = #{record.status,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       contacts_name = #{record.contactsName,jdbcType=VARCHAR},
       contacts_phone = #{record.contactsPhone,jdbcType=VARCHAR}
@@ -363,7 +363,7 @@
         company_type = #{companyType,jdbcType=VARCHAR},
       </if>
       <if test="status != null" >
-        status = #{status,jdbcType=BIT},
+        status = #{status,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -391,7 +391,7 @@
       email = #{email,jdbcType=VARCHAR},
       guimo = #{guimo,jdbcType=VARCHAR},
       company_type = #{companyType,jdbcType=VARCHAR},
-      status = #{status,jdbcType=BIT},
+      status = #{status,jdbcType=TINYINT},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       contacts_name = #{contactsName,jdbcType=VARCHAR},
       contacts_phone = #{contactsPhone,jdbcType=VARCHAR}

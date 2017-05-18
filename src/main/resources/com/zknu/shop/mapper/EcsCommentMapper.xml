@@ -8,7 +8,7 @@
     <result column="id_value" property="idValue" jdbcType="INTEGER" />
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
-    <result column="comment_rank" property="commentRank" jdbcType="BIT" />
+    <result column="comment_rank" property="commentRank" jdbcType="TINYINT" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
     <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
     <result column="status" property="status" jdbcType="TINYINT" />
@@ -18,7 +18,7 @@
     <result column="comment_tag" property="commentTag" jdbcType="VARCHAR" />
     <result column="buy_time" property="buyTime" jdbcType="TIMESTAMP" />
     <result column="good_num" property="goodNum" jdbcType="INTEGER" />
-    <result column="hide_username" property="hideUsername" jdbcType="BIT" />
+    <result column="hide_username" property="hideUsername" jdbcType="TINYINT" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsComment" extends="BaseResultMap" >
@@ -148,10 +148,10 @@
       content)
     values (#{commentId,jdbcType=INTEGER}, #{commentType,jdbcType=TINYINT}, #{title,jdbcType=VARCHAR}, 
       #{idValue,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{commentRank,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR}, 
+      #{commentRank,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{parentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
       #{recId,jdbcType=INTEGER}, #{commentTag,jdbcType=VARCHAR}, #{buyTime,jdbcType=TIMESTAMP}, 
-      #{goodNum,jdbcType=INTEGER}, #{hideUsername,jdbcType=BIT}, #{orderId,jdbcType=INTEGER}, 
+      #{goodNum,jdbcType=INTEGER}, #{hideUsername,jdbcType=TINYINT}, #{orderId,jdbcType=INTEGER}, 
       #{content,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsComment" >
@@ -235,7 +235,7 @@
         #{userName,jdbcType=VARCHAR},
       </if>
       <if test="commentRank != null" >
-        #{commentRank,jdbcType=BIT},
+        #{commentRank,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         #{addTime,jdbcType=TIMESTAMP},
@@ -265,7 +265,7 @@
         #{goodNum,jdbcType=INTEGER},
       </if>
       <if test="hideUsername != null" >
-        #{hideUsername,jdbcType=BIT},
+        #{hideUsername,jdbcType=TINYINT},
       </if>
       <if test="orderId != null" >
         #{orderId,jdbcType=INTEGER},
@@ -303,7 +303,7 @@
         user_name = #{record.userName,jdbcType=VARCHAR},
       </if>
       <if test="record.commentRank != null" >
-        comment_rank = #{record.commentRank,jdbcType=BIT},
+        comment_rank = #{record.commentRank,jdbcType=TINYINT},
       </if>
       <if test="record.addTime != null" >
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -333,7 +333,7 @@
         good_num = #{record.goodNum,jdbcType=INTEGER},
       </if>
       <if test="record.hideUsername != null" >
-        hide_username = #{record.hideUsername,jdbcType=BIT},
+        hide_username = #{record.hideUsername,jdbcType=TINYINT},
       </if>
       <if test="record.orderId != null" >
         order_id = #{record.orderId,jdbcType=INTEGER},
@@ -354,7 +354,7 @@
       id_value = #{record.idValue,jdbcType=INTEGER},
       email = #{record.email,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      comment_rank = #{record.commentRank,jdbcType=BIT},
+      comment_rank = #{record.commentRank,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       ip_address = #{record.ipAddress,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
@@ -364,7 +364,7 @@
       comment_tag = #{record.commentTag,jdbcType=VARCHAR},
       buy_time = #{record.buyTime,jdbcType=TIMESTAMP},
       good_num = #{record.goodNum,jdbcType=INTEGER},
-      hide_username = #{record.hideUsername,jdbcType=BIT},
+      hide_username = #{record.hideUsername,jdbcType=TINYINT},
       order_id = #{record.orderId,jdbcType=INTEGER},
       content = #{record.content,jdbcType=LONGVARCHAR}
     <if test="_parameter != null" >
@@ -379,7 +379,7 @@
       id_value = #{record.idValue,jdbcType=INTEGER},
       email = #{record.email,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
-      comment_rank = #{record.commentRank,jdbcType=BIT},
+      comment_rank = #{record.commentRank,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       ip_address = #{record.ipAddress,jdbcType=VARCHAR},
       status = #{record.status,jdbcType=TINYINT},
@@ -389,7 +389,7 @@
       comment_tag = #{record.commentTag,jdbcType=VARCHAR},
       buy_time = #{record.buyTime,jdbcType=TIMESTAMP},
       good_num = #{record.goodNum,jdbcType=INTEGER},
-      hide_username = #{record.hideUsername,jdbcType=BIT},
+      hide_username = #{record.hideUsername,jdbcType=TINYINT},
       order_id = #{record.orderId,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -414,7 +414,7 @@
         user_name = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="commentRank != null" >
-        comment_rank = #{commentRank,jdbcType=BIT},
+        comment_rank = #{commentRank,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         add_time = #{addTime,jdbcType=TIMESTAMP},
@@ -444,7 +444,7 @@
         good_num = #{goodNum,jdbcType=INTEGER},
       </if>
       <if test="hideUsername != null" >
-        hide_username = #{hideUsername,jdbcType=BIT},
+        hide_username = #{hideUsername,jdbcType=TINYINT},
       </if>
       <if test="orderId != null" >
         order_id = #{orderId,jdbcType=INTEGER},
@@ -462,7 +462,7 @@
       id_value = #{idValue,jdbcType=INTEGER},
       email = #{email,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},
-      comment_rank = #{commentRank,jdbcType=BIT},
+      comment_rank = #{commentRank,jdbcType=TINYINT},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       ip_address = #{ipAddress,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
@@ -472,7 +472,7 @@
       comment_tag = #{commentTag,jdbcType=VARCHAR},
       buy_time = #{buyTime,jdbcType=TIMESTAMP},
       good_num = #{goodNum,jdbcType=INTEGER},
-      hide_username = #{hideUsername,jdbcType=BIT},
+      hide_username = #{hideUsername,jdbcType=TINYINT},
       order_id = #{orderId,jdbcType=INTEGER},
       content = #{content,jdbcType=LONGVARCHAR}
     where comment_id = #{commentId,jdbcType=INTEGER}
@@ -484,7 +484,7 @@
       id_value = #{idValue,jdbcType=INTEGER},
       email = #{email,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},
-      comment_rank = #{commentRank,jdbcType=BIT},
+      comment_rank = #{commentRank,jdbcType=TINYINT},
       add_time = #{addTime,jdbcType=TIMESTAMP},
       ip_address = #{ipAddress,jdbcType=VARCHAR},
       status = #{status,jdbcType=TINYINT},
@@ -494,7 +494,7 @@
       comment_tag = #{commentTag,jdbcType=VARCHAR},
       buy_time = #{buyTime,jdbcType=TIMESTAMP},
       good_num = #{goodNum,jdbcType=INTEGER},
-      hide_username = #{hideUsername,jdbcType=BIT},
+      hide_username = #{hideUsername,jdbcType=TINYINT},
       order_id = #{orderId,jdbcType=INTEGER}
     where comment_id = #{commentId,jdbcType=INTEGER}
   </update>

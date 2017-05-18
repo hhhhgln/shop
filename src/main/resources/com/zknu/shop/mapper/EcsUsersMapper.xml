@@ -6,7 +6,7 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="sex" property="sex" jdbcType="TINYINT" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="address_id" property="addressId" jdbcType="INTEGER" />
     <result column="reg_time" property="regTime" jdbcType="TIMESTAMP" />
@@ -123,23 +123,23 @@
   </delete>
   <insert id="insert" parameterType="com.zknu.shop.pojo.EcsUsers" >
     insert into ecs_users (user_id, email, user_name, 
-      password, sex, birthday, address_id, 
-      reg_time, last_login, last_time, 
-      last_ip, salt, alias, 
-      qq, mobile_phone, passwd_question, 
-      passwd_answer, country, province, 
-      city, district, address, 
-      status, froms, headimg
-      )
+      password, sex, birthday, 
+      address_id, reg_time, last_login, 
+      last_time, last_ip, salt, 
+      alias, qq, mobile_phone, 
+      passwd_question, passwd_answer, country, 
+      province, city, district, 
+      address, status, froms, 
+      headimg)
     values (#{userId,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
-      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{birthday,jdbcType=DATE}, #{addressId,jdbcType=INTEGER}, 
-      #{regTime,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, #{lastTime,jdbcType=TIMESTAMP}, 
-      #{lastIp,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, #{alias,jdbcType=VARCHAR}, 
-      #{qq,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, #{passwdQuestion,jdbcType=VARCHAR}, 
-      #{passwdAnswer,jdbcType=VARCHAR}, #{country,jdbcType=INTEGER}, #{province,jdbcType=INTEGER}, 
-      #{city,jdbcType=INTEGER}, #{district,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
-      #{status,jdbcType=INTEGER}, #{froms,jdbcType=CHAR}, #{headimg,jdbcType=VARCHAR}
-      )
+      #{password,jdbcType=VARCHAR}, #{sex,jdbcType=TINYINT}, #{birthday,jdbcType=DATE}, 
+      #{addressId,jdbcType=INTEGER}, #{regTime,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{lastTime,jdbcType=TIMESTAMP}, #{lastIp,jdbcType=VARCHAR}, #{salt,jdbcType=VARCHAR}, 
+      #{alias,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, #{mobilePhone,jdbcType=VARCHAR}, 
+      #{passwdQuestion,jdbcType=VARCHAR}, #{passwdAnswer,jdbcType=VARCHAR}, #{country,jdbcType=INTEGER}, 
+      #{province,jdbcType=INTEGER}, #{city,jdbcType=INTEGER}, #{district,jdbcType=INTEGER}, 
+      #{address,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{froms,jdbcType=CHAR}, 
+      #{headimg,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsUsers" >
     insert into ecs_users
@@ -234,7 +234,7 @@
         #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        #{sex,jdbcType=BIT},
+        #{sex,jdbcType=TINYINT},
       </if>
       <if test="birthday != null" >
         #{birthday,jdbcType=DATE},
@@ -320,7 +320,7 @@
         password = #{record.password,jdbcType=VARCHAR},
       </if>
       <if test="record.sex != null" >
-        sex = #{record.sex,jdbcType=BIT},
+        sex = #{record.sex,jdbcType=TINYINT},
       </if>
       <if test="record.birthday != null" >
         birthday = #{record.birthday,jdbcType=DATE},
@@ -393,7 +393,7 @@
       email = #{record.email,jdbcType=VARCHAR},
       user_name = #{record.userName,jdbcType=VARCHAR},
       password = #{record.password,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=BIT},
+      sex = #{record.sex,jdbcType=TINYINT},
       birthday = #{record.birthday,jdbcType=DATE},
       address_id = #{record.addressId,jdbcType=INTEGER},
       reg_time = #{record.regTime,jdbcType=TIMESTAMP},
@@ -431,7 +431,7 @@
         password = #{password,jdbcType=VARCHAR},
       </if>
       <if test="sex != null" >
-        sex = #{sex,jdbcType=BIT},
+        sex = #{sex,jdbcType=TINYINT},
       </if>
       <if test="birthday != null" >
         birthday = #{birthday,jdbcType=DATE},
@@ -501,7 +501,7 @@
     set email = #{email,jdbcType=VARCHAR},
       user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
-      sex = #{sex,jdbcType=BIT},
+      sex = #{sex,jdbcType=TINYINT},
       birthday = #{birthday,jdbcType=DATE},
       address_id = #{addressId,jdbcType=INTEGER},
       reg_time = #{regTime,jdbcType=TIMESTAMP},

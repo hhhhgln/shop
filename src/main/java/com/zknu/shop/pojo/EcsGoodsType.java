@@ -5,7 +5,7 @@ public class EcsGoodsType {
 
     private String catName;
 
-    private Boolean enabled;
+    private Byte enabled;
 
     private String attrGroup;
 
@@ -25,11 +25,11 @@ public class EcsGoodsType {
         this.catName = catName == null ? null : catName.trim();
     }
 
-    public Boolean getEnabled() {
+    public Byte getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Boolean enabled) {
+    public void setEnabled(Byte enabled) {
         this.enabled = enabled;
     }
 

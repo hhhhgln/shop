@@ -6,7 +6,7 @@
     <result column="rebate_paytime_start" property="rebatePaytimeStart" jdbcType="TIMESTAMP" />
     <result column="rebate_paytime_end" property="rebatePaytimeEnd" jdbcType="TIMESTAMP" />
     <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
-    <result column="is_pay_ok" property="isPayOk" jdbcType="BIT" />
+    <result column="is_pay_ok" property="isPayOk" jdbcType="TINYINT" />
     <result column="pay_type" property="payType" jdbcType="VARCHAR" />
     <result column="pay_time" property="payTime" jdbcType="INTEGER" />
     <result column="remark" property="remark" jdbcType="VARCHAR" />
@@ -117,7 +117,7 @@
       rebate_all, rebate_money, payable_price, 
       rebate_img, status)
     values (#{rebateId,jdbcType=INTEGER}, #{rebatePaytimeStart,jdbcType=TIMESTAMP}, #{rebatePaytimeEnd,jdbcType=TIMESTAMP}, 
-      #{supplierId,jdbcType=INTEGER}, #{isPayOk,jdbcType=BIT}, #{payType,jdbcType=VARCHAR}, 
+      #{supplierId,jdbcType=INTEGER}, #{isPayOk,jdbcType=TINYINT}, #{payType,jdbcType=VARCHAR}, 
       #{payTime,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{adminUser,jdbcType=VARCHAR}, 
       #{rebateAll,jdbcType=DECIMAL}, #{rebateMoney,jdbcType=DECIMAL}, #{payablePrice,jdbcType=DECIMAL}, 
       #{rebateImg,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
@@ -182,7 +182,7 @@
         #{supplierId,jdbcType=INTEGER},
       </if>
       <if test="isPayOk != null" >
-        #{isPayOk,jdbcType=BIT},
+        #{isPayOk,jdbcType=TINYINT},
       </if>
       <if test="payType != null" >
         #{payType,jdbcType=VARCHAR},
@@ -235,7 +235,7 @@
         supplier_id = #{record.supplierId,jdbcType=INTEGER},
       </if>
       <if test="record.isPayOk != null" >
-        is_pay_ok = #{record.isPayOk,jdbcType=BIT},
+        is_pay_ok = #{record.isPayOk,jdbcType=TINYINT},
       </if>
       <if test="record.payType != null" >
         pay_type = #{record.payType,jdbcType=VARCHAR},
@@ -275,7 +275,7 @@
       rebate_paytime_start = #{record.rebatePaytimeStart,jdbcType=TIMESTAMP},
       rebate_paytime_end = #{record.rebatePaytimeEnd,jdbcType=TIMESTAMP},
       supplier_id = #{record.supplierId,jdbcType=INTEGER},
-      is_pay_ok = #{record.isPayOk,jdbcType=BIT},
+      is_pay_ok = #{record.isPayOk,jdbcType=TINYINT},
       pay_type = #{record.payType,jdbcType=VARCHAR},
       pay_time = #{record.payTime,jdbcType=INTEGER},
       remark = #{record.remark,jdbcType=VARCHAR},
@@ -302,7 +302,7 @@
         supplier_id = #{supplierId,jdbcType=INTEGER},
       </if>
       <if test="isPayOk != null" >
-        is_pay_ok = #{isPayOk,jdbcType=BIT},
+        is_pay_ok = #{isPayOk,jdbcType=TINYINT},
       </if>
       <if test="payType != null" >
         pay_type = #{payType,jdbcType=VARCHAR},
@@ -339,7 +339,7 @@
     set rebate_paytime_start = #{rebatePaytimeStart,jdbcType=TIMESTAMP},
       rebate_paytime_end = #{rebatePaytimeEnd,jdbcType=TIMESTAMP},
       supplier_id = #{supplierId,jdbcType=INTEGER},
-      is_pay_ok = #{isPayOk,jdbcType=BIT},
+      is_pay_ok = #{isPayOk,jdbcType=TINYINT},
       pay_type = #{payType,jdbcType=VARCHAR},
       pay_time = #{payTime,jdbcType=INTEGER},
       remark = #{remark,jdbcType=VARCHAR},

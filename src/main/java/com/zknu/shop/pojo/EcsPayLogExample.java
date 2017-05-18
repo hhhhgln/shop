@@ -295,52 +295,52 @@ public class EcsPayLogExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidEqualTo(Boolean value) {
+        public Criteria andIsPaidEqualTo(Byte value) {
             addCriterion("is_paid =", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidNotEqualTo(Boolean value) {
+        public Criteria andIsPaidNotEqualTo(Byte value) {
             addCriterion("is_paid <>", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidGreaterThan(Boolean value) {
+        public Criteria andIsPaidGreaterThan(Byte value) {
             addCriterion("is_paid >", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsPaidGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_paid >=", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidLessThan(Boolean value) {
+        public Criteria andIsPaidLessThan(Byte value) {
             addCriterion("is_paid <", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsPaidLessThanOrEqualTo(Byte value) {
             addCriterion("is_paid <=", value, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidIn(List<Boolean> values) {
+        public Criteria andIsPaidIn(List<Byte> values) {
             addCriterion("is_paid in", values, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidNotIn(List<Boolean> values) {
+        public Criteria andIsPaidNotIn(List<Byte> values) {
             addCriterion("is_paid not in", values, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPaidBetween(Byte value1, Byte value2) {
             addCriterion("is_paid between", value1, value2, "isPaid");
             return (Criteria) this;
         }
 
-        public Criteria andIsPaidNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsPaidNotBetween(Byte value1, Byte value2) {
             addCriterion("is_paid not between", value1, value2, "isPaid");
             return (Criteria) this;
         }

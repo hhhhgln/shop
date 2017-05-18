@@ -6,7 +6,7 @@
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
-    <result column="is_attention" property="isAttention" jdbcType="BIT" />
+    <result column="is_attention" property="isAttention" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -103,7 +103,7 @@
     insert into ecs_collect_goods (rec_id, user_id, goods_id, 
       add_time, is_attention)
     values (#{recId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{isAttention,jdbcType=BIT})
+      #{addTime,jdbcType=TIMESTAMP}, #{isAttention,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsCollectGoods" >
     insert into ecs_collect_goods
@@ -138,7 +138,7 @@
         #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isAttention != null" >
-        #{isAttention,jdbcType=BIT},
+        #{isAttention,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -164,7 +164,7 @@
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.isAttention != null" >
-        is_attention = #{record.isAttention,jdbcType=BIT},
+        is_attention = #{record.isAttention,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -177,7 +177,7 @@
       user_id = #{record.userId,jdbcType=INTEGER},
       goods_id = #{record.goodsId,jdbcType=INTEGER},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      is_attention = #{record.isAttention,jdbcType=BIT}
+      is_attention = #{record.isAttention,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -195,7 +195,7 @@
         add_time = #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isAttention != null" >
-        is_attention = #{isAttention,jdbcType=BIT},
+        is_attention = #{isAttention,jdbcType=TINYINT},
       </if>
     </set>
     where rec_id = #{recId,jdbcType=INTEGER}
@@ -205,7 +205,7 @@
     set user_id = #{userId,jdbcType=INTEGER},
       goods_id = #{goodsId,jdbcType=INTEGER},
       add_time = #{addTime,jdbcType=TIMESTAMP},
-      is_attention = #{isAttention,jdbcType=BIT}
+      is_attention = #{isAttention,jdbcType=TINYINT}
     where rec_id = #{recId,jdbcType=INTEGER}
   </update>
 </mapper>

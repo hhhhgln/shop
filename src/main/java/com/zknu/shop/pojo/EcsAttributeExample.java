@@ -304,52 +304,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeEqualTo(Boolean value) {
+        public Criteria andAttrInputTypeEqualTo(Byte value) {
             addCriterion("attr_input_type =", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeNotEqualTo(Boolean value) {
+        public Criteria andAttrInputTypeNotEqualTo(Byte value) {
             addCriterion("attr_input_type <>", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeGreaterThan(Boolean value) {
+        public Criteria andAttrInputTypeGreaterThan(Byte value) {
             addCriterion("attr_input_type >", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andAttrInputTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("attr_input_type >=", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeLessThan(Boolean value) {
+        public Criteria andAttrInputTypeLessThan(Byte value) {
             addCriterion("attr_input_type <", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andAttrInputTypeLessThanOrEqualTo(Byte value) {
             addCriterion("attr_input_type <=", value, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeIn(List<Boolean> values) {
+        public Criteria andAttrInputTypeIn(List<Byte> values) {
             addCriterion("attr_input_type in", values, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeNotIn(List<Boolean> values) {
+        public Criteria andAttrInputTypeNotIn(List<Byte> values) {
             addCriterion("attr_input_type not in", values, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrInputTypeBetween(Byte value1, Byte value2) {
             addCriterion("attr_input_type between", value1, value2, "attrInputType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrInputTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrInputTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("attr_input_type not between", value1, value2, "attrInputType");
             return (Criteria) this;
         }
@@ -364,52 +364,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeEqualTo(Boolean value) {
+        public Criteria andAttrTypeEqualTo(Byte value) {
             addCriterion("attr_type =", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeNotEqualTo(Boolean value) {
+        public Criteria andAttrTypeNotEqualTo(Byte value) {
             addCriterion("attr_type <>", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeGreaterThan(Boolean value) {
+        public Criteria andAttrTypeGreaterThan(Byte value) {
             addCriterion("attr_type >", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andAttrTypeGreaterThanOrEqualTo(Byte value) {
             addCriterion("attr_type >=", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeLessThan(Boolean value) {
+        public Criteria andAttrTypeLessThan(Byte value) {
             addCriterion("attr_type <", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeLessThanOrEqualTo(Boolean value) {
+        public Criteria andAttrTypeLessThanOrEqualTo(Byte value) {
             addCriterion("attr_type <=", value, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeIn(List<Boolean> values) {
+        public Criteria andAttrTypeIn(List<Byte> values) {
             addCriterion("attr_type in", values, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeNotIn(List<Boolean> values) {
+        public Criteria andAttrTypeNotIn(List<Byte> values) {
             addCriterion("attr_type not in", values, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrTypeBetween(Byte value1, Byte value2) {
             addCriterion("attr_type between", value1, value2, "attrType");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTypeNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrTypeNotBetween(Byte value1, Byte value2) {
             addCriterion("attr_type not between", value1, value2, "attrType");
             return (Criteria) this;
         }
@@ -424,52 +424,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexEqualTo(Boolean value) {
+        public Criteria andAttrIndexEqualTo(Byte value) {
             addCriterion("attr_index =", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexNotEqualTo(Boolean value) {
+        public Criteria andAttrIndexNotEqualTo(Byte value) {
             addCriterion("attr_index <>", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexGreaterThan(Boolean value) {
+        public Criteria andAttrIndexGreaterThan(Byte value) {
             addCriterion("attr_index >", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andAttrIndexGreaterThanOrEqualTo(Byte value) {
             addCriterion("attr_index >=", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexLessThan(Boolean value) {
+        public Criteria andAttrIndexLessThan(Byte value) {
             addCriterion("attr_index <", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexLessThanOrEqualTo(Boolean value) {
+        public Criteria andAttrIndexLessThanOrEqualTo(Byte value) {
             addCriterion("attr_index <=", value, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexIn(List<Boolean> values) {
+        public Criteria andAttrIndexIn(List<Byte> values) {
             addCriterion("attr_index in", values, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexNotIn(List<Boolean> values) {
+        public Criteria andAttrIndexNotIn(List<Byte> values) {
             addCriterion("attr_index not in", values, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrIndexBetween(Byte value1, Byte value2) {
             addCriterion("attr_index between", value1, value2, "attrIndex");
             return (Criteria) this;
         }
 
-        public Criteria andAttrIndexNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrIndexNotBetween(Byte value1, Byte value2) {
             addCriterion("attr_index not between", value1, value2, "attrIndex");
             return (Criteria) this;
         }
@@ -544,52 +544,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedEqualTo(Boolean value) {
+        public Criteria andIsLinkedEqualTo(Byte value) {
             addCriterion("is_linked =", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedNotEqualTo(Boolean value) {
+        public Criteria andIsLinkedNotEqualTo(Byte value) {
             addCriterion("is_linked <>", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedGreaterThan(Boolean value) {
+        public Criteria andIsLinkedGreaterThan(Byte value) {
             addCriterion("is_linked >", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsLinkedGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_linked >=", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedLessThan(Boolean value) {
+        public Criteria andIsLinkedLessThan(Byte value) {
             addCriterion("is_linked <", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsLinkedLessThanOrEqualTo(Byte value) {
             addCriterion("is_linked <=", value, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedIn(List<Boolean> values) {
+        public Criteria andIsLinkedIn(List<Byte> values) {
             addCriterion("is_linked in", values, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedNotIn(List<Boolean> values) {
+        public Criteria andIsLinkedNotIn(List<Byte> values) {
             addCriterion("is_linked not in", values, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsLinkedBetween(Byte value1, Byte value2) {
             addCriterion("is_linked between", value1, value2, "isLinked");
             return (Criteria) this;
         }
 
-        public Criteria andIsLinkedNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsLinkedNotBetween(Byte value1, Byte value2) {
             addCriterion("is_linked not between", value1, value2, "isLinked");
             return (Criteria) this;
         }
@@ -604,52 +604,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupEqualTo(Boolean value) {
+        public Criteria andAttrGroupEqualTo(Byte value) {
             addCriterion("attr_group =", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupNotEqualTo(Boolean value) {
+        public Criteria andAttrGroupNotEqualTo(Byte value) {
             addCriterion("attr_group <>", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupGreaterThan(Boolean value) {
+        public Criteria andAttrGroupGreaterThan(Byte value) {
             addCriterion("attr_group >", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andAttrGroupGreaterThanOrEqualTo(Byte value) {
             addCriterion("attr_group >=", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupLessThan(Boolean value) {
+        public Criteria andAttrGroupLessThan(Byte value) {
             addCriterion("attr_group <", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupLessThanOrEqualTo(Boolean value) {
+        public Criteria andAttrGroupLessThanOrEqualTo(Byte value) {
             addCriterion("attr_group <=", value, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupIn(List<Boolean> values) {
+        public Criteria andAttrGroupIn(List<Byte> values) {
             addCriterion("attr_group in", values, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupNotIn(List<Boolean> values) {
+        public Criteria andAttrGroupNotIn(List<Byte> values) {
             addCriterion("attr_group not in", values, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrGroupBetween(Byte value1, Byte value2) {
             addCriterion("attr_group between", value1, value2, "attrGroup");
             return (Criteria) this;
         }
 
-        public Criteria andAttrGroupNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrGroupNotBetween(Byte value1, Byte value2) {
             addCriterion("attr_group not between", value1, value2, "attrGroup");
             return (Criteria) this;
         }
@@ -664,52 +664,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryEqualTo(Boolean value) {
+        public Criteria andIsAttrGalleryEqualTo(Byte value) {
             addCriterion("is_attr_gallery =", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryNotEqualTo(Boolean value) {
+        public Criteria andIsAttrGalleryNotEqualTo(Byte value) {
             addCriterion("is_attr_gallery <>", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryGreaterThan(Boolean value) {
+        public Criteria andIsAttrGalleryGreaterThan(Byte value) {
             addCriterion("is_attr_gallery >", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttrGalleryGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_attr_gallery >=", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryLessThan(Boolean value) {
+        public Criteria andIsAttrGalleryLessThan(Byte value) {
             addCriterion("is_attr_gallery <", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttrGalleryLessThanOrEqualTo(Byte value) {
             addCriterion("is_attr_gallery <=", value, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryIn(List<Boolean> values) {
+        public Criteria andIsAttrGalleryIn(List<Byte> values) {
             addCriterion("is_attr_gallery in", values, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryNotIn(List<Boolean> values) {
+        public Criteria andIsAttrGalleryNotIn(List<Byte> values) {
             addCriterion("is_attr_gallery not in", values, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttrGalleryBetween(Byte value1, Byte value2) {
             addCriterion("is_attr_gallery between", value1, value2, "isAttrGallery");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttrGalleryNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttrGalleryNotBetween(Byte value1, Byte value2) {
             addCriterion("is_attr_gallery not between", value1, value2, "isAttrGallery");
             return (Criteria) this;
         }
@@ -724,52 +724,52 @@ public class EcsAttributeExample {
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmEqualTo(Boolean value) {
+        public Criteria andAttrTxmEqualTo(Byte value) {
             addCriterion("attr_txm =", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmNotEqualTo(Boolean value) {
+        public Criteria andAttrTxmNotEqualTo(Byte value) {
             addCriterion("attr_txm <>", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmGreaterThan(Boolean value) {
+        public Criteria andAttrTxmGreaterThan(Byte value) {
             addCriterion("attr_txm >", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andAttrTxmGreaterThanOrEqualTo(Byte value) {
             addCriterion("attr_txm >=", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmLessThan(Boolean value) {
+        public Criteria andAttrTxmLessThan(Byte value) {
             addCriterion("attr_txm <", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmLessThanOrEqualTo(Boolean value) {
+        public Criteria andAttrTxmLessThanOrEqualTo(Byte value) {
             addCriterion("attr_txm <=", value, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmIn(List<Boolean> values) {
+        public Criteria andAttrTxmIn(List<Byte> values) {
             addCriterion("attr_txm in", values, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmNotIn(List<Boolean> values) {
+        public Criteria andAttrTxmNotIn(List<Byte> values) {
             addCriterion("attr_txm not in", values, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrTxmBetween(Byte value1, Byte value2) {
             addCriterion("attr_txm between", value1, value2, "attrTxm");
             return (Criteria) this;
         }
 
-        public Criteria andAttrTxmNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andAttrTxmNotBetween(Byte value1, Byte value2) {
             addCriterion("attr_txm not between", value1, value2, "attrTxm");
             return (Criteria) this;
         }

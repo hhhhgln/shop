@@ -2,9 +2,8 @@ package com.zknu.shop.mapper;
 
 import com.zknu.shop.pojo.EcsArticleCat;
 import com.zknu.shop.pojo.EcsArticleCatExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface EcsArticleCatMapper {
     int countByExample(EcsArticleCatExample example);

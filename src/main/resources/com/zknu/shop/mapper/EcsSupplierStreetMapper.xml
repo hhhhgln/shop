@@ -3,15 +3,15 @@
 <mapper namespace="com.zknu.shop.mapper.EcsSupplierStreetMapper" >
   <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsSupplierStreet" >
     <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
-    <result column="supplier_type" property="supplierType" jdbcType="BIT" />
+    <result column="supplier_type" property="supplierType" jdbcType="TINYINT" />
     <result column="supplier_name" property="supplierName" jdbcType="VARCHAR" />
     <result column="supplier_title" property="supplierTitle" jdbcType="VARCHAR" />
     <result column="supplier_tags" property="supplierTags" jdbcType="VARCHAR" />
     <result column="logo" property="logo" jdbcType="VARCHAR" />
     <result column="is_groom" property="isGroom" jdbcType="TINYINT" />
     <result column="is_show" property="isShow" jdbcType="TINYINT" />
-    <result column="sort_order" property="sortOrder" jdbcType="BIT" />
-    <result column="status" property="status" jdbcType="BIT" />
+    <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
+    <result column="status" property="status" jdbcType="TINYINT" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsSupplierStreetWithBLOBs" extends="BaseResultMap" >
@@ -125,10 +125,10 @@
       is_groom, is_show, sort_order, 
       status, add_time, supplier_desc, 
       supplier_notice)
-    values (#{supplierId,jdbcType=INTEGER}, #{supplierType,jdbcType=BIT}, #{supplierName,jdbcType=VARCHAR}, 
+    values (#{supplierId,jdbcType=INTEGER}, #{supplierType,jdbcType=TINYINT}, #{supplierName,jdbcType=VARCHAR}, 
       #{supplierTitle,jdbcType=VARCHAR}, #{supplierTags,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
-      #{isGroom,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, #{sortOrder,jdbcType=BIT}, 
-      #{status,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, #{supplierDesc,jdbcType=LONGVARCHAR}, 
+      #{isGroom,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, #{sortOrder,jdbcType=TINYINT}, 
+      #{status,jdbcType=TINYINT}, #{addTime,jdbcType=TIMESTAMP}, #{supplierDesc,jdbcType=LONGVARCHAR}, 
       #{supplierNotice,jdbcType=LONGVARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsSupplierStreetWithBLOBs" >
@@ -179,7 +179,7 @@
         #{supplierId,jdbcType=INTEGER},
       </if>
       <if test="supplierType != null" >
-        #{supplierType,jdbcType=BIT},
+        #{supplierType,jdbcType=TINYINT},
       </if>
       <if test="supplierName != null" >
         #{supplierName,jdbcType=VARCHAR},
@@ -200,10 +200,10 @@
         #{isShow,jdbcType=TINYINT},
       </if>
       <if test="sortOrder != null" >
-        #{sortOrder,jdbcType=BIT},
+        #{sortOrder,jdbcType=TINYINT},
       </if>
       <if test="status != null" >
-        #{status,jdbcType=BIT},
+        #{status,jdbcType=TINYINT},
       </if>
       <if test="addTime != null" >
         #{addTime,jdbcType=TIMESTAMP},
@@ -229,7 +229,7 @@
         supplier_id = #{record.supplierId,jdbcType=INTEGER},
       </if>
       <if test="record.supplierType != null" >
-        supplier_type = #{record.supplierType,jdbcType=BIT},
+        supplier_type = #{record.supplierType,jdbcType=TINYINT},
       </if>
       <if test="record.supplierName != null" >
         supplier_name = #{record.supplierName,jdbcType=VARCHAR},
@@ -250,10 +250,10 @@
         is_show = #{record.isShow,jdbcType=TINYINT},
       </if>
       <if test="record.sortOrder != null" >
-        sort_order = #{record.sortOrder,jdbcType=BIT},
+        sort_order = #{record.sortOrder,jdbcType=TINYINT},
       </if>
       <if test="record.status != null" >
-        status = #{record.status,jdbcType=BIT},
+        status = #{record.status,jdbcType=TINYINT},
       </if>
       <if test="record.addTime != null" >
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
@@ -272,15 +272,15 @@
   <update id="updateByExampleWithBLOBs" parameterType="map" >
     update ecs_supplier_street
     set supplier_id = #{record.supplierId,jdbcType=INTEGER},
-      supplier_type = #{record.supplierType,jdbcType=BIT},
+      supplier_type = #{record.supplierType,jdbcType=TINYINT},
       supplier_name = #{record.supplierName,jdbcType=VARCHAR},
       supplier_title = #{record.supplierTitle,jdbcType=VARCHAR},
       supplier_tags = #{record.supplierTags,jdbcType=VARCHAR},
       logo = #{record.logo,jdbcType=VARCHAR},
       is_groom = #{record.isGroom,jdbcType=TINYINT},
       is_show = #{record.isShow,jdbcType=TINYINT},
-      sort_order = #{record.sortOrder,jdbcType=BIT},
-      status = #{record.status,jdbcType=BIT},
+      sort_order = #{record.sortOrder,jdbcType=TINYINT},
+      status = #{record.status,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
       supplier_desc = #{record.supplierDesc,jdbcType=LONGVARCHAR},
       supplier_notice = #{record.supplierNotice,jdbcType=LONGVARCHAR}
@@ -291,15 +291,15 @@
   <update id="updateByExample" parameterType="map" >
     update ecs_supplier_street
     set supplier_id = #{record.supplierId,jdbcType=INTEGER},
-      supplier_type = #{record.supplierType,jdbcType=BIT},
+      supplier_type = #{record.supplierType,jdbcType=TINYINT},
       supplier_name = #{record.supplierName,jdbcType=VARCHAR},
       supplier_title = #{record.supplierTitle,jdbcType=VARCHAR},
       supplier_tags = #{record.supplierTags,jdbcType=VARCHAR},
       logo = #{record.logo,jdbcType=VARCHAR},
       is_groom = #{record.isGroom,jdbcType=TINYINT},
       is_show = #{record.isShow,jdbcType=TINYINT},
-      sort_order = #{record.sortOrder,jdbcType=BIT},
-      status = #{record.status,jdbcType=BIT},
+      sort_order = #{record.sortOrder,jdbcType=TINYINT},
+      status = #{record.status,jdbcType=TINYINT},
       add_time = #{record.addTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />

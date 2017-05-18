@@ -21,15 +21,15 @@ public class EcsBackGoods {
 
     private Short sendNumber;
 
-    private Boolean backType;
+    private Byte backType;
 
     private BigDecimal backGoodsPrice;
 
     private Short backGoodsNumber;
 
-    private Boolean statusBack;
+    private Byte statusBack;
 
-    private Boolean statusRefund;
+    private Byte statusRefund;
 
     private String goodsAttr;
 
@@ -105,11 +105,11 @@ public class EcsBackGoods {
         this.sendNumber = sendNumber;
     }
 
-    public Boolean getBackType() {
+    public Byte getBackType() {
         return backType;
     }
 
-    public void setBackType(Boolean backType) {
+    public void setBackType(Byte backType) {
         this.backType = backType;
     }
 
@@ -129,19 +129,19 @@ public class EcsBackGoods {
         this.backGoodsNumber = backGoodsNumber;
     }
 
-    public Boolean getStatusBack() {
+    public Byte getStatusBack() {
         return statusBack;
     }
 
-    public void setStatusBack(Boolean statusBack) {
+    public void setStatusBack(Byte statusBack) {
         this.statusBack = statusBack;
     }
 
-    public Boolean getStatusRefund() {
+    public Byte getStatusRefund() {
         return statusRefund;
     }
 
-    public void setStatusRefund(Boolean statusRefund) {
+    public void setStatusRefund(Byte statusRefund) {
         this.statusRefund = statusRefund;
     }
 

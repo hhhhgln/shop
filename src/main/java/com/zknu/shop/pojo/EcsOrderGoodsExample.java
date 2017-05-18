@@ -745,52 +745,52 @@ public class EcsOrderGoodsExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateEqualTo(Boolean value) {
+        public Criteria andCommentStateEqualTo(Byte value) {
             addCriterion("comment_state =", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateNotEqualTo(Boolean value) {
+        public Criteria andCommentStateNotEqualTo(Byte value) {
             addCriterion("comment_state <>", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateGreaterThan(Boolean value) {
+        public Criteria andCommentStateGreaterThan(Byte value) {
             addCriterion("comment_state >", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andCommentStateGreaterThanOrEqualTo(Byte value) {
             addCriterion("comment_state >=", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateLessThan(Boolean value) {
+        public Criteria andCommentStateLessThan(Byte value) {
             addCriterion("comment_state <", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateLessThanOrEqualTo(Boolean value) {
+        public Criteria andCommentStateLessThanOrEqualTo(Byte value) {
             addCriterion("comment_state <=", value, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateIn(List<Boolean> values) {
+        public Criteria andCommentStateIn(List<Byte> values) {
             addCriterion("comment_state in", values, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateNotIn(List<Boolean> values) {
+        public Criteria andCommentStateNotIn(List<Byte> values) {
             addCriterion("comment_state not in", values, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentStateBetween(Byte value1, Byte value2) {
             addCriterion("comment_state between", value1, value2, "commentState");
             return (Criteria) this;
         }
 
-        public Criteria andCommentStateNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentStateNotBetween(Byte value1, Byte value2) {
             addCriterion("comment_state not between", value1, value2, "commentState");
             return (Criteria) this;
         }
@@ -805,52 +805,52 @@ public class EcsOrderGoodsExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsBackEqualTo(Boolean value) {
+        public Criteria andIsBackEqualTo(Byte value) {
             addCriterion("is_back =", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackNotEqualTo(Boolean value) {
+        public Criteria andIsBackNotEqualTo(Byte value) {
             addCriterion("is_back <>", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackGreaterThan(Boolean value) {
+        public Criteria andIsBackGreaterThan(Byte value) {
             addCriterion("is_back >", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsBackGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_back >=", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackLessThan(Boolean value) {
+        public Criteria andIsBackLessThan(Byte value) {
             addCriterion("is_back <", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsBackLessThanOrEqualTo(Byte value) {
             addCriterion("is_back <=", value, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackIn(List<Boolean> values) {
+        public Criteria andIsBackIn(List<Byte> values) {
             addCriterion("is_back in", values, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackNotIn(List<Boolean> values) {
+        public Criteria andIsBackNotIn(List<Byte> values) {
             addCriterion("is_back not in", values, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsBackBetween(Byte value1, Byte value2) {
             addCriterion("is_back between", value1, value2, "isBack");
             return (Criteria) this;
         }
 
-        public Criteria andIsBackNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsBackNotBetween(Byte value1, Byte value2) {
             addCriterion("is_back not between", value1, value2, "isBack");
             return (Criteria) this;
         }

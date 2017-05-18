@@ -6,13 +6,13 @@
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="VARCHAR" />
     <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
-    <result column="comment_rank" property="commentRank" jdbcType="BIT" />
-    <result column="server" property="server" jdbcType="BIT" />
-    <result column="send" property="send" jdbcType="BIT" />
-    <result column="shipping" property="shipping" jdbcType="BIT" />
+    <result column="comment_rank" property="commentRank" jdbcType="TINYINT" />
+    <result column="server" property="server" jdbcType="TINYINT" />
+    <result column="send" property="send" jdbcType="TINYINT" />
+    <result column="shipping" property="shipping" jdbcType="TINYINT" />
     <result column="order_id" property="orderId" jdbcType="INTEGER" />
     <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
-    <result column="is_comment" property="isComment" jdbcType="BIT" />
+    <result column="is_comment" property="isComment" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -109,12 +109,12 @@
   <insert id="insert" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
     insert into ecs_shop_grade (grade_id, user_id, user_name, 
       add_time, comment_rank, server, 
-      send, shipping, order_id, order_sn, 
-      is_comment)
+      send, shipping, order_id, 
+      order_sn, is_comment)
     values (#{gradeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
-      #{addTime,jdbcType=TIMESTAMP}, #{commentRank,jdbcType=BIT}, #{server,jdbcType=BIT}, 
-      #{send,jdbcType=BIT}, #{shipping,jdbcType=BIT}, #{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, 
-      #{isComment,jdbcType=BIT})
+      #{addTime,jdbcType=TIMESTAMP}, #{commentRank,jdbcType=TINYINT}, #{server,jdbcType=TINYINT}, 
+      #{send,jdbcType=TINYINT}, #{shipping,jdbcType=TINYINT}, #{orderId,jdbcType=INTEGER}, 
+      #{orderSn,jdbcType=VARCHAR}, #{isComment,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
     insert into ecs_shop_grade
@@ -167,16 +167,16 @@
         #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="commentRank != null" >
-        #{commentRank,jdbcType=BIT},
+        #{commentRank,jdbcType=TINYINT},
       </if>
       <if test="server != null" >
-        #{server,jdbcType=BIT},
+        #{server,jdbcType=TINYINT},
       </if>
       <if test="send != null" >
-        #{send,jdbcType=BIT},
+        #{send,jdbcType=TINYINT},
       </if>
       <if test="shipping != null" >
-        #{shipping,jdbcType=BIT},
+        #{shipping,jdbcType=TINYINT},
       </if>
       <if test="orderId != null" >
         #{orderId,jdbcType=INTEGER},
@@ -185,7 +185,7 @@
         #{orderSn,jdbcType=VARCHAR},
       </if>
       <if test="isComment != null" >
-        #{isComment,jdbcType=BIT},
+        #{isComment,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -211,16 +211,16 @@
         add_time = #{record.addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="record.commentRank != null" >
-        comment_rank = #{record.commentRank,jdbcType=BIT},
+        comment_rank = #{record.commentRank,jdbcType=TINYINT},
       </if>
       <if test="record.server != null" >
-        server = #{record.server,jdbcType=BIT},
+        server = #{record.server,jdbcType=TINYINT},
       </if>
       <if test="record.send != null" >
-        send = #{record.send,jdbcType=BIT},
+        send = #{record.send,jdbcType=TINYINT},
       </if>
       <if test="record.shipping != null" >
-        shipping = #{record.shipping,jdbcType=BIT},
+        shipping = #{record.shipping,jdbcType=TINYINT},
       </if>
       <if test="record.orderId != null" >
         order_id = #{record.orderId,jdbcType=INTEGER},
@@ -229,7 +229,7 @@
         order_sn = #{record.orderSn,jdbcType=VARCHAR},
       </if>
       <if test="record.isComment != null" >
-        is_comment = #{record.isComment,jdbcType=BIT},
+        is_comment = #{record.isComment,jdbcType=TINYINT},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -242,13 +242,13 @@
       user_id = #{record.userId,jdbcType=INTEGER},
       user_name = #{record.userName,jdbcType=VARCHAR},
       add_time = #{record.addTime,jdbcType=TIMESTAMP},
-      comment_rank = #{record.commentRank,jdbcType=BIT},
-      server = #{record.server,jdbcType=BIT},
-      send = #{record.send,jdbcType=BIT},
-      shipping = #{record.shipping,jdbcType=BIT},
+      comment_rank = #{record.commentRank,jdbcType=TINYINT},
+      server = #{record.server,jdbcType=TINYINT},
+      send = #{record.send,jdbcType=TINYINT},
+      shipping = #{record.shipping,jdbcType=TINYINT},
       order_id = #{record.orderId,jdbcType=INTEGER},
       order_sn = #{record.orderSn,jdbcType=VARCHAR},
-      is_comment = #{record.isComment,jdbcType=BIT}
+      is_comment = #{record.isComment,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -266,16 +266,16 @@
         add_time = #{addTime,jdbcType=TIMESTAMP},
       </if>
       <if test="commentRank != null" >
-        comment_rank = #{commentRank,jdbcType=BIT},
+        comment_rank = #{commentRank,jdbcType=TINYINT},
       </if>
       <if test="server != null" >
-        server = #{server,jdbcType=BIT},
+        server = #{server,jdbcType=TINYINT},
       </if>
       <if test="send != null" >
-        send = #{send,jdbcType=BIT},
+        send = #{send,jdbcType=TINYINT},
       </if>
       <if test="shipping != null" >
-        shipping = #{shipping,jdbcType=BIT},
+        shipping = #{shipping,jdbcType=TINYINT},
       </if>
       <if test="orderId != null" >
         order_id = #{orderId,jdbcType=INTEGER},
@@ -284,7 +284,7 @@
         order_sn = #{orderSn,jdbcType=VARCHAR},
       </if>
       <if test="isComment != null" >
-        is_comment = #{isComment,jdbcType=BIT},
+        is_comment = #{isComment,jdbcType=TINYINT},
       </if>
     </set>
     where grade_id = #{gradeId,jdbcType=INTEGER}
@@ -294,13 +294,13 @@
     set user_id = #{userId,jdbcType=INTEGER},
       user_name = #{userName,jdbcType=VARCHAR},
       add_time = #{addTime,jdbcType=TIMESTAMP},
-      comment_rank = #{commentRank,jdbcType=BIT},
-      server = #{server,jdbcType=BIT},
-      send = #{send,jdbcType=BIT},
-      shipping = #{shipping,jdbcType=BIT},
+      comment_rank = #{commentRank,jdbcType=TINYINT},
+      server = #{server,jdbcType=TINYINT},
+      send = #{send,jdbcType=TINYINT},
+      shipping = #{shipping,jdbcType=TINYINT},
       order_id = #{orderId,jdbcType=INTEGER},
       order_sn = #{orderSn,jdbcType=VARCHAR},
-      is_comment = #{isComment,jdbcType=BIT}
+      is_comment = #{isComment,jdbcType=TINYINT}
     where grade_id = #{gradeId,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -365,52 +365,52 @@ public class EcsShopGradeExample {
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankEqualTo(Boolean value) {
+        public Criteria andCommentRankEqualTo(Byte value) {
             addCriterion("comment_rank =", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotEqualTo(Boolean value) {
+        public Criteria andCommentRankNotEqualTo(Byte value) {
             addCriterion("comment_rank <>", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankGreaterThan(Boolean value) {
+        public Criteria andCommentRankGreaterThan(Byte value) {
             addCriterion("comment_rank >", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andCommentRankGreaterThanOrEqualTo(Byte value) {
             addCriterion("comment_rank >=", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankLessThan(Boolean value) {
+        public Criteria andCommentRankLessThan(Byte value) {
             addCriterion("comment_rank <", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankLessThanOrEqualTo(Boolean value) {
+        public Criteria andCommentRankLessThanOrEqualTo(Byte value) {
             addCriterion("comment_rank <=", value, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankIn(List<Boolean> values) {
+        public Criteria andCommentRankIn(List<Byte> values) {
             addCriterion("comment_rank in", values, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotIn(List<Boolean> values) {
+        public Criteria andCommentRankNotIn(List<Byte> values) {
             addCriterion("comment_rank not in", values, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentRankBetween(Byte value1, Byte value2) {
             addCriterion("comment_rank between", value1, value2, "commentRank");
             return (Criteria) this;
         }
 
-        public Criteria andCommentRankNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andCommentRankNotBetween(Byte value1, Byte value2) {
             addCriterion("comment_rank not between", value1, value2, "commentRank");
             return (Criteria) this;
         }
@@ -425,52 +425,52 @@ public class EcsShopGradeExample {
             return (Criteria) this;
         }
 
-        public Criteria andServerEqualTo(Boolean value) {
+        public Criteria andServerEqualTo(Byte value) {
             addCriterion("server =", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerNotEqualTo(Boolean value) {
+        public Criteria andServerNotEqualTo(Byte value) {
             addCriterion("server <>", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerGreaterThan(Boolean value) {
+        public Criteria andServerGreaterThan(Byte value) {
             addCriterion("server >", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andServerGreaterThanOrEqualTo(Byte value) {
             addCriterion("server >=", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerLessThan(Boolean value) {
+        public Criteria andServerLessThan(Byte value) {
             addCriterion("server <", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerLessThanOrEqualTo(Boolean value) {
+        public Criteria andServerLessThanOrEqualTo(Byte value) {
             addCriterion("server <=", value, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerIn(List<Boolean> values) {
+        public Criteria andServerIn(List<Byte> values) {
             addCriterion("server in", values, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerNotIn(List<Boolean> values) {
+        public Criteria andServerNotIn(List<Byte> values) {
             addCriterion("server not in", values, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerBetween(Boolean value1, Boolean value2) {
+        public Criteria andServerBetween(Byte value1, Byte value2) {
             addCriterion("server between", value1, value2, "server");
             return (Criteria) this;
         }
 
-        public Criteria andServerNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andServerNotBetween(Byte value1, Byte value2) {
             addCriterion("server not between", value1, value2, "server");
             return (Criteria) this;
         }
@@ -485,52 +485,52 @@ public class EcsShopGradeExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendEqualTo(Boolean value) {
+        public Criteria andSendEqualTo(Byte value) {
             addCriterion("send =", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendNotEqualTo(Boolean value) {
+        public Criteria andSendNotEqualTo(Byte value) {
             addCriterion("send <>", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendGreaterThan(Boolean value) {
+        public Criteria andSendGreaterThan(Byte value) {
             addCriterion("send >", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andSendGreaterThanOrEqualTo(Byte value) {
             addCriterion("send >=", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendLessThan(Boolean value) {
+        public Criteria andSendLessThan(Byte value) {
             addCriterion("send <", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendLessThanOrEqualTo(Boolean value) {
+        public Criteria andSendLessThanOrEqualTo(Byte value) {
             addCriterion("send <=", value, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendIn(List<Boolean> values) {
+        public Criteria andSendIn(List<Byte> values) {
             addCriterion("send in", values, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendNotIn(List<Boolean> values) {
+        public Criteria andSendNotIn(List<Byte> values) {
             addCriterion("send not in", values, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendBetween(Boolean value1, Boolean value2) {
+        public Criteria andSendBetween(Byte value1, Byte value2) {
             addCriterion("send between", value1, value2, "send");
             return (Criteria) this;
         }
 
-        public Criteria andSendNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andSendNotBetween(Byte value1, Byte value2) {
             addCriterion("send not between", value1, value2, "send");
             return (Criteria) this;
         }
@@ -545,52 +545,52 @@ public class EcsShopGradeExample {
             return (Criteria) this;
         }
 
-        public Criteria andShippingEqualTo(Boolean value) {
+        public Criteria andShippingEqualTo(Byte value) {
             addCriterion("shipping =", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingNotEqualTo(Boolean value) {
+        public Criteria andShippingNotEqualTo(Byte value) {
             addCriterion("shipping <>", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingGreaterThan(Boolean value) {
+        public Criteria andShippingGreaterThan(Byte value) {
             addCriterion("shipping >", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andShippingGreaterThanOrEqualTo(Byte value) {
             addCriterion("shipping >=", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingLessThan(Boolean value) {
+        public Criteria andShippingLessThan(Byte value) {
             addCriterion("shipping <", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingLessThanOrEqualTo(Boolean value) {
+        public Criteria andShippingLessThanOrEqualTo(Byte value) {
             addCriterion("shipping <=", value, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingIn(List<Boolean> values) {
+        public Criteria andShippingIn(List<Byte> values) {
             addCriterion("shipping in", values, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingNotIn(List<Boolean> values) {
+        public Criteria andShippingNotIn(List<Byte> values) {
             addCriterion("shipping not in", values, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingBetween(Boolean value1, Boolean value2) {
+        public Criteria andShippingBetween(Byte value1, Byte value2) {
             addCriterion("shipping between", value1, value2, "shipping");
             return (Criteria) this;
         }
 
-        public Criteria andShippingNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andShippingNotBetween(Byte value1, Byte value2) {
             addCriterion("shipping not between", value1, value2, "shipping");
             return (Criteria) this;
         }
@@ -735,52 +735,52 @@ public class EcsShopGradeExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentEqualTo(Boolean value) {
+        public Criteria andIsCommentEqualTo(Byte value) {
             addCriterion("is_comment =", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentNotEqualTo(Boolean value) {
+        public Criteria andIsCommentNotEqualTo(Byte value) {
             addCriterion("is_comment <>", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentGreaterThan(Boolean value) {
+        public Criteria andIsCommentGreaterThan(Byte value) {
             addCriterion("is_comment >", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsCommentGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_comment >=", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentLessThan(Boolean value) {
+        public Criteria andIsCommentLessThan(Byte value) {
             addCriterion("is_comment <", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsCommentLessThanOrEqualTo(Byte value) {
             addCriterion("is_comment <=", value, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentIn(List<Boolean> values) {
+        public Criteria andIsCommentIn(List<Byte> values) {
             addCriterion("is_comment in", values, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentNotIn(List<Boolean> values) {
+        public Criteria andIsCommentNotIn(List<Byte> values) {
             addCriterion("is_comment not in", values, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsCommentBetween(Byte value1, Byte value2) {
             addCriterion("is_comment between", value1, value2, "isComment");
             return (Criteria) this;
         }
 
-        public Criteria andIsCommentNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsCommentNotBetween(Byte value1, Byte value2) {
             addCriterion("is_comment not between", value1, value2, "isComment");
             return (Criteria) this;
         }

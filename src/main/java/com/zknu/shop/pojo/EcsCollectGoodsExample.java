@@ -355,52 +355,52 @@ public class EcsCollectGoodsExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionEqualTo(Boolean value) {
+        public Criteria andIsAttentionEqualTo(Byte value) {
             addCriterion("is_attention =", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionNotEqualTo(Boolean value) {
+        public Criteria andIsAttentionNotEqualTo(Byte value) {
             addCriterion("is_attention <>", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionGreaterThan(Boolean value) {
+        public Criteria andIsAttentionGreaterThan(Byte value) {
             addCriterion("is_attention >", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionGreaterThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttentionGreaterThanOrEqualTo(Byte value) {
             addCriterion("is_attention >=", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionLessThan(Boolean value) {
+        public Criteria andIsAttentionLessThan(Byte value) {
             addCriterion("is_attention <", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionLessThanOrEqualTo(Boolean value) {
+        public Criteria andIsAttentionLessThanOrEqualTo(Byte value) {
             addCriterion("is_attention <=", value, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionIn(List<Boolean> values) {
+        public Criteria andIsAttentionIn(List<Byte> values) {
             addCriterion("is_attention in", values, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionNotIn(List<Boolean> values) {
+        public Criteria andIsAttentionNotIn(List<Byte> values) {
             addCriterion("is_attention not in", values, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttentionBetween(Byte value1, Byte value2) {
             addCriterion("is_attention between", value1, value2, "isAttention");
             return (Criteria) this;
         }
 
-        public Criteria andIsAttentionNotBetween(Boolean value1, Boolean value2) {
+        public Criteria andIsAttentionNotBetween(Byte value1, Byte value2) {
             addCriterion("is_attention not between", value1, value2, "isAttention");
             return (Criteria) this;
         }

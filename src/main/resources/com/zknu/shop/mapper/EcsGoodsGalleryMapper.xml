@@ -9,7 +9,7 @@
     <result column="thumb_url" property="thumbUrl" jdbcType="VARCHAR" />
     <result column="img_original" property="imgOriginal" jdbcType="VARCHAR" />
     <result column="goods_attr_id" property="goodsAttrId" jdbcType="INTEGER" />
-    <result column="is_attr_image" property="isAttrImage" jdbcType="BIT" />
+    <result column="is_attr_image" property="isAttrImage" jdbcType="TINYINT" />
     <result column="img_sort" property="imgSort" jdbcType="TINYINT" />
   </resultMap>
   <sql id="Example_Where_Clause" >
@@ -111,7 +111,7 @@
       )
     values (#{imgId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, #{imgUrl,jdbcType=VARCHAR}, 
       #{imgDesc,jdbcType=VARCHAR}, #{thumbUrl,jdbcType=VARCHAR}, #{imgOriginal,jdbcType=VARCHAR}, 
-      #{goodsAttrId,jdbcType=INTEGER}, #{isAttrImage,jdbcType=BIT}, #{imgSort,jdbcType=TINYINT}
+      #{goodsAttrId,jdbcType=INTEGER}, #{isAttrImage,jdbcType=TINYINT}, #{imgSort,jdbcType=TINYINT}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsGoodsGallery" >
@@ -168,7 +168,7 @@
         #{goodsAttrId,jdbcType=INTEGER},
       </if>
       <if test="isAttrImage != null" >
-        #{isAttrImage,jdbcType=BIT},
+        #{isAttrImage,jdbcType=TINYINT},
       </if>
       <if test="imgSort != null" >
         #{imgSort,jdbcType=TINYINT},
@@ -206,7 +206,7 @@
         goods_attr_id = #{record.goodsAttrId,jdbcType=INTEGER},
       </if>
       <if test="record.isAttrImage != null" >
-        is_attr_image = #{record.isAttrImage,jdbcType=BIT},
+        is_attr_image = #{record.isAttrImage,jdbcType=TINYINT},
       </if>
       <if test="record.imgSort != null" >
         img_sort = #{record.imgSort,jdbcType=TINYINT},
@@ -225,7 +225,7 @@
       thumb_url = #{record.thumbUrl,jdbcType=VARCHAR},
       img_original = #{record.imgOriginal,jdbcType=VARCHAR},
       goods_attr_id = #{record.goodsAttrId,jdbcType=INTEGER},
-      is_attr_image = #{record.isAttrImage,jdbcType=BIT},
+      is_attr_image = #{record.isAttrImage,jdbcType=TINYINT},
       img_sort = #{record.imgSort,jdbcType=TINYINT}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -253,7 +253,7 @@
         goods_attr_id = #{goodsAttrId,jdbcType=INTEGER},
       </if>
       <if test="isAttrImage != null" >
-        is_attr_image = #{isAttrImage,jdbcType=BIT},
+        is_attr_image = #{isAttrImage,jdbcType=TINYINT},
       </if>
       <if test="imgSort != null" >
         img_sort = #{imgSort,jdbcType=TINYINT},
@@ -269,7 +269,7 @@
       thumb_url = #{thumbUrl,jdbcType=VARCHAR},
       img_original = #{imgOriginal,jdbcType=VARCHAR},
       goods_attr_id = #{goodsAttrId,jdbcType=INTEGER},
-      is_attr_image = #{isAttrImage,jdbcType=BIT},
+      is_attr_image = #{isAttrImage,jdbcType=TINYINT},
       img_sort = #{imgSort,jdbcType=TINYINT}
     where img_id = #{imgId,jdbcType=INTEGER}
   </update>
