@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsAttributeMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsAttribute" >
+    <id column="attr_id" property="attrId" jdbcType="SMALLINT" />
+    <result column="cat_id" property="catId" jdbcType="SMALLINT" />
+    <result column="attr_name" property="attrName" jdbcType="VARCHAR" />
+    <result column="attr_input_type" property="attrInputType" jdbcType="BIT" />
+    <result column="attr_type" property="attrType" jdbcType="BIT" />
+    <result column="attr_index" property="attrIndex" jdbcType="BIT" />
+    <result column="sort_order" property="sortOrder" jdbcType="TINYINT" />
+    <result column="is_linked" property="isLinked" jdbcType="BIT" />
+    <result column="attr_group" property="attrGroup" jdbcType="BIT" />
+    <result column="is_attr_gallery" property="isAttrGallery" jdbcType="BIT" />
+    <result column="attr_txm" property="attrTxm" jdbcType="BIT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsAttribute" extends="BaseResultMap" >
+    <result column="attr_values" property="attrValues" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    attr_id, cat_id, attr_name, attr_input_type, attr_type, attr_index, sort_order, is_linked, 
+    attr_group, is_attr_gallery, attr_txm
+  </sql>
+  <sql id="Blob_Column_List" >
+    attr_values
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsAttributeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_attribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsAttributeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_attribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_attribute
+    where attr_id = #{attrId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from ecs_attribute
+    where attr_id = #{attrId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsAttributeExample" >
+    delete from ecs_attribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsAttribute" >
+    insert into ecs_attribute (attr_id, cat_id, attr_name, 
+      attr_input_type, attr_type, attr_index, 
+      sort_order, is_linked, attr_group, 
+      is_attr_gallery, attr_txm, attr_values
+      )
+    values (#{attrId,jdbcType=SMALLINT}, #{catId,jdbcType=SMALLINT}, #{attrName,jdbcType=VARCHAR}, 
+      #{attrInputType,jdbcType=BIT}, #{attrType,jdbcType=BIT}, #{attrIndex,jdbcType=BIT}, 
+      #{sortOrder,jdbcType=TINYINT}, #{isLinked,jdbcType=BIT}, #{attrGroup,jdbcType=BIT}, 
+      #{isAttrGallery,jdbcType=BIT}, #{attrTxm,jdbcType=BIT}, #{attrValues,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsAttribute" >
+    insert into ecs_attribute
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="attrId != null" >
+        attr_id,
+      </if>
+      <if test="catId != null" >
+        cat_id,
+      </if>
+      <if test="attrName != null" >
+        attr_name,
+      </if>
+      <if test="attrInputType != null" >
+        attr_input_type,
+      </if>
+      <if test="attrType != null" >
+        attr_type,
+      </if>
+      <if test="attrIndex != null" >
+        attr_index,
+      </if>
+      <if test="sortOrder != null" >
+        sort_order,
+      </if>
+      <if test="isLinked != null" >
+        is_linked,
+      </if>
+      <if test="attrGroup != null" >
+        attr_group,
+      </if>
+      <if test="isAttrGallery != null" >
+        is_attr_gallery,
+      </if>
+      <if test="attrTxm != null" >
+        attr_txm,
+      </if>
+      <if test="attrValues != null" >
+        attr_values,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="attrId != null" >
+        #{attrId,jdbcType=SMALLINT},
+      </if>
+      <if test="catId != null" >
+        #{catId,jdbcType=SMALLINT},
+      </if>
+      <if test="attrName != null" >
+        #{attrName,jdbcType=VARCHAR},
+      </if>
+      <if test="attrInputType != null" >
+        #{attrInputType,jdbcType=BIT},
+      </if>
+      <if test="attrType != null" >
+        #{attrType,jdbcType=BIT},
+      </if>
+      <if test="attrIndex != null" >
+        #{attrIndex,jdbcType=BIT},
+      </if>
+      <if test="sortOrder != null" >
+        #{sortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="isLinked != null" >
+        #{isLinked,jdbcType=BIT},
+      </if>
+      <if test="attrGroup != null" >
+        #{attrGroup,jdbcType=BIT},
+      </if>
+      <if test="isAttrGallery != null" >
+        #{isAttrGallery,jdbcType=BIT},
+      </if>
+      <if test="attrTxm != null" >
+        #{attrTxm,jdbcType=BIT},
+      </if>
+      <if test="attrValues != null" >
+        #{attrValues,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsAttributeExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_attribute
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_attribute
+    <set >
+      <if test="record.attrId != null" >
+        attr_id = #{record.attrId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.catId != null" >
+        cat_id = #{record.catId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.attrName != null" >
+        attr_name = #{record.attrName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.attrInputType != null" >
+        attr_input_type = #{record.attrInputType,jdbcType=BIT},
+      </if>
+      <if test="record.attrType != null" >
+        attr_type = #{record.attrType,jdbcType=BIT},
+      </if>
+      <if test="record.attrIndex != null" >
+        attr_index = #{record.attrIndex,jdbcType=BIT},
+      </if>
+      <if test="record.sortOrder != null" >
+        sort_order = #{record.sortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="record.isLinked != null" >
+        is_linked = #{record.isLinked,jdbcType=BIT},
+      </if>
+      <if test="record.attrGroup != null" >
+        attr_group = #{record.attrGroup,jdbcType=BIT},
+      </if>
+      <if test="record.isAttrGallery != null" >
+        is_attr_gallery = #{record.isAttrGallery,jdbcType=BIT},
+      </if>
+      <if test="record.attrTxm != null" >
+        attr_txm = #{record.attrTxm,jdbcType=BIT},
+      </if>
+      <if test="record.attrValues != null" >
+        attr_values = #{record.attrValues,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_attribute
+    set attr_id = #{record.attrId,jdbcType=SMALLINT},
+      cat_id = #{record.catId,jdbcType=SMALLINT},
+      attr_name = #{record.attrName,jdbcType=VARCHAR},
+      attr_input_type = #{record.attrInputType,jdbcType=BIT},
+      attr_type = #{record.attrType,jdbcType=BIT},
+      attr_index = #{record.attrIndex,jdbcType=BIT},
+      sort_order = #{record.sortOrder,jdbcType=TINYINT},
+      is_linked = #{record.isLinked,jdbcType=BIT},
+      attr_group = #{record.attrGroup,jdbcType=BIT},
+      is_attr_gallery = #{record.isAttrGallery,jdbcType=BIT},
+      attr_txm = #{record.attrTxm,jdbcType=BIT},
+      attr_values = #{record.attrValues,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_attribute
+    set attr_id = #{record.attrId,jdbcType=SMALLINT},
+      cat_id = #{record.catId,jdbcType=SMALLINT},
+      attr_name = #{record.attrName,jdbcType=VARCHAR},
+      attr_input_type = #{record.attrInputType,jdbcType=BIT},
+      attr_type = #{record.attrType,jdbcType=BIT},
+      attr_index = #{record.attrIndex,jdbcType=BIT},
+      sort_order = #{record.sortOrder,jdbcType=TINYINT},
+      is_linked = #{record.isLinked,jdbcType=BIT},
+      attr_group = #{record.attrGroup,jdbcType=BIT},
+      is_attr_gallery = #{record.isAttrGallery,jdbcType=BIT},
+      attr_txm = #{record.attrTxm,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsAttribute" >
+    update ecs_attribute
+    <set >
+      <if test="catId != null" >
+        cat_id = #{catId,jdbcType=SMALLINT},
+      </if>
+      <if test="attrName != null" >
+        attr_name = #{attrName,jdbcType=VARCHAR},
+      </if>
+      <if test="attrInputType != null" >
+        attr_input_type = #{attrInputType,jdbcType=BIT},
+      </if>
+      <if test="attrType != null" >
+        attr_type = #{attrType,jdbcType=BIT},
+      </if>
+      <if test="attrIndex != null" >
+        attr_index = #{attrIndex,jdbcType=BIT},
+      </if>
+      <if test="sortOrder != null" >
+        sort_order = #{sortOrder,jdbcType=TINYINT},
+      </if>
+      <if test="isLinked != null" >
+        is_linked = #{isLinked,jdbcType=BIT},
+      </if>
+      <if test="attrGroup != null" >
+        attr_group = #{attrGroup,jdbcType=BIT},
+      </if>
+      <if test="isAttrGallery != null" >
+        is_attr_gallery = #{isAttrGallery,jdbcType=BIT},
+      </if>
+      <if test="attrTxm != null" >
+        attr_txm = #{attrTxm,jdbcType=BIT},
+      </if>
+      <if test="attrValues != null" >
+        attr_values = #{attrValues,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where attr_id = #{attrId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsAttribute" >
+    update ecs_attribute
+    set cat_id = #{catId,jdbcType=SMALLINT},
+      attr_name = #{attrName,jdbcType=VARCHAR},
+      attr_input_type = #{attrInputType,jdbcType=BIT},
+      attr_type = #{attrType,jdbcType=BIT},
+      attr_index = #{attrIndex,jdbcType=BIT},
+      sort_order = #{sortOrder,jdbcType=TINYINT},
+      is_linked = #{isLinked,jdbcType=BIT},
+      attr_group = #{attrGroup,jdbcType=BIT},
+      is_attr_gallery = #{isAttrGallery,jdbcType=BIT},
+      attr_txm = #{attrTxm,jdbcType=BIT},
+      attr_values = #{attrValues,jdbcType=LONGVARCHAR}
+    where attr_id = #{attrId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsAttribute" >
+    update ecs_attribute
+    set cat_id = #{catId,jdbcType=SMALLINT},
+      attr_name = #{attrName,jdbcType=VARCHAR},
+      attr_input_type = #{attrInputType,jdbcType=BIT},
+      attr_type = #{attrType,jdbcType=BIT},
+      attr_index = #{attrIndex,jdbcType=BIT},
+      sort_order = #{sortOrder,jdbcType=TINYINT},
+      is_linked = #{isLinked,jdbcType=BIT},
+      attr_group = #{attrGroup,jdbcType=BIT},
+      is_attr_gallery = #{isAttrGallery,jdbcType=BIT},
+      attr_txm = #{attrTxm,jdbcType=BIT}
+    where attr_id = #{attrId,jdbcType=SMALLINT}
+  </update>
+</mapper>

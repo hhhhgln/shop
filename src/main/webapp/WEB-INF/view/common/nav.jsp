@@ -34,7 +34,13 @@
             </li>
 
             <li class="layui-nav-item">
-                <a href="#"><i class="fa fa-trash-o}"></i> 定时任务</a>
+                <a href=""><i class="fa fa-trash-o}"></i> 定时任务</a>
+            </li>
+            <li class="layui-nav-item ">
+                <a href="#"><i class="fa fa-trash-o}"></i> 文章管理</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="${webRoot}/article_cat/list">文章分类</a> </dd>
+                </dl>
             </li>
 
 
