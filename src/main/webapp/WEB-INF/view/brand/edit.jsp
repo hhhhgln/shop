@@ -78,14 +78,10 @@
                             <label class="layui-form-label">是否显示</label>
                             <div class="layui-input-inline">
 
-                                <input
-                                        <c:if test="${brand.isShow==1}">checked</c:if> type="radio" name="isShow"
-                                        title="是"
-                                >
-                                <input
-                                <c:if test="${brand.isShow==0}">checked</c:if> type="radio" name="isShow"
-                                                                               title="否"
-                                >
+                                <input type="radio" name="isShow" value="1" title="是"
+                                       <c:if test="${brand.isShow==1}">checked</c:if>>
+                                <input type="radio" name="isShow" value="0" title="否"
+                                       <c:if test="${brand.isShow==0}">checked</c:if>>
 
                             </div>
                             <div class="layui-form-mid layui-word-aux">
