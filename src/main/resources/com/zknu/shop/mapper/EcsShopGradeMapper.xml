@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsShopGradeMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsShopGrade" >
+    <id column="grade_id" property="gradeId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="comment_rank" property="commentRank" jdbcType="BIT" />
+    <result column="server" property="server" jdbcType="BIT" />
+    <result column="send" property="send" jdbcType="BIT" />
+    <result column="shipping" property="shipping" jdbcType="BIT" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="is_comment" property="isComment" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    grade_id, user_id, user_name, add_time, comment_rank, server, send, shipping, order_id, 
+    order_sn, is_comment
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsShopGradeExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_shop_grade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ecs_shop_grade
+    where grade_id = #{gradeId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_shop_grade
+    where grade_id = #{gradeId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsShopGradeExample" >
+    delete from ecs_shop_grade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
+    insert into ecs_shop_grade (grade_id, user_id, user_name, 
+      add_time, comment_rank, server, 
+      send, shipping, order_id, order_sn, 
+      is_comment)
+    values (#{gradeId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{commentRank,jdbcType=BIT}, #{server,jdbcType=BIT}, 
+      #{send,jdbcType=BIT}, #{shipping,jdbcType=BIT}, #{orderId,jdbcType=INTEGER}, #{orderSn,jdbcType=VARCHAR}, 
+      #{isComment,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
+    insert into ecs_shop_grade
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="commentRank != null" >
+        comment_rank,
+      </if>
+      <if test="server != null" >
+        server,
+      </if>
+      <if test="send != null" >
+        send,
+      </if>
+      <if test="shipping != null" >
+        shipping,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="isComment != null" >
+        is_comment,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentRank != null" >
+        #{commentRank,jdbcType=BIT},
+      </if>
+      <if test="server != null" >
+        #{server,jdbcType=BIT},
+      </if>
+      <if test="send != null" >
+        #{send,jdbcType=BIT},
+      </if>
+      <if test="shipping != null" >
+        #{shipping,jdbcType=BIT},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isComment != null" >
+        #{isComment,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsShopGradeExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_shop_grade
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_shop_grade
+    <set >
+      <if test="record.gradeId != null" >
+        grade_id = #{record.gradeId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.addTime != null" >
+        add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.commentRank != null" >
+        comment_rank = #{record.commentRank,jdbcType=BIT},
+      </if>
+      <if test="record.server != null" >
+        server = #{record.server,jdbcType=BIT},
+      </if>
+      <if test="record.send != null" >
+        send = #{record.send,jdbcType=BIT},
+      </if>
+      <if test="record.shipping != null" >
+        shipping = #{record.shipping,jdbcType=BIT},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderSn != null" >
+        order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isComment != null" >
+        is_comment = #{record.isComment,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_shop_grade
+    set grade_id = #{record.gradeId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      comment_rank = #{record.commentRank,jdbcType=BIT},
+      server = #{record.server,jdbcType=BIT},
+      send = #{record.send,jdbcType=BIT},
+      shipping = #{record.shipping,jdbcType=BIT},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      is_comment = #{record.isComment,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
+    update ecs_shop_grade
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="commentRank != null" >
+        comment_rank = #{commentRank,jdbcType=BIT},
+      </if>
+      <if test="server != null" >
+        server = #{server,jdbcType=BIT},
+      </if>
+      <if test="send != null" >
+        send = #{send,jdbcType=BIT},
+      </if>
+      <if test="shipping != null" >
+        shipping = #{shipping,jdbcType=BIT},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="isComment != null" >
+        is_comment = #{isComment,jdbcType=BIT},
+      </if>
+    </set>
+    where grade_id = #{gradeId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsShopGrade" >
+    update ecs_shop_grade
+    set user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=VARCHAR},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      comment_rank = #{commentRank,jdbcType=BIT},
+      server = #{server,jdbcType=BIT},
+      send = #{send,jdbcType=BIT},
+      shipping = #{shipping,jdbcType=BIT},
+      order_id = #{orderId,jdbcType=INTEGER},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      is_comment = #{isComment,jdbcType=BIT}
+    where grade_id = #{gradeId,jdbcType=INTEGER}
+  </update>
+</mapper>

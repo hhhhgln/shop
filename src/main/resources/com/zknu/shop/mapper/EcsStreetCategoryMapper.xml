@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsStreetCategoryMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsStreetCategory" >
+    <id column="str_id" property="strId" jdbcType="SMALLINT" />
+    <result column="str_name" property="strName" jdbcType="VARCHAR" />
+    <result column="str_style" property="strStyle" jdbcType="VARCHAR" />
+    <result column="sort_order" property="sortOrder" jdbcType="BIT" />
+    <result column="is_groom" property="isGroom" jdbcType="BIT" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    str_id, str_name, str_style, sort_order, is_groom, is_show
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsStreetCategoryExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_street_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Short" >
+    select 
+    <include refid="Base_Column_List" />
+    from ecs_street_category
+    where str_id = #{strId,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short" >
+    delete from ecs_street_category
+    where str_id = #{strId,jdbcType=SMALLINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsStreetCategoryExample" >
+    delete from ecs_street_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsStreetCategory" >
+    insert into ecs_street_category (str_id, str_name, str_style, 
+      sort_order, is_groom, is_show)
+    values (#{strId,jdbcType=SMALLINT}, #{strName,jdbcType=VARCHAR}, #{strStyle,jdbcType=VARCHAR}, 
+      #{sortOrder,jdbcType=BIT}, #{isGroom,jdbcType=BIT}, #{isShow,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsStreetCategory" >
+    insert into ecs_street_category
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="strId != null" >
+        str_id,
+      </if>
+      <if test="strName != null" >
+        str_name,
+      </if>
+      <if test="strStyle != null" >
+        str_style,
+      </if>
+      <if test="sortOrder != null" >
+        sort_order,
+      </if>
+      <if test="isGroom != null" >
+        is_groom,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="strId != null" >
+        #{strId,jdbcType=SMALLINT},
+      </if>
+      <if test="strName != null" >
+        #{strName,jdbcType=VARCHAR},
+      </if>
+      <if test="strStyle != null" >
+        #{strStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null" >
+        #{sortOrder,jdbcType=BIT},
+      </if>
+      <if test="isGroom != null" >
+        #{isGroom,jdbcType=BIT},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsStreetCategoryExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_street_category
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_street_category
+    <set >
+      <if test="record.strId != null" >
+        str_id = #{record.strId,jdbcType=SMALLINT},
+      </if>
+      <if test="record.strName != null" >
+        str_name = #{record.strName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.strStyle != null" >
+        str_style = #{record.strStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sortOrder != null" >
+        sort_order = #{record.sortOrder,jdbcType=BIT},
+      </if>
+      <if test="record.isGroom != null" >
+        is_groom = #{record.isGroom,jdbcType=BIT},
+      </if>
+      <if test="record.isShow != null" >
+        is_show = #{record.isShow,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_street_category
+    set str_id = #{record.strId,jdbcType=SMALLINT},
+      str_name = #{record.strName,jdbcType=VARCHAR},
+      str_style = #{record.strStyle,jdbcType=VARCHAR},
+      sort_order = #{record.sortOrder,jdbcType=BIT},
+      is_groom = #{record.isGroom,jdbcType=BIT},
+      is_show = #{record.isShow,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsStreetCategory" >
+    update ecs_street_category
+    <set >
+      <if test="strName != null" >
+        str_name = #{strName,jdbcType=VARCHAR},
+      </if>
+      <if test="strStyle != null" >
+        str_style = #{strStyle,jdbcType=VARCHAR},
+      </if>
+      <if test="sortOrder != null" >
+        sort_order = #{sortOrder,jdbcType=BIT},
+      </if>
+      <if test="isGroom != null" >
+        is_groom = #{isGroom,jdbcType=BIT},
+      </if>
+      <if test="isShow != null" >
+        is_show = #{isShow,jdbcType=BIT},
+      </if>
+    </set>
+    where str_id = #{strId,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsStreetCategory" >
+    update ecs_street_category
+    set str_name = #{strName,jdbcType=VARCHAR},
+      str_style = #{strStyle,jdbcType=VARCHAR},
+      sort_order = #{sortOrder,jdbcType=BIT},
+      is_groom = #{isGroom,jdbcType=BIT},
+      is_show = #{isShow,jdbcType=BIT}
+    where str_id = #{strId,jdbcType=SMALLINT}
+  </update>
+</mapper>

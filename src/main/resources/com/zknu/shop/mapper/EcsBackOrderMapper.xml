@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsBackOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsBackOrder" >
+    <id column="back_id" property="backId" jdbcType="INTEGER" />
+    <result column="delivery_sn" property="deliverySn" jdbcType="VARCHAR" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="action_user" property="actionUser" jdbcType="VARCHAR" />
+    <result column="consignee" property="consignee" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="country" property="country" jdbcType="SMALLINT" />
+    <result column="province" property="province" jdbcType="SMALLINT" />
+    <result column="city" property="city" jdbcType="SMALLINT" />
+    <result column="district" property="district" jdbcType="SMALLINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="zipcode" property="zipcode" jdbcType="VARCHAR" />
+    <result column="tel" property="tel" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="best_time" property="bestTime" jdbcType="VARCHAR" />
+    <result column="postscript" property="postscript" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="return_time" property="returnTime" jdbcType="TIMESTAMP" />
+    <result column="refund_type" property="refundType" jdbcType="BIT" />
+    <result column="refund_desc" property="refundDesc" jdbcType="VARCHAR" />
+    <result column="refund_money_1" property="refundMoney1" jdbcType="DECIMAL" />
+    <result column="refund_money_2" property="refundMoney2" jdbcType="DECIMAL" />
+    <result column="back_reason" property="backReason" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="status_back" property="statusBack" jdbcType="BIT" />
+    <result column="status_refund" property="statusRefund" jdbcType="BIT" />
+    <result column="back_type" property="backType" jdbcType="VARCHAR" />
+    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBackOrder" extends="BaseResultMap" >
+    <result column="imgs" property="imgs" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    back_id, delivery_sn, order_sn, order_id, add_time, user_id, action_user, consignee, 
+    address, country, province, city, district, email, zipcode, tel, mobile, best_time, 
+    postscript, update_time, status, return_time, refund_type, refund_desc, refund_money_1, 
+    refund_money_2, back_reason, goods_id, goods_name, status_back, status_refund, back_type, 
+    supplier_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    imgs
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBackOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_back_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsBackOrderExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_back_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_back_order
+    where back_id = #{backId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_back_order
+    where back_id = #{backId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsBackOrderExample" >
+    delete from ecs_back_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
+    insert into ecs_back_order (back_id, delivery_sn, order_sn, 
+      order_id, add_time, user_id, 
+      action_user, consignee, address, 
+      country, province, city, 
+      district, email, zipcode, 
+      tel, mobile, best_time, 
+      postscript, update_time, status, 
+      return_time, refund_type, refund_desc, 
+      refund_money_1, refund_money_2, back_reason, 
+      goods_id, goods_name, status_back, 
+      status_refund, back_type, supplier_id, 
+      imgs)
+    values (#{backId,jdbcType=INTEGER}, #{deliverySn,jdbcType=VARCHAR}, #{orderSn,jdbcType=VARCHAR}, 
+      #{orderId,jdbcType=INTEGER}, #{addTime,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{actionUser,jdbcType=VARCHAR}, #{consignee,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{country,jdbcType=SMALLINT}, #{province,jdbcType=SMALLINT}, #{city,jdbcType=SMALLINT}, 
+      #{district,jdbcType=SMALLINT}, #{email,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{bestTime,jdbcType=VARCHAR}, 
+      #{postscript,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=BIT}, 
+      #{returnTime,jdbcType=TIMESTAMP}, #{refundType,jdbcType=BIT}, #{refundDesc,jdbcType=VARCHAR}, 
+      #{refundMoney1,jdbcType=DECIMAL}, #{refundMoney2,jdbcType=DECIMAL}, #{backReason,jdbcType=VARCHAR}, 
+      #{goodsId,jdbcType=INTEGER}, #{goodsName,jdbcType=VARCHAR}, #{statusBack,jdbcType=BIT}, 
+      #{statusRefund,jdbcType=BIT}, #{backType,jdbcType=VARCHAR}, #{supplierId,jdbcType=INTEGER}, 
+      #{imgs,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
+    insert into ecs_back_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="backId != null" >
+        back_id,
+      </if>
+      <if test="deliverySn != null" >
+        delivery_sn,
+      </if>
+      <if test="orderSn != null" >
+        order_sn,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="actionUser != null" >
+        action_user,
+      </if>
+      <if test="consignee != null" >
+        consignee,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="country != null" >
+        country,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="district != null" >
+        district,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="zipcode != null" >
+        zipcode,
+      </if>
+      <if test="tel != null" >
+        tel,
+      </if>
+      <if test="mobile != null" >
+        mobile,
+      </if>
+      <if test="bestTime != null" >
+        best_time,
+      </if>
+      <if test="postscript != null" >
+        postscript,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="returnTime != null" >
+        return_time,
+      </if>
+      <if test="refundType != null" >
+        refund_type,
+      </if>
+      <if test="refundDesc != null" >
+        refund_desc,
+      </if>
+      <if test="refundMoney1 != null" >
+        refund_money_1,
+      </if>
+      <if test="refundMoney2 != null" >
+        refund_money_2,
+      </if>
+      <if test="backReason != null" >
+        back_reason,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="statusBack != null" >
+        status_back,
+      </if>
+      <if test="statusRefund != null" >
+        status_refund,
+      </if>
+      <if test="backType != null" >
+        back_type,
+      </if>
+      <if test="supplierId != null" >
+        supplier_id,
+      </if>
+      <if test="imgs != null" >
+        imgs,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="backId != null" >
+        #{backId,jdbcType=INTEGER},
+      </if>
+      <if test="deliverySn != null" >
+        #{deliverySn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSn != null" >
+        #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="actionUser != null" >
+        #{actionUser,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        #{country,jdbcType=SMALLINT},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=SMALLINT},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=SMALLINT},
+      </if>
+      <if test="district != null" >
+        #{district,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bestTime != null" >
+        #{bestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="postscript != null" >
+        #{postscript,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="returnTime != null" >
+        #{returnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundType != null" >
+        #{refundType,jdbcType=BIT},
+      </if>
+      <if test="refundDesc != null" >
+        #{refundDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="refundMoney1 != null" >
+        #{refundMoney1,jdbcType=DECIMAL},
+      </if>
+      <if test="refundMoney2 != null" >
+        #{refundMoney2,jdbcType=DECIMAL},
+      </if>
+      <if test="backReason != null" >
+        #{backReason,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="statusBack != null" >
+        #{statusBack,jdbcType=BIT},
+      </if>
+      <if test="statusRefund != null" >
+        #{statusRefund,jdbcType=BIT},
+      </if>
+      <if test="backType != null" >
+        #{backType,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="imgs != null" >
+        #{imgs,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsBackOrderExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_back_order
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_back_order
+    <set >
+      <if test="record.backId != null" >
+        back_id = #{record.backId,jdbcType=INTEGER},
+      </if>
+      <if test="record.deliverySn != null" >
+        delivery_sn = #{record.deliverySn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderSn != null" >
+        order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.addTime != null" >
+        add_time = #{record.addTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.actionUser != null" >
+        action_user = #{record.actionUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.consignee != null" >
+        consignee = #{record.consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="record.address != null" >
+        address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.country != null" >
+        country = #{record.country,jdbcType=SMALLINT},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province,jdbcType=SMALLINT},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=SMALLINT},
+      </if>
+      <if test="record.district != null" >
+        district = #{record.district,jdbcType=SMALLINT},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.zipcode != null" >
+        zipcode = #{record.zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.tel != null" >
+        tel = #{record.tel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mobile != null" >
+        mobile = #{record.mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bestTime != null" >
+        best_time = #{record.bestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="record.postscript != null" >
+        postscript = #{record.postscript,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=BIT},
+      </if>
+      <if test="record.returnTime != null" >
+        return_time = #{record.returnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.refundType != null" >
+        refund_type = #{record.refundType,jdbcType=BIT},
+      </if>
+      <if test="record.refundDesc != null" >
+        refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="record.refundMoney1 != null" >
+        refund_money_1 = #{record.refundMoney1,jdbcType=DECIMAL},
+      </if>
+      <if test="record.refundMoney2 != null" >
+        refund_money_2 = #{record.refundMoney2,jdbcType=DECIMAL},
+      </if>
+      <if test="record.backReason != null" >
+        back_reason = #{record.backReason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsId != null" >
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsName != null" >
+        goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.statusBack != null" >
+        status_back = #{record.statusBack,jdbcType=BIT},
+      </if>
+      <if test="record.statusRefund != null" >
+        status_refund = #{record.statusRefund,jdbcType=BIT},
+      </if>
+      <if test="record.backType != null" >
+        back_type = #{record.backType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supplierId != null" >
+        supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.imgs != null" >
+        imgs = #{record.imgs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_back_order
+    set back_id = #{record.backId,jdbcType=INTEGER},
+      delivery_sn = #{record.deliverySn,jdbcType=VARCHAR},
+      order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      add_time = #{record.addTime,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      action_user = #{record.actionUser,jdbcType=VARCHAR},
+      consignee = #{record.consignee,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=SMALLINT},
+      province = #{record.province,jdbcType=SMALLINT},
+      city = #{record.city,jdbcType=SMALLINT},
+      district = #{record.district,jdbcType=SMALLINT},
+      email = #{record.email,jdbcType=VARCHAR},
+      zipcode = #{record.zipcode,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      best_time = #{record.bestTime,jdbcType=VARCHAR},
+      postscript = #{record.postscript,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=BIT},
+      return_time = #{record.returnTime,jdbcType=TIMESTAMP},
+      refund_type = #{record.refundType,jdbcType=BIT},
+      refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
+      refund_money_1 = #{record.refundMoney1,jdbcType=DECIMAL},
+      refund_money_2 = #{record.refundMoney2,jdbcType=DECIMAL},
+      back_reason = #{record.backReason,jdbcType=VARCHAR},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      status_back = #{record.statusBack,jdbcType=BIT},
+      status_refund = #{record.statusRefund,jdbcType=BIT},
+      back_type = #{record.backType,jdbcType=VARCHAR},
+      supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      imgs = #{record.imgs,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_back_order
+    set back_id = #{record.backId,jdbcType=INTEGER},
+      delivery_sn = #{record.deliverySn,jdbcType=VARCHAR},
+      order_sn = #{record.orderSn,jdbcType=VARCHAR},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      add_time = #{record.addTime,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      action_user = #{record.actionUser,jdbcType=VARCHAR},
+      consignee = #{record.consignee,jdbcType=VARCHAR},
+      address = #{record.address,jdbcType=VARCHAR},
+      country = #{record.country,jdbcType=SMALLINT},
+      province = #{record.province,jdbcType=SMALLINT},
+      city = #{record.city,jdbcType=SMALLINT},
+      district = #{record.district,jdbcType=SMALLINT},
+      email = #{record.email,jdbcType=VARCHAR},
+      zipcode = #{record.zipcode,jdbcType=VARCHAR},
+      tel = #{record.tel,jdbcType=VARCHAR},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      best_time = #{record.bestTime,jdbcType=VARCHAR},
+      postscript = #{record.postscript,jdbcType=VARCHAR},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      status = #{record.status,jdbcType=BIT},
+      return_time = #{record.returnTime,jdbcType=TIMESTAMP},
+      refund_type = #{record.refundType,jdbcType=BIT},
+      refund_desc = #{record.refundDesc,jdbcType=VARCHAR},
+      refund_money_1 = #{record.refundMoney1,jdbcType=DECIMAL},
+      refund_money_2 = #{record.refundMoney2,jdbcType=DECIMAL},
+      back_reason = #{record.backReason,jdbcType=VARCHAR},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      status_back = #{record.statusBack,jdbcType=BIT},
+      status_refund = #{record.statusRefund,jdbcType=BIT},
+      back_type = #{record.backType,jdbcType=VARCHAR},
+      supplier_id = #{record.supplierId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
+    update ecs_back_order
+    <set >
+      <if test="deliverySn != null" >
+        delivery_sn = #{deliverySn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSn != null" >
+        order_sn = #{orderSn,jdbcType=VARCHAR},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="actionUser != null" >
+        action_user = #{actionUser,jdbcType=VARCHAR},
+      </if>
+      <if test="consignee != null" >
+        consignee = #{consignee,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null" >
+        country = #{country,jdbcType=SMALLINT},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=SMALLINT},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=SMALLINT},
+      </if>
+      <if test="district != null" >
+        district = #{district,jdbcType=SMALLINT},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null" >
+        zipcode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null" >
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null" >
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="bestTime != null" >
+        best_time = #{bestTime,jdbcType=VARCHAR},
+      </if>
+      <if test="postscript != null" >
+        postscript = #{postscript,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=BIT},
+      </if>
+      <if test="returnTime != null" >
+        return_time = #{returnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="refundType != null" >
+        refund_type = #{refundType,jdbcType=BIT},
+      </if>
+      <if test="refundDesc != null" >
+        refund_desc = #{refundDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="refundMoney1 != null" >
+        refund_money_1 = #{refundMoney1,jdbcType=DECIMAL},
+      </if>
+      <if test="refundMoney2 != null" >
+        refund_money_2 = #{refundMoney2,jdbcType=DECIMAL},
+      </if>
+      <if test="backReason != null" >
+        back_reason = #{backReason,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="statusBack != null" >
+        status_back = #{statusBack,jdbcType=BIT},
+      </if>
+      <if test="statusRefund != null" >
+        status_refund = #{statusRefund,jdbcType=BIT},
+      </if>
+      <if test="backType != null" >
+        back_type = #{backType,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierId != null" >
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="imgs != null" >
+        imgs = #{imgs,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where back_id = #{backId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
+    update ecs_back_order
+    set delivery_sn = #{deliverySn,jdbcType=VARCHAR},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      action_user = #{actionUser,jdbcType=VARCHAR},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      country = #{country,jdbcType=SMALLINT},
+      province = #{province,jdbcType=SMALLINT},
+      city = #{city,jdbcType=SMALLINT},
+      district = #{district,jdbcType=SMALLINT},
+      email = #{email,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      best_time = #{bestTime,jdbcType=VARCHAR},
+      postscript = #{postscript,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=BIT},
+      return_time = #{returnTime,jdbcType=TIMESTAMP},
+      refund_type = #{refundType,jdbcType=BIT},
+      refund_desc = #{refundDesc,jdbcType=VARCHAR},
+      refund_money_1 = #{refundMoney1,jdbcType=DECIMAL},
+      refund_money_2 = #{refundMoney2,jdbcType=DECIMAL},
+      back_reason = #{backReason,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      status_back = #{statusBack,jdbcType=BIT},
+      status_refund = #{statusRefund,jdbcType=BIT},
+      back_type = #{backType,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      imgs = #{imgs,jdbcType=LONGVARCHAR}
+    where back_id = #{backId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsBackOrder" >
+    update ecs_back_order
+    set delivery_sn = #{deliverySn,jdbcType=VARCHAR},
+      order_sn = #{orderSn,jdbcType=VARCHAR},
+      order_id = #{orderId,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      action_user = #{actionUser,jdbcType=VARCHAR},
+      consignee = #{consignee,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      country = #{country,jdbcType=SMALLINT},
+      province = #{province,jdbcType=SMALLINT},
+      city = #{city,jdbcType=SMALLINT},
+      district = #{district,jdbcType=SMALLINT},
+      email = #{email,jdbcType=VARCHAR},
+      zipcode = #{zipcode,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      best_time = #{bestTime,jdbcType=VARCHAR},
+      postscript = #{postscript,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=BIT},
+      return_time = #{returnTime,jdbcType=TIMESTAMP},
+      refund_type = #{refundType,jdbcType=BIT},
+      refund_desc = #{refundDesc,jdbcType=VARCHAR},
+      refund_money_1 = #{refundMoney1,jdbcType=DECIMAL},
+      refund_money_2 = #{refundMoney2,jdbcType=DECIMAL},
+      back_reason = #{backReason,jdbcType=VARCHAR},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      status_back = #{statusBack,jdbcType=BIT},
+      status_refund = #{statusRefund,jdbcType=BIT},
+      back_type = #{backType,jdbcType=VARCHAR},
+      supplier_id = #{supplierId,jdbcType=INTEGER}
+    where back_id = #{backId,jdbcType=INTEGER}
+  </update>
+</mapper>

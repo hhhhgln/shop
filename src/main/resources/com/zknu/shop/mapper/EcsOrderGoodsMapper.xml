@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsOrderGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsOrderGoods" >
+    <id column="rec_id" property="recId" jdbcType="INTEGER" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
+    <result column="goods_number" property="goodsNumber" jdbcType="SMALLINT" />
+    <result column="market_price" property="marketPrice" jdbcType="DECIMAL" />
+    <result column="goods_price" property="goodsPrice" jdbcType="DECIMAL" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="goods_attr_id" property="goodsAttrId" jdbcType="VARCHAR" />
+    <result column="comment_state" property="commentState" jdbcType="BIT" />
+    <result column="is_back" property="isBack" jdbcType="BIT" />
+    <result column="cost_price" property="costPrice" jdbcType="DECIMAL" />
+    <result column="promote_price" property="promotePrice" jdbcType="DECIMAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsOrderGoods" extends="BaseResultMap" >
+    <result column="goods_attr" property="goodsAttr" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    rec_id, order_id, goods_id, goods_name, goods_sn, goods_number, market_price, goods_price, 
+    product_id, goods_attr_id, comment_state, is_back, cost_price, promote_price
+  </sql>
+  <sql id="Blob_Column_List" >
+    goods_attr
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsOrderGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_order_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsOrderGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_order_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_order_goods
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_order_goods
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsOrderGoodsExample" >
+    delete from ecs_order_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsOrderGoods" >
+    insert into ecs_order_goods (rec_id, order_id, goods_id, 
+      goods_name, goods_sn, goods_number, 
+      market_price, goods_price, product_id, 
+      goods_attr_id, comment_state, is_back, 
+      cost_price, promote_price, goods_attr
+      )
+    values (#{recId,jdbcType=INTEGER}, #{orderId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
+      #{goodsName,jdbcType=VARCHAR}, #{goodsSn,jdbcType=VARCHAR}, #{goodsNumber,jdbcType=SMALLINT}, 
+      #{marketPrice,jdbcType=DECIMAL}, #{goodsPrice,jdbcType=DECIMAL}, #{productId,jdbcType=INTEGER}, 
+      #{goodsAttrId,jdbcType=VARCHAR}, #{commentState,jdbcType=BIT}, #{isBack,jdbcType=BIT}, 
+      #{costPrice,jdbcType=DECIMAL}, #{promotePrice,jdbcType=DECIMAL}, #{goodsAttr,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsOrderGoods" >
+    insert into ecs_order_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        rec_id,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn,
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number,
+      </if>
+      <if test="marketPrice != null" >
+        market_price,
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="goodsAttrId != null" >
+        goods_attr_id,
+      </if>
+      <if test="commentState != null" >
+        comment_state,
+      </if>
+      <if test="isBack != null" >
+        is_back,
+      </if>
+      <if test="costPrice != null" >
+        cost_price,
+      </if>
+      <if test="promotePrice != null" >
+        promote_price,
+      </if>
+      <if test="goodsAttr != null" >
+        goods_attr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null" >
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        #{goodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="marketPrice != null" >
+        #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAttrId != null" >
+        #{goodsAttrId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentState != null" >
+        #{commentState,jdbcType=BIT},
+      </if>
+      <if test="isBack != null" >
+        #{isBack,jdbcType=BIT},
+      </if>
+      <if test="costPrice != null" >
+        #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="promotePrice != null" >
+        #{promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsAttr != null" >
+        #{goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsOrderGoodsExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_order_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_order_goods
+    <set >
+      <if test="record.recId != null" >
+        rec_id = #{record.recId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null" >
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsName != null" >
+        goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsSn != null" >
+        goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsNumber != null" >
+        goods_number = #{record.goodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="record.marketPrice != null" >
+        market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.goodsPrice != null" >
+        goods_price = #{record.goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.productId != null" >
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsAttrId != null" >
+        goods_attr_id = #{record.goodsAttrId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commentState != null" >
+        comment_state = #{record.commentState,jdbcType=BIT},
+      </if>
+      <if test="record.isBack != null" >
+        is_back = #{record.isBack,jdbcType=BIT},
+      </if>
+      <if test="record.costPrice != null" >
+        cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.promotePrice != null" >
+        promote_price = #{record.promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.goodsAttr != null" >
+        goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_order_goods
+    set rec_id = #{record.recId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      goods_number = #{record.goodsNumber,jdbcType=SMALLINT},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      goods_price = #{record.goodsPrice,jdbcType=DECIMAL},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      goods_attr_id = #{record.goodsAttrId,jdbcType=VARCHAR},
+      comment_state = #{record.commentState,jdbcType=BIT},
+      is_back = #{record.isBack,jdbcType=BIT},
+      cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      promote_price = #{record.promotePrice,jdbcType=DECIMAL},
+      goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_order_goods
+    set rec_id = #{record.recId,jdbcType=INTEGER},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      goods_number = #{record.goodsNumber,jdbcType=SMALLINT},
+      market_price = #{record.marketPrice,jdbcType=DECIMAL},
+      goods_price = #{record.goodsPrice,jdbcType=DECIMAL},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      goods_attr_id = #{record.goodsAttrId,jdbcType=VARCHAR},
+      comment_state = #{record.commentState,jdbcType=BIT},
+      is_back = #{record.isBack,jdbcType=BIT},
+      cost_price = #{record.costPrice,jdbcType=DECIMAL},
+      promote_price = #{record.promotePrice,jdbcType=DECIMAL}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsOrderGoods" >
+    update ecs_order_goods
+    <set >
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsNumber != null" >
+        goods_number = #{goodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="marketPrice != null" >
+        market_price = #{marketPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsPrice != null" >
+        goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsAttrId != null" >
+        goods_attr_id = #{goodsAttrId,jdbcType=VARCHAR},
+      </if>
+      <if test="commentState != null" >
+        comment_state = #{commentState,jdbcType=BIT},
+      </if>
+      <if test="isBack != null" >
+        is_back = #{isBack,jdbcType=BIT},
+      </if>
+      <if test="costPrice != null" >
+        cost_price = #{costPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="promotePrice != null" >
+        promote_price = #{promotePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="goodsAttr != null" >
+        goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsOrderGoods" >
+    update ecs_order_goods
+    set order_id = #{orderId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      goods_number = #{goodsNumber,jdbcType=SMALLINT},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      product_id = #{productId,jdbcType=INTEGER},
+      goods_attr_id = #{goodsAttrId,jdbcType=VARCHAR},
+      comment_state = #{commentState,jdbcType=BIT},
+      is_back = #{isBack,jdbcType=BIT},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      promote_price = #{promotePrice,jdbcType=DECIMAL},
+      goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR}
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsOrderGoods" >
+    update ecs_order_goods
+    set order_id = #{orderId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      goods_number = #{goodsNumber,jdbcType=SMALLINT},
+      market_price = #{marketPrice,jdbcType=DECIMAL},
+      goods_price = #{goodsPrice,jdbcType=DECIMAL},
+      product_id = #{productId,jdbcType=INTEGER},
+      goods_attr_id = #{goodsAttrId,jdbcType=VARCHAR},
+      comment_state = #{commentState,jdbcType=BIT},
+      is_back = #{isBack,jdbcType=BIT},
+      cost_price = #{costPrice,jdbcType=DECIMAL},
+      promote_price = #{promotePrice,jdbcType=DECIMAL}
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+</mapper>

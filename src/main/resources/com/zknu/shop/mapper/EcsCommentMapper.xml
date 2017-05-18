@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsCommentMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsComment" >
+    <id column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="comment_type" property="commentType" jdbcType="TINYINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="id_value" property="idValue" jdbcType="INTEGER" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="comment_rank" property="commentRank" jdbcType="BIT" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="ip_address" property="ipAddress" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="rec_id" property="recId" jdbcType="INTEGER" />
+    <result column="comment_tag" property="commentTag" jdbcType="VARCHAR" />
+    <result column="buy_time" property="buyTime" jdbcType="TIMESTAMP" />
+    <result column="good_num" property="goodNum" jdbcType="INTEGER" />
+    <result column="hide_username" property="hideUsername" jdbcType="BIT" />
+    <result column="order_id" property="orderId" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsComment" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    comment_id, comment_type, title, id_value, email, user_name, comment_rank, add_time, 
+    ip_address, status, parent_id, user_id, rec_id, comment_tag, buy_time, good_num, 
+    hide_username, order_id
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsCommentExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_comment
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsCommentExample" >
+    delete from ecs_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsComment" >
+    insert into ecs_comment (comment_id, comment_type, title, 
+      id_value, email, user_name, 
+      comment_rank, add_time, ip_address, 
+      status, parent_id, user_id, 
+      rec_id, comment_tag, buy_time, 
+      good_num, hide_username, order_id, 
+      content)
+    values (#{commentId,jdbcType=INTEGER}, #{commentType,jdbcType=TINYINT}, #{title,jdbcType=VARCHAR}, 
+      #{idValue,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, 
+      #{commentRank,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, #{ipAddress,jdbcType=VARCHAR}, 
+      #{status,jdbcType=TINYINT}, #{parentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{recId,jdbcType=INTEGER}, #{commentTag,jdbcType=VARCHAR}, #{buyTime,jdbcType=TIMESTAMP}, 
+      #{goodNum,jdbcType=INTEGER}, #{hideUsername,jdbcType=BIT}, #{orderId,jdbcType=INTEGER}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsComment" >
+    insert into ecs_comment
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        comment_id,
+      </if>
+      <if test="commentType != null" >
+        comment_type,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="idValue != null" >
+        id_value,
+      </if>
+      <if test="email != null" >
+        email,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="commentRank != null" >
+        comment_rank,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="ipAddress != null" >
+        ip_address,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="recId != null" >
+        rec_id,
+      </if>
+      <if test="commentTag != null" >
+        comment_tag,
+      </if>
+      <if test="buyTime != null" >
+        buy_time,
+      </if>
+      <if test="goodNum != null" >
+        good_num,
+      </if>
+      <if test="hideUsername != null" >
+        hide_username,
+      </if>
+      <if test="orderId != null" >
+        order_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="commentId != null" >
+        #{commentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentType != null" >
+        #{commentType,jdbcType=TINYINT},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="idValue != null" >
+        #{idValue,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentRank != null" >
+        #{commentRank,jdbcType=BIT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="commentTag != null" >
+        #{commentTag,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTime != null" >
+        #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodNum != null" >
+        #{goodNum,jdbcType=INTEGER},
+      </if>
+      <if test="hideUsername != null" >
+        #{hideUsername,jdbcType=BIT},
+      </if>
+      <if test="orderId != null" >
+        #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsCommentExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_comment
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_comment
+    <set >
+      <if test="record.commentId != null" >
+        comment_id = #{record.commentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentType != null" >
+        comment_type = #{record.commentType,jdbcType=TINYINT},
+      </if>
+      <if test="record.title != null" >
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idValue != null" >
+        id_value = #{record.idValue,jdbcType=INTEGER},
+      </if>
+      <if test="record.email != null" >
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userName != null" >
+        user_name = #{record.userName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.commentRank != null" >
+        comment_rank = #{record.commentRank,jdbcType=BIT},
+      </if>
+      <if test="record.addTime != null" >
+        add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.ipAddress != null" >
+        ip_address = #{record.ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+      <if test="record.parentId != null" >
+        parent_id = #{record.parentId,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.recId != null" >
+        rec_id = #{record.recId,jdbcType=INTEGER},
+      </if>
+      <if test="record.commentTag != null" >
+        comment_tag = #{record.commentTag,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyTime != null" >
+        buy_time = #{record.buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.goodNum != null" >
+        good_num = #{record.goodNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.hideUsername != null" >
+        hide_username = #{record.hideUsername,jdbcType=BIT},
+      </if>
+      <if test="record.orderId != null" >
+        order_id = #{record.orderId,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_comment
+    set comment_id = #{record.commentId,jdbcType=INTEGER},
+      comment_type = #{record.commentType,jdbcType=TINYINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      id_value = #{record.idValue,jdbcType=INTEGER},
+      email = #{record.email,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      comment_rank = #{record.commentRank,jdbcType=BIT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      ip_address = #{record.ipAddress,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      rec_id = #{record.recId,jdbcType=INTEGER},
+      comment_tag = #{record.commentTag,jdbcType=VARCHAR},
+      buy_time = #{record.buyTime,jdbcType=TIMESTAMP},
+      good_num = #{record.goodNum,jdbcType=INTEGER},
+      hide_username = #{record.hideUsername,jdbcType=BIT},
+      order_id = #{record.orderId,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_comment
+    set comment_id = #{record.commentId,jdbcType=INTEGER},
+      comment_type = #{record.commentType,jdbcType=TINYINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      id_value = #{record.idValue,jdbcType=INTEGER},
+      email = #{record.email,jdbcType=VARCHAR},
+      user_name = #{record.userName,jdbcType=VARCHAR},
+      comment_rank = #{record.commentRank,jdbcType=BIT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      ip_address = #{record.ipAddress,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT},
+      parent_id = #{record.parentId,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      rec_id = #{record.recId,jdbcType=INTEGER},
+      comment_tag = #{record.commentTag,jdbcType=VARCHAR},
+      buy_time = #{record.buyTime,jdbcType=TIMESTAMP},
+      good_num = #{record.goodNum,jdbcType=INTEGER},
+      hide_username = #{record.hideUsername,jdbcType=BIT},
+      order_id = #{record.orderId,jdbcType=INTEGER}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsComment" >
+    update ecs_comment
+    <set >
+      <if test="commentType != null" >
+        comment_type = #{commentType,jdbcType=TINYINT},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="idValue != null" >
+        id_value = #{idValue,jdbcType=INTEGER},
+      </if>
+      <if test="email != null" >
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="commentRank != null" >
+        comment_rank = #{commentRank,jdbcType=BIT},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="ipAddress != null" >
+        ip_address = #{ipAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="recId != null" >
+        rec_id = #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="commentTag != null" >
+        comment_tag = #{commentTag,jdbcType=VARCHAR},
+      </if>
+      <if test="buyTime != null" >
+        buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="goodNum != null" >
+        good_num = #{goodNum,jdbcType=INTEGER},
+      </if>
+      <if test="hideUsername != null" >
+        hide_username = #{hideUsername,jdbcType=BIT},
+      </if>
+      <if test="orderId != null" >
+        order_id = #{orderId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsComment" >
+    update ecs_comment
+    set comment_type = #{commentType,jdbcType=TINYINT},
+      title = #{title,jdbcType=VARCHAR},
+      id_value = #{idValue,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      comment_rank = #{commentRank,jdbcType=BIT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      ip_address = #{ipAddress,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      rec_id = #{recId,jdbcType=INTEGER},
+      comment_tag = #{commentTag,jdbcType=VARCHAR},
+      buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      good_num = #{goodNum,jdbcType=INTEGER},
+      hide_username = #{hideUsername,jdbcType=BIT},
+      order_id = #{orderId,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsComment" >
+    update ecs_comment
+    set comment_type = #{commentType,jdbcType=TINYINT},
+      title = #{title,jdbcType=VARCHAR},
+      id_value = #{idValue,jdbcType=INTEGER},
+      email = #{email,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      comment_rank = #{commentRank,jdbcType=BIT},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      ip_address = #{ipAddress,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      rec_id = #{recId,jdbcType=INTEGER},
+      comment_tag = #{commentTag,jdbcType=VARCHAR},
+      buy_time = #{buyTime,jdbcType=TIMESTAMP},
+      good_num = #{goodNum,jdbcType=INTEGER},
+      hide_username = #{hideUsername,jdbcType=BIT},
+      order_id = #{orderId,jdbcType=INTEGER}
+    where comment_id = #{commentId,jdbcType=INTEGER}
+  </update>
+</mapper>

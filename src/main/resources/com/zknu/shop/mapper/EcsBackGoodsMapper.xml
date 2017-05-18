@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsBackGoodsMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsBackGoods" >
+    <id column="rec_id" property="recId" jdbcType="INTEGER" />
+    <result column="back_id" property="backId" jdbcType="INTEGER" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="product_sn" property="productSn" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+    <result column="brand_name" property="brandName" jdbcType="VARCHAR" />
+    <result column="goods_sn" property="goodsSn" jdbcType="VARCHAR" />
+    <result column="send_number" property="sendNumber" jdbcType="SMALLINT" />
+    <result column="back_type" property="backType" jdbcType="BIT" />
+    <result column="back_goods_price" property="backGoodsPrice" jdbcType="DECIMAL" />
+    <result column="back_goods_number" property="backGoodsNumber" jdbcType="SMALLINT" />
+    <result column="status_back" property="statusBack" jdbcType="BIT" />
+    <result column="status_refund" property="statusRefund" jdbcType="BIT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsBackGoods" extends="BaseResultMap" >
+    <result column="goods_attr" property="goodsAttr" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    rec_id, back_id, goods_id, product_id, product_sn, goods_name, brand_name, goods_sn, 
+    send_number, back_type, back_goods_price, back_goods_number, status_back, status_refund
+  </sql>
+  <sql id="Blob_Column_List" >
+    goods_attr
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBackGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_back_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsBackGoodsExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_back_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_back_goods
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_back_goods
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsBackGoodsExample" >
+    delete from ecs_back_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
+    insert into ecs_back_goods (rec_id, back_id, goods_id, 
+      product_id, product_sn, goods_name, 
+      brand_name, goods_sn, send_number, 
+      back_type, back_goods_price, back_goods_number, 
+      status_back, status_refund, goods_attr
+      )
+    values (#{recId,jdbcType=INTEGER}, #{backId,jdbcType=INTEGER}, #{goodsId,jdbcType=INTEGER}, 
+      #{productId,jdbcType=INTEGER}, #{productSn,jdbcType=VARCHAR}, #{goodsName,jdbcType=VARCHAR}, 
+      #{brandName,jdbcType=VARCHAR}, #{goodsSn,jdbcType=VARCHAR}, #{sendNumber,jdbcType=SMALLINT}, 
+      #{backType,jdbcType=BIT}, #{backGoodsPrice,jdbcType=DECIMAL}, #{backGoodsNumber,jdbcType=SMALLINT}, 
+      #{statusBack,jdbcType=BIT}, #{statusRefund,jdbcType=BIT}, #{goodsAttr,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
+    insert into ecs_back_goods
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        rec_id,
+      </if>
+      <if test="backId != null" >
+        back_id,
+      </if>
+      <if test="goodsId != null" >
+        goods_id,
+      </if>
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="productSn != null" >
+        product_sn,
+      </if>
+      <if test="goodsName != null" >
+        goods_name,
+      </if>
+      <if test="brandName != null" >
+        brand_name,
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn,
+      </if>
+      <if test="sendNumber != null" >
+        send_number,
+      </if>
+      <if test="backType != null" >
+        back_type,
+      </if>
+      <if test="backGoodsPrice != null" >
+        back_goods_price,
+      </if>
+      <if test="backGoodsNumber != null" >
+        back_goods_number,
+      </if>
+      <if test="statusBack != null" >
+        status_back,
+      </if>
+      <if test="statusRefund != null" >
+        status_refund,
+      </if>
+      <if test="goodsAttr != null" >
+        goods_attr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="recId != null" >
+        #{recId,jdbcType=INTEGER},
+      </if>
+      <if test="backId != null" >
+        #{backId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productSn != null" >
+        #{productSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null" >
+        #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNumber != null" >
+        #{sendNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="backType != null" >
+        #{backType,jdbcType=BIT},
+      </if>
+      <if test="backGoodsPrice != null" >
+        #{backGoodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backGoodsNumber != null" >
+        #{backGoodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="statusBack != null" >
+        #{statusBack,jdbcType=BIT},
+      </if>
+      <if test="statusRefund != null" >
+        #{statusRefund,jdbcType=BIT},
+      </if>
+      <if test="goodsAttr != null" >
+        #{goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsBackGoodsExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_back_goods
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_back_goods
+    <set >
+      <if test="record.recId != null" >
+        rec_id = #{record.recId,jdbcType=INTEGER},
+      </if>
+      <if test="record.backId != null" >
+        back_id = #{record.backId,jdbcType=INTEGER},
+      </if>
+      <if test="record.goodsId != null" >
+        goods_id = #{record.goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="record.productId != null" >
+        product_id = #{record.productId,jdbcType=INTEGER},
+      </if>
+      <if test="record.productSn != null" >
+        product_sn = #{record.productSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsName != null" >
+        goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.brandName != null" >
+        brand_name = #{record.brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.goodsSn != null" >
+        goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sendNumber != null" >
+        send_number = #{record.sendNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="record.backType != null" >
+        back_type = #{record.backType,jdbcType=BIT},
+      </if>
+      <if test="record.backGoodsPrice != null" >
+        back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.backGoodsNumber != null" >
+        back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="record.statusBack != null" >
+        status_back = #{record.statusBack,jdbcType=BIT},
+      </if>
+      <if test="record.statusRefund != null" >
+        status_refund = #{record.statusRefund,jdbcType=BIT},
+      </if>
+      <if test="record.goodsAttr != null" >
+        goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_back_goods
+    set rec_id = #{record.recId,jdbcType=INTEGER},
+      back_id = #{record.backId,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      product_sn = #{record.productSn,jdbcType=VARCHAR},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      brand_name = #{record.brandName,jdbcType=VARCHAR},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      send_number = #{record.sendNumber,jdbcType=SMALLINT},
+      back_type = #{record.backType,jdbcType=BIT},
+      back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
+      back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
+      status_back = #{record.statusBack,jdbcType=BIT},
+      status_refund = #{record.statusRefund,jdbcType=BIT},
+      goods_attr = #{record.goodsAttr,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_back_goods
+    set rec_id = #{record.recId,jdbcType=INTEGER},
+      back_id = #{record.backId,jdbcType=INTEGER},
+      goods_id = #{record.goodsId,jdbcType=INTEGER},
+      product_id = #{record.productId,jdbcType=INTEGER},
+      product_sn = #{record.productSn,jdbcType=VARCHAR},
+      goods_name = #{record.goodsName,jdbcType=VARCHAR},
+      brand_name = #{record.brandName,jdbcType=VARCHAR},
+      goods_sn = #{record.goodsSn,jdbcType=VARCHAR},
+      send_number = #{record.sendNumber,jdbcType=SMALLINT},
+      back_type = #{record.backType,jdbcType=BIT},
+      back_goods_price = #{record.backGoodsPrice,jdbcType=DECIMAL},
+      back_goods_number = #{record.backGoodsNumber,jdbcType=SMALLINT},
+      status_back = #{record.statusBack,jdbcType=BIT},
+      status_refund = #{record.statusRefund,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
+    update ecs_back_goods
+    <set >
+      <if test="backId != null" >
+        back_id = #{backId,jdbcType=INTEGER},
+      </if>
+      <if test="goodsId != null" >
+        goods_id = #{goodsId,jdbcType=INTEGER},
+      </if>
+      <if test="productId != null" >
+        product_id = #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productSn != null" >
+        product_sn = #{productSn,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsName != null" >
+        goods_name = #{goodsName,jdbcType=VARCHAR},
+      </if>
+      <if test="brandName != null" >
+        brand_name = #{brandName,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsSn != null" >
+        goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      </if>
+      <if test="sendNumber != null" >
+        send_number = #{sendNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="backType != null" >
+        back_type = #{backType,jdbcType=BIT},
+      </if>
+      <if test="backGoodsPrice != null" >
+        back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="backGoodsNumber != null" >
+        back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
+      </if>
+      <if test="statusBack != null" >
+        status_back = #{statusBack,jdbcType=BIT},
+      </if>
+      <if test="statusRefund != null" >
+        status_refund = #{statusRefund,jdbcType=BIT},
+      </if>
+      <if test="goodsAttr != null" >
+        goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
+    update ecs_back_goods
+    set back_id = #{backId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      product_sn = #{productSn,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      send_number = #{sendNumber,jdbcType=SMALLINT},
+      back_type = #{backType,jdbcType=BIT},
+      back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
+      back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
+      status_back = #{statusBack,jdbcType=BIT},
+      status_refund = #{statusRefund,jdbcType=BIT},
+      goods_attr = #{goodsAttr,jdbcType=LONGVARCHAR}
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsBackGoods" >
+    update ecs_back_goods
+    set back_id = #{backId,jdbcType=INTEGER},
+      goods_id = #{goodsId,jdbcType=INTEGER},
+      product_id = #{productId,jdbcType=INTEGER},
+      product_sn = #{productSn,jdbcType=VARCHAR},
+      goods_name = #{goodsName,jdbcType=VARCHAR},
+      brand_name = #{brandName,jdbcType=VARCHAR},
+      goods_sn = #{goodsSn,jdbcType=VARCHAR},
+      send_number = #{sendNumber,jdbcType=SMALLINT},
+      back_type = #{backType,jdbcType=BIT},
+      back_goods_price = #{backGoodsPrice,jdbcType=DECIMAL},
+      back_goods_number = #{backGoodsNumber,jdbcType=SMALLINT},
+      status_back = #{statusBack,jdbcType=BIT},
+      status_refund = #{statusRefund,jdbcType=BIT}
+    where rec_id = #{recId,jdbcType=INTEGER}
+  </update>
+</mapper>

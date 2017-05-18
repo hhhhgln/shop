@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsSupplierStreetMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsSupplierStreet" >
+    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+    <result column="supplier_type" property="supplierType" jdbcType="BIT" />
+    <result column="supplier_name" property="supplierName" jdbcType="VARCHAR" />
+    <result column="supplier_title" property="supplierTitle" jdbcType="VARCHAR" />
+    <result column="supplier_tags" property="supplierTags" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="is_groom" property="isGroom" jdbcType="TINYINT" />
+    <result column="is_show" property="isShow" jdbcType="TINYINT" />
+    <result column="sort_order" property="sortOrder" jdbcType="BIT" />
+    <result column="status" property="status" jdbcType="BIT" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.zknu.shop.pojo.EcsSupplierStreetWithBLOBs" extends="BaseResultMap" >
+    <result column="supplier_desc" property="supplierDesc" jdbcType="LONGVARCHAR" />
+    <result column="supplier_notice" property="supplierNotice" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    supplier_id, supplier_type, supplier_name, supplier_title, supplier_tags, logo, is_groom, 
+    is_show, sort_order, status, add_time
+  </sql>
+  <sql id="Blob_Column_List" >
+    supplier_desc, supplier_notice
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.zknu.shop.pojo.EcsSupplierStreetExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from ecs_supplier_street
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsSupplierStreetExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_supplier_street
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsSupplierStreetExample" >
+    delete from ecs_supplier_street
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsSupplierStreetWithBLOBs" >
+    insert into ecs_supplier_street (supplier_id, supplier_type, supplier_name, 
+      supplier_title, supplier_tags, logo, 
+      is_groom, is_show, sort_order, 
+      status, add_time, supplier_desc, 
+      supplier_notice)
+    values (#{supplierId,jdbcType=INTEGER}, #{supplierType,jdbcType=BIT}, #{supplierName,jdbcType=VARCHAR}, 
+      #{supplierTitle,jdbcType=VARCHAR}, #{supplierTags,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, 
+      #{isGroom,jdbcType=TINYINT}, #{isShow,jdbcType=TINYINT}, #{sortOrder,jdbcType=BIT}, 
+      #{status,jdbcType=BIT}, #{addTime,jdbcType=TIMESTAMP}, #{supplierDesc,jdbcType=LONGVARCHAR}, 
+      #{supplierNotice,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsSupplierStreetWithBLOBs" >
+    insert into ecs_supplier_street
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="supplierId != null" >
+        supplier_id,
+      </if>
+      <if test="supplierType != null" >
+        supplier_type,
+      </if>
+      <if test="supplierName != null" >
+        supplier_name,
+      </if>
+      <if test="supplierTitle != null" >
+        supplier_title,
+      </if>
+      <if test="supplierTags != null" >
+        supplier_tags,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="isGroom != null" >
+        is_groom,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+      <if test="sortOrder != null" >
+        sort_order,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="supplierDesc != null" >
+        supplier_desc,
+      </if>
+      <if test="supplierNotice != null" >
+        supplier_notice,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="supplierType != null" >
+        #{supplierType,jdbcType=BIT},
+      </if>
+      <if test="supplierName != null" >
+        #{supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierTitle != null" >
+        #{supplierTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="supplierTags != null" >
+        #{supplierTags,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="isGroom != null" >
+        #{isGroom,jdbcType=TINYINT},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=TINYINT},
+      </if>
+      <if test="sortOrder != null" >
+        #{sortOrder,jdbcType=BIT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=BIT},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierDesc != null" >
+        #{supplierDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="supplierNotice != null" >
+        #{supplierNotice,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsSupplierStreetExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_supplier_street
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_supplier_street
+    <set >
+      <if test="record.supplierId != null" >
+        supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.supplierType != null" >
+        supplier_type = #{record.supplierType,jdbcType=BIT},
+      </if>
+      <if test="record.supplierName != null" >
+        supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supplierTitle != null" >
+        supplier_title = #{record.supplierTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.supplierTags != null" >
+        supplier_tags = #{record.supplierTags,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isGroom != null" >
+        is_groom = #{record.isGroom,jdbcType=TINYINT},
+      </if>
+      <if test="record.isShow != null" >
+        is_show = #{record.isShow,jdbcType=TINYINT},
+      </if>
+      <if test="record.sortOrder != null" >
+        sort_order = #{record.sortOrder,jdbcType=BIT},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=BIT},
+      </if>
+      <if test="record.addTime != null" >
+        add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.supplierDesc != null" >
+        supplier_desc = #{record.supplierDesc,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.supplierNotice != null" >
+        supplier_notice = #{record.supplierNotice,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update ecs_supplier_street
+    set supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      supplier_type = #{record.supplierType,jdbcType=BIT},
+      supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+      supplier_title = #{record.supplierTitle,jdbcType=VARCHAR},
+      supplier_tags = #{record.supplierTags,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      is_groom = #{record.isGroom,jdbcType=TINYINT},
+      is_show = #{record.isShow,jdbcType=TINYINT},
+      sort_order = #{record.sortOrder,jdbcType=BIT},
+      status = #{record.status,jdbcType=BIT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP},
+      supplier_desc = #{record.supplierDesc,jdbcType=LONGVARCHAR},
+      supplier_notice = #{record.supplierNotice,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_supplier_street
+    set supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      supplier_type = #{record.supplierType,jdbcType=BIT},
+      supplier_name = #{record.supplierName,jdbcType=VARCHAR},
+      supplier_title = #{record.supplierTitle,jdbcType=VARCHAR},
+      supplier_tags = #{record.supplierTags,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      is_groom = #{record.isGroom,jdbcType=TINYINT},
+      is_show = #{record.isShow,jdbcType=TINYINT},
+      sort_order = #{record.sortOrder,jdbcType=BIT},
+      status = #{record.status,jdbcType=BIT},
+      add_time = #{record.addTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

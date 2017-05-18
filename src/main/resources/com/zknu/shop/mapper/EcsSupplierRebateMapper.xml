@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zknu.shop.mapper.EcsSupplierRebateMapper" >
+  <resultMap id="BaseResultMap" type="com.zknu.shop.pojo.EcsSupplierRebate" >
+    <id column="rebate_id" property="rebateId" jdbcType="INTEGER" />
+    <result column="rebate_paytime_start" property="rebatePaytimeStart" jdbcType="TIMESTAMP" />
+    <result column="rebate_paytime_end" property="rebatePaytimeEnd" jdbcType="TIMESTAMP" />
+    <result column="supplier_id" property="supplierId" jdbcType="INTEGER" />
+    <result column="is_pay_ok" property="isPayOk" jdbcType="BIT" />
+    <result column="pay_type" property="payType" jdbcType="VARCHAR" />
+    <result column="pay_time" property="payTime" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="admin_user" property="adminUser" jdbcType="VARCHAR" />
+    <result column="rebate_all" property="rebateAll" jdbcType="DECIMAL" />
+    <result column="rebate_money" property="rebateMoney" jdbcType="DECIMAL" />
+    <result column="payable_price" property="payablePrice" jdbcType="DECIMAL" />
+    <result column="rebate_img" property="rebateImg" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="TINYINT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    rebate_id, rebate_paytime_start, rebate_paytime_end, supplier_id, is_pay_ok, pay_type, 
+    pay_time, remark, admin_user, rebate_all, rebate_money, payable_price, rebate_img, 
+    status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.zknu.shop.pojo.EcsSupplierRebateExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ecs_supplier_rebate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ecs_supplier_rebate
+    where rebate_id = #{rebateId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ecs_supplier_rebate
+    where rebate_id = #{rebateId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.zknu.shop.pojo.EcsSupplierRebateExample" >
+    delete from ecs_supplier_rebate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.zknu.shop.pojo.EcsSupplierRebate" >
+    insert into ecs_supplier_rebate (rebate_id, rebate_paytime_start, rebate_paytime_end, 
+      supplier_id, is_pay_ok, pay_type, 
+      pay_time, remark, admin_user, 
+      rebate_all, rebate_money, payable_price, 
+      rebate_img, status)
+    values (#{rebateId,jdbcType=INTEGER}, #{rebatePaytimeStart,jdbcType=TIMESTAMP}, #{rebatePaytimeEnd,jdbcType=TIMESTAMP}, 
+      #{supplierId,jdbcType=INTEGER}, #{isPayOk,jdbcType=BIT}, #{payType,jdbcType=VARCHAR}, 
+      #{payTime,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR}, #{adminUser,jdbcType=VARCHAR}, 
+      #{rebateAll,jdbcType=DECIMAL}, #{rebateMoney,jdbcType=DECIMAL}, #{payablePrice,jdbcType=DECIMAL}, 
+      #{rebateImg,jdbcType=VARCHAR}, #{status,jdbcType=TINYINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.zknu.shop.pojo.EcsSupplierRebate" >
+    insert into ecs_supplier_rebate
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="rebateId != null" >
+        rebate_id,
+      </if>
+      <if test="rebatePaytimeStart != null" >
+        rebate_paytime_start,
+      </if>
+      <if test="rebatePaytimeEnd != null" >
+        rebate_paytime_end,
+      </if>
+      <if test="supplierId != null" >
+        supplier_id,
+      </if>
+      <if test="isPayOk != null" >
+        is_pay_ok,
+      </if>
+      <if test="payType != null" >
+        pay_type,
+      </if>
+      <if test="payTime != null" >
+        pay_time,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="adminUser != null" >
+        admin_user,
+      </if>
+      <if test="rebateAll != null" >
+        rebate_all,
+      </if>
+      <if test="rebateMoney != null" >
+        rebate_money,
+      </if>
+      <if test="payablePrice != null" >
+        payable_price,
+      </if>
+      <if test="rebateImg != null" >
+        rebate_img,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="rebateId != null" >
+        #{rebateId,jdbcType=INTEGER},
+      </if>
+      <if test="rebatePaytimeStart != null" >
+        #{rebatePaytimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rebatePaytimeEnd != null" >
+        #{rebatePaytimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null" >
+        #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="isPayOk != null" >
+        #{isPayOk,jdbcType=BIT},
+      </if>
+      <if test="payType != null" >
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        #{payTime,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUser != null" >
+        #{adminUser,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateAll != null" >
+        #{rebateAll,jdbcType=DECIMAL},
+      </if>
+      <if test="rebateMoney != null" >
+        #{rebateMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payablePrice != null" >
+        #{payablePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rebateImg != null" >
+        #{rebateImg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=TINYINT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.zknu.shop.pojo.EcsSupplierRebateExample" resultType="java.lang.Integer" >
+    select count(*) from ecs_supplier_rebate
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ecs_supplier_rebate
+    <set >
+      <if test="record.rebateId != null" >
+        rebate_id = #{record.rebateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.rebatePaytimeStart != null" >
+        rebate_paytime_start = #{record.rebatePaytimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.rebatePaytimeEnd != null" >
+        rebate_paytime_end = #{record.rebatePaytimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.supplierId != null" >
+        supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="record.isPayOk != null" >
+        is_pay_ok = #{record.isPayOk,jdbcType=BIT},
+      </if>
+      <if test="record.payType != null" >
+        pay_type = #{record.payType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.payTime != null" >
+        pay_time = #{record.payTime,jdbcType=INTEGER},
+      </if>
+      <if test="record.remark != null" >
+        remark = #{record.remark,jdbcType=VARCHAR},
+      </if>
+      <if test="record.adminUser != null" >
+        admin_user = #{record.adminUser,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rebateAll != null" >
+        rebate_all = #{record.rebateAll,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rebateMoney != null" >
+        rebate_money = #{record.rebateMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payablePrice != null" >
+        payable_price = #{record.payablePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rebateImg != null" >
+        rebate_img = #{record.rebateImg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=TINYINT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ecs_supplier_rebate
+    set rebate_id = #{record.rebateId,jdbcType=INTEGER},
+      rebate_paytime_start = #{record.rebatePaytimeStart,jdbcType=TIMESTAMP},
+      rebate_paytime_end = #{record.rebatePaytimeEnd,jdbcType=TIMESTAMP},
+      supplier_id = #{record.supplierId,jdbcType=INTEGER},
+      is_pay_ok = #{record.isPayOk,jdbcType=BIT},
+      pay_type = #{record.payType,jdbcType=VARCHAR},
+      pay_time = #{record.payTime,jdbcType=INTEGER},
+      remark = #{record.remark,jdbcType=VARCHAR},
+      admin_user = #{record.adminUser,jdbcType=VARCHAR},
+      rebate_all = #{record.rebateAll,jdbcType=DECIMAL},
+      rebate_money = #{record.rebateMoney,jdbcType=DECIMAL},
+      payable_price = #{record.payablePrice,jdbcType=DECIMAL},
+      rebate_img = #{record.rebateImg,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=TINYINT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.zknu.shop.pojo.EcsSupplierRebate" >
+    update ecs_supplier_rebate
+    <set >
+      <if test="rebatePaytimeStart != null" >
+        rebate_paytime_start = #{rebatePaytimeStart,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rebatePaytimeEnd != null" >
+        rebate_paytime_end = #{rebatePaytimeEnd,jdbcType=TIMESTAMP},
+      </if>
+      <if test="supplierId != null" >
+        supplier_id = #{supplierId,jdbcType=INTEGER},
+      </if>
+      <if test="isPayOk != null" >
+        is_pay_ok = #{isPayOk,jdbcType=BIT},
+      </if>
+      <if test="payType != null" >
+        pay_type = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="payTime != null" >
+        pay_time = #{payTime,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="adminUser != null" >
+        admin_user = #{adminUser,jdbcType=VARCHAR},
+      </if>
+      <if test="rebateAll != null" >
+        rebate_all = #{rebateAll,jdbcType=DECIMAL},
+      </if>
+      <if test="rebateMoney != null" >
+        rebate_money = #{rebateMoney,jdbcType=DECIMAL},
+      </if>
+      <if test="payablePrice != null" >
+        payable_price = #{payablePrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rebateImg != null" >
+        rebate_img = #{rebateImg,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=TINYINT},
+      </if>
+    </set>
+    where rebate_id = #{rebateId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.zknu.shop.pojo.EcsSupplierRebate" >
+    update ecs_supplier_rebate
+    set rebate_paytime_start = #{rebatePaytimeStart,jdbcType=TIMESTAMP},
+      rebate_paytime_end = #{rebatePaytimeEnd,jdbcType=TIMESTAMP},
+      supplier_id = #{supplierId,jdbcType=INTEGER},
+      is_pay_ok = #{isPayOk,jdbcType=BIT},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      pay_time = #{payTime,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR},
+      admin_user = #{adminUser,jdbcType=VARCHAR},
+      rebate_all = #{rebateAll,jdbcType=DECIMAL},
+      rebate_money = #{rebateMoney,jdbcType=DECIMAL},
+      payable_price = #{payablePrice,jdbcType=DECIMAL},
+      rebate_img = #{rebateImg,jdbcType=VARCHAR},
+      status = #{status,jdbcType=TINYINT}
+    where rebate_id = #{rebateId,jdbcType=INTEGER}
+  </update>
+</mapper>
