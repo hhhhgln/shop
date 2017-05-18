@@ -1,6 +1,7 @@
 package com.zknu.shop.controller;
 
 import com.zknu.shop.service.TestService;
+import com.zknu.shop.util.JsonUtils;
 import com.zknu.shop.util.TreeGridResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,11 @@ public class TestController {
     @RequestMapping("/tree-grid")
     public  String treeGrid(Model model){
         TreeGridResult treeGridResult = testService.listArticleCat();
+        String s = JsonUtils.objectToJson(treeGridResult.gettNodes());
+        String a = JsonUtils.objectToJson(treeGridResult.getHeads());
         model.addAttribute("treeGridResult",treeGridResult);
+        model.addAttribute("s",s);
+        model.addAttribute("a",a);
         return "test/tree-grid";
     }
 

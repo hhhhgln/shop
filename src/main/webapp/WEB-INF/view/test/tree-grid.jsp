@@ -10,8 +10,8 @@
         <script src="${webRoot}/static/treetable/jquery.treetable.js"></script>
     <script>
         $(document).ready(function(){
-            var heads=${treeGridResult.heads}
-                var tNodes=${treeGridResult.tNodes}
+            var heads=${a}
+                var tNodes=${s}
 //            var heads = ["名称","字段1","字段2"];
 //            var tNodes = [
 //                { id: 1, pId: 0, name: "父节点1", td: ["parent", "1"] },

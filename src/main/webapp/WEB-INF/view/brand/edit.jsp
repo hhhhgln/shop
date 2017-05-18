@@ -26,7 +26,8 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">品牌名称</label>
                             <div class="layui-input-inline">
-                                <input type="text" name="brandName" required lay-verify="required" autocomplete="off" value="${brand.brandName}"
+                                <input type="text" name="brandName" required lay-verify="required" autocomplete="off"
+                                       value="${brand.brandName}"
                                        class="layui-input">
                             </div>
                             <div class="layui-form-mid layui-word-aux"><em style="color: red">*</em></div>
@@ -49,7 +50,8 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">文件路径 </label>
                             <div class="layui-input-block">
-                                <input id="imgInput" type="text" name="brandLogo" class="layui-input"  value="${brand.brandLogo}" >
+                                <input id="imgInput" type="text" name="brandLogo" class="layui-input"
+                                       value="${brand.brandLogo}">
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -76,10 +78,14 @@
                             <label class="layui-form-label">是否显示</label>
                             <div class="layui-input-inline">
 
-                                <input type="radio" name="isShow" value="1" title="是"
-                                <c:if test="${brand.isShow==true}">checked</c:if>>
-                                <input type="radio" name="isShow" value="0" title="否"
-                                       <c:if test="${brand.isShow==false}">checked</c:if>>
+                                <input
+                                        <c:if test="${brand.isShow==1}">checked</c:if> type="radio" name="isShow"
+                                        title="是"
+                                >
+                                <input
+                                <c:if test="${brand.isShow==0}">checked</c:if> type="radio" name="isShow"
+                                                                               title="否"
+                                >
 
                             </div>
                             <div class="layui-form-mid layui-word-aux">
