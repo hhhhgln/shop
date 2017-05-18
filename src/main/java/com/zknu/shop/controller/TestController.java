@@ -22,11 +22,9 @@ public class TestController {
     @RequestMapping("/tree-grid")
     public  String treeGrid(Model model){
         TreeGridResult treeGridResult = testService.listArticleCat();
-        String s = JsonUtils.objectToJson(treeGridResult.gettNodes());
-        String a = JsonUtils.objectToJson(treeGridResult.getHeads());
-        model.addAttribute("treeGridResult",treeGridResult);
-        model.addAttribute("s",s);
-        model.addAttribute("a",a);
+        String treeGridJson = JsonUtils.objectToJson(treeGridResult);
+        model.addAttribute("treeGridJson",treeGridJson);
+
         return "test/tree-grid";
     }
 

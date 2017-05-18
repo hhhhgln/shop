@@ -10,12 +10,14 @@
     <script src="${webRoot}/static/treetable/jquery.treetable.js"></script>
     <script>
         $(document).ready(function () {
-            alert(${treeGridResult});
-            var heads =
-            ${a}
-            var tNodes = ${s}
+            var tree =
+            ${treeGridJson}
 
-                $.TreeTable("treeMenu", heads, tNodes);
+            var heads =
+                tree.heads;
+            var tNodes = tree.tNodes;
+
+            $.TreeTable("treeMenu", heads, tNodes);
         });
 
     </script>

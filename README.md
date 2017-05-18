@@ -96,22 +96,20 @@ public class AdController {
 - 不得删除公有文件
        
 # git多人协作开发流程 （多分支版）（目前采用的方案）
-1. 在master下git pull 
-2. git checkout -b 你的分支  origin/你的分支
-3. 合并master到你的分支 git merge master 有
-冲突保留master的内容 删除自己的 必须保证开发前你的分支和master分支保持一致
-4. 开发自己的模块 每天离开实验室之间 git add *
-git commit -m "XX模块+今天干了什么" 
-git push origin 你的分支
-5. 回到宿舍 想要继续开发  git pull origin 你的分支 继续开发
-6. 每天来到实验室 git pull origin 你的分支 继续开发
+1. 下载代码：git clone git@git.coding.net:geekzsp/shop.git         
+2. 创建与远程分支同步的本地分支 **以后任何操作都在自己的分支上完成**
+例如：git checkout -b  zsp origin/zsp    
+    zsp换成你的分支
+3. 确认是否是在自己的分支   
+  git branch 
+4. 写自己的代码
+5. 每天走之前 用可视化操作上传自己的代码到自己的分支（描述信息  XX模块-今天的工作内容）
+6. 经常同步master 分支
+ git pull origin masetr 
+(PS：该过程必须要经常做，当我在群里提示有更新的时候必须做。时刻让本地的代码与主库代码保持一致，这样做有助于减少冲突。)
 7. 几天后你的模块开发完毕，想要提交了。（提交前确保自己经过的大量测试，保证自己的模块没问题了）
- 提交之前，请先执行以下命令与主库的代码保持同步。在这个过程中，你可能需要处理冲突。(PS：该过程必须要经常做，时刻让本地的代码与主库代码保持一致，这样做有助于减少冲突。)
-> git checkout master         
-  git pull origin master                    
-  git checkout 你的分支                 
-  git merge master //把最新的master 合并到你的分支         
-  git push origin 你的分支
+    git pull origin master      
+    然后可视化操作 上传自己的代码到自己的分支
     
 8进去coding  代码->合并请求->新建合并请求->源分支（你的分支） 目标分支（master）分支  代码评审选择
  **geekzsp** 标题（xx模块开发完毕）和描述写清楚         
@@ -120,15 +118,4 @@ git push origin 你的分支
 9 我对你的代码进行审核测试，如果没问题 合并到master ，有问题 修改 重新申请合并。      
 10 接到新的开发任务  重复1-8
 
-# git多人协作流程（单分支版）
-因此，多人协作的工作模式通常是这样：
 
-首先，可以试图用git push origin branch-name推送自己的修改；
-
-如果推送失败，则因为远程分支比你的本地更新，需要先用git pull试图合并；
-
-如果合并有冲突，则解决冲突，并在本地提交；
-
-没有冲突或者解决掉冲突后，再用git push origin branch-name推送就能成功！
-
-如果git pull提示“no tracking information”，则说明本地分支和远程分支的链接关系没有创建，用命令git branch --set-upstream branch-name origin/branch-name。
