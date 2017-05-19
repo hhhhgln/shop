@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @Description: 测试实例
@@ -43,7 +44,7 @@ public class TestController {
     public String layui() {
         return "test/layui";
     }
-    @RequestMapping("/upload")
+    @RequestMapping(value = "/upload",method = RequestMethod.GET)
     public  String upload(){
         return "test/upload";
     }
