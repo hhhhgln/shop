@@ -24,7 +24,6 @@ public class TestController {
         TreeGridResult treeGridResult = testService.listArticleCat();
         String treeGridJson = JsonUtils.objectToJson(treeGridResult);
         model.addAttribute("treeGridJson",treeGridJson);
-
         return "test/tree-grid";
     }
 

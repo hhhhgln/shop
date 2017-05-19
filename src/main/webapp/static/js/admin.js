@@ -4,11 +4,11 @@
 
 layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], function (exports) {
     var layer = layui.layer,
+        $ = layui.jquery,
         element = layui.element(),
         layedit = layui.layedit,
         laydate = layui.laydate,
         form = layui.form();
-
 
 
     /**
@@ -23,7 +23,7 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
      * 后台侧边菜单选中状态
      */
     $('.layui-nav-item').find('a').removeClass('layui-this');
-    $('.layui-nav-tree').find('a[href*="'+GV.current_controller+'"]').parent().addClass('layui-this').parents('.layui-nav-item').addClass('layui-nav-itemed');
+    $('.layui-nav-tree').find('a[href*="' + GV.current_controller + '"]').parent().addClass('layui-this').parents('.layui-nav-item').addClass('layui-nav-itemed');
 
     /**
      * 编辑器初始化
@@ -84,7 +84,7 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
                         location.href = info.data;
                     }, 1000);
                 }
-                    layer.msg(info.msg);
+                layer.msg(info.msg);
 
             }
         });
@@ -145,11 +145,11 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
     $('#clear-cache').on('click', function (event) {
         event.preventDefault();
         var _url = $(this).data('url');
-        if(_url !== 'undefined'){
+        if (_url !== 'undefined') {
             $.ajax({
                 url: _url,
                 success: function (data) {
-                    if(data.code === 1){
+                    if (data.code === 1) {
                         setTimeout(function () {
                             location.href = location.pathname;
                         }, 1000);
@@ -173,10 +173,12 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
                 if (info.status === 200) {
                     layer.open({
                         title: '在线调试'
-                        ,content: info.data
+                        , content: info.data
                     });
                 }
-               else {layer.msg(info.msg);}
+                else {
+                    layer.msg(info.msg);
+                }
             }
         });
 
@@ -184,7 +186,7 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
     });
 
     //通用ajax访问
-    $("#ajax_http").on('click',function () {
+    $("#ajax_http").on('click', function () {
         var _action = $(this).data('action');
         $.ajax({
             url: _action,
@@ -197,7 +199,7 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
                 }
                 layer.open({
                     title: '结果反馈'
-                    ,content: info.msg
+                    , content: info.msg
                 });
             }
         });
@@ -238,7 +240,7 @@ layui.define(['form', 'layer', 'element', 'layedit', 'laydate', 'upload'], funct
                     var newImageData = cvs.toDataURL(fileType, 0.8);   //重新生成图片，<span style="font-family: Arial, Helvetica, sans-serif;">fileType为用户选择的图片类型</span>
                     console.log(newImageData);
                     var sendData = newImageData.replace("data:" + fileType + ";base64,", '');
-                    var _action1 =  $('#photo').data('action');
+                    var _action1 = $('#photo').data('action');
 
                     $.post(_action1, {type: 'photo', value: sendData}, function (data) {
                         if (data.error == '0') {

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!--头部-->
 <div class="layui-header header">
-    <a href="/"><img class="logo" src="${webRoot}/static/images/admin_logo.png" alt=""></a>
+    <a href="${webRoot}"><img class="logo" src="${webRoot}/static/images/admin_logo.png" alt=""></a>
     <%--<div class="user-action">--%>
         <%--<a href="javascript:;">某某某</a>--%>
         <%--<a class="" href="#">退出</a>--%>
