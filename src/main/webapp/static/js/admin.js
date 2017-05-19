@@ -5,7 +5,7 @@
 var layer = layui.layer,
     element = layui.element(),
     laydate = layui.laydate,
-    layedit=layui.layedit,
+    layedit = layui.layedit,
     form = layui.form();
 
 /**
@@ -15,11 +15,13 @@ $.ajaxSetup({
     type: "post",
     dataType: "json"
 });
+
+
 /**
  * 后台侧边菜单选中状态
  */
 $('.layui-nav-item').find('a').removeClass('layui-this');
-$('.layui-nav-tree').find('a[href*="'+GV.current_controller+'"]').parent().addClass('layui-this').parents('.layui-nav-item').addClass('layui-nav-itemed');
+$('.layui-nav-tree').find('a[href*="' + GV.current_controller + '"]').parent().addClass('layui-this').parents('.layui-nav-item').addClass('layui-nav-itemed');
 /**
  * 编辑器初始化
  */
@@ -129,11 +131,11 @@ layui.upload({
 $('#clear-cache').on('click', function (event) {
     event.preventDefault();
     var _url = $(this).data('url');
-    if(_url !== 'undefined'){
+    if (_url !== 'undefined') {
         $.ajax({
             url: _url,
             success: function (data) {
-                if(data.code === 1){
+                if (data.code === 1) {
                     setTimeout(function () {
                         location.href = location.pathname;
                     }, 1000);
@@ -154,16 +156,18 @@ $('#regex_test').on('click', function () {
             if (info.status === 200) {
                 layer.open({
                     title: '在线调试'
-                    ,content: info.data
+                    , content: info.data
                 });
             }
-            else {layer.msg(info.msg);}
+            else {
+                layer.msg(info.msg);
+            }
         }
     });
     return false;
 });
 //通用ajax访问
-$("#ajax_http").on('click',function () {
+$("#ajax_http").on('click', function () {
     var _action = $(this).data('action');
     $.ajax({
         url: _action,
@@ -176,12 +180,16 @@ $("#ajax_http").on('click',function () {
             }
             layer.open({
                 title: '结果反馈'
-                ,content: info.msg
+                , content: info.msg
             });
         }
     });
 });
-// 图片上传
+/**
+ * 图片上传 base64方式 +压缩
+ *
+ */
+
 $('#photo').change(function () {
     var _this = $(this)[0],
         _file = _this.files[0],
@@ -216,7 +224,7 @@ $('#photo').change(function () {
                 var newImageData = cvs.toDataURL(fileType, 0.8);   //重新生成图片，<span style="font-family: Arial, Helvetica, sans-serif;">fileType为用户选择的图片类型</span>
                 console.log(newImageData);
                 var sendData = newImageData.replace("data:" + fileType + ";base64,", '');
-                var _action1 =  $('#photo').data('action');
+                var _action1 = $('#photo').data('action');
                 $.post(_action1, {type: 'photo', value: sendData}, function (data) {
                     if (data.error == '0') {
                         $('.modify_img').attr('src', newImageData);
@@ -237,5 +245,22 @@ $('#photo').change(function () {
             content: '请选择图片格式文件'
             , skin: 'msg'
         });
+    }
+});
+/**
+ * 模拟表单上传文件
+ */
+
+layui.upload({
+    url: window.baseUrl + "/uploadMulit"
+    , success: function (res) {
+        if (res.status == 200) {
+            layer.msg(res.data);
+            //显示预览图
+            $(".upload img").attr("src", window.baseUrl + res.data);
+            $(".upload").show();
+        } else {
+            layer.msg(res.msg)
+        }
     }
 });

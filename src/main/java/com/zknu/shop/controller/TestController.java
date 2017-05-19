@@ -2,12 +2,16 @@ package com.zknu.shop.controller;
 
 import com.zknu.shop.service.TestService;
 import com.zknu.shop.util.JsonUtils;
+import com.zknu.shop.util.LayTreeNode;
 import com.zknu.shop.util.TreeGridResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @Description: 测试实例
@@ -35,6 +39,14 @@ public class TestController {
         return "test/tree-grid";
     }
 
+    @RequestMapping("/tree")
+
+    public String getLayTree(Model model) {
+        String nodes = JsonUtils.objectToJson(testService.listLayTreeNode());
+        model.addAttribute("nodes",nodes);
+        return "/test/upload";
+    }
+
     /**
      * layui测试
      *
@@ -44,8 +56,9 @@ public class TestController {
     public String layui() {
         return "test/layui";
     }
-    @RequestMapping(value = "/upload",method = RequestMethod.GET)
-    public  String upload(){
+
+    @RequestMapping(value = "/upload", method = RequestMethod.GET)
+    public String upload() {
         return "test/upload";
     }
 }

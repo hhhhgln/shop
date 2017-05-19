@@ -4,18 +4,25 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-     <%@ include file="../common/head.jsp"%>
+    <%@ include file="../common/head.jsp" %>
 </head>
 <body>
 <div class="layui-layout layui-layout-admin">
     <%--侧边栏--%>
-     <%@include file="../common/nav.jsp"%>
-        
+    <%@include file="../common/nav.jsp" %>
+
     <!--主体-->
 
     <div class="layui-body">
-         上传案例
+        <ul id="demo"></ul>
+        <div class="center-pill"></div>
+        上传案例
         <input type="file" name="file" class="layui-upload-file">
+        <div class="upload" style="display: none">
+            <img class="" src="" alt="" style="max-height: 100px">
+        </div>
+
+
         <pre class="layui-code">
 //代码区域
 var a = 'hello layui';
@@ -27,11 +34,10 @@ var a = 'hello layui';
 
     </form>
     <!--底部-->
-    <%@include file="../common/footer.jsp"%>
+    <%@include file="../common/footer.jsp" %>
 </div>
 <!--页面JS脚本-->
 <script>
-
     // 定义全局JS变量
     var GV = {
         current_controller: "test/upload"
@@ -41,12 +47,14 @@ var a = 'hello layui';
 <%@include file="../common/bottom.jsp" %>
 
 <script>
-    layui.upload({
-        url: '${webRoot}/uploadMulit'
-        ,success: function(res){
-            console.log(res.data); //上传成功返回值，必须为json格式
+    layui.tree({
+        elem: '#demo'
+        , nodes: ${nodes}
+        , click: function (node) {
+            console.log(node)
         }
     });
+
 </script>
 
 </body>

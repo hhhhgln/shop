@@ -1,6 +1,9 @@
 package com.zknu.shop.service;
 
+import com.zknu.shop.util.LayTreeNode;
 import com.zknu.shop.util.TreeGridResult;
+
+import java.util.List;
 
 /**
  * @Description: 测试用例
@@ -14,4 +17,10 @@ public interface TestService {
      * @return
      */
     TreeGridResult listArticleCat();
+
+    /**
+     * 返回layui树结构json
+     * @return
+     */
+    List<LayTreeNode> listLayTreeNode();
 }

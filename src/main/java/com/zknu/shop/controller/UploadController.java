@@ -23,6 +23,14 @@ public class UploadController {
     @Autowired
     ImageService imageService;
 
+    /**
+     * base64 编码上传方式
+     *
+     * @param type
+     * @param value
+     * @param request
+     * @return
+     */
     @RequestMapping("/upload")
     @ResponseBody
     public Map imageUpload(String type, String value, HttpServletRequest request) {
@@ -30,25 +38,33 @@ public class UploadController {
         return map;
     }
 
+    /**
+     * 表单上传方式
+     *
+     * @param file
+     * @param request
+     * @return
+     */
     @RequestMapping("/uploadMulit")
     @ResponseBody
     public ShopResult upload(MultipartFile file, HttpServletRequest request) {
         System.out.println("开始");
         String path = request.getSession().getServletContext().getRealPath("data");
         String fileName = file.getOriginalFilename();
-//        String fileName = new Date().getTime()+".jpg";
+        //tring fileName = new Date().getTime()+".jpg";
         System.out.println(path);
         File targetFile = new File(path, fileName);
         if (!targetFile.exists()) {
             targetFile.mkdirs();
         }
-
         //保存
         try {
             file.transferTo(targetFile);
+            return ShopResult.build(200, "上传成功", "/data/" + fileName);
         } catch (Exception e) {
             e.printStackTrace();
+            return ShopResult.build(500, "上传失败");
         }
-        return ShopResult.build(200, "上传成功", request.getContextPath() + "/data/" + fileName);
+
     }
 }
