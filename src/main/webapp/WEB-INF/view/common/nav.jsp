@@ -9,10 +9,7 @@
 <!--头部-->
 <div class="layui-header header">
     <a href="${webRoot}"><img class="logo" src="${webRoot}/static/images/admin_logo.png" alt=""></a>
-    <%--<div class="user-action">--%>
-        <%--<a href="javascript:;">某某某</a>--%>
-        <%--<a class="" href="#">退出</a>--%>
-    <%--</div>--%>
+
 </div>
 
 <!--侧边栏-->
@@ -20,26 +17,22 @@
     <div class="layui-side-scroll">
         <ul class="layui-nav layui-nav-tree">
             <li class="layui-nav-item layui-nav-title"><a>管理菜单</a></li>
-            <%--<li class="layui-nav-item">--%>
-            <%--<a href="#"><i class="fa fa-home"></i> 网站概览</a>--%>
-            <%--</li>--%>
-            <%--<li class="layui-nav-item">--%>
-            <%--<a href="" data-url="#" id="clear-cache"><i class="fa fa-trash-o"></i> 清除缓存</a>--%>
-            <%--</li>--%>
-            <li class="layui-nav-item">
-                <a href="${webRoot}/brand/list"><i class="fa fa-trash-o}"></i> 品牌管理</a>
             </li>
             <li class="layui-nav-item">
-                <a href="/news/list"><i class="fa fa-trash-o}"></i> 新闻管理</a>
+                <a href="javascript:;"><i class="fa fa-bars"></i>相关DEMO</a>
+                <dl class="layui-nav-child">
+                    <dd><a href="${webRoot}/test/layui">二级管理1</a></dd>
+                    <dd><a href="${webRoot}/test/tree-grid">树形表格</a></dd>
+                </dl>
             </li>
 
             <li class="layui-nav-item">
-                <a href=""><i class="fa fa-trash-o}"></i> 定时任务</a>
+                <a href="${webRoot}/brand/list"><i class="fa fa-trash-o}"></i> 品牌管理</a>
             </li>
             <li class="layui-nav-item ">
                 <a href="#"><i class="fa fa-trash-o}"></i> 文章管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${webRoot}/article_cat/list">文章分类</a> </dd>
+                    <dd><a href="${webRoot}/article_cat/list">文章分类</a></dd>
                 </dl>
             </li>
 

@@ -19,12 +19,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class TestController {
     @Autowired
     TestService testService;
+
+    /**
+     * 树形表格
+     *
+     * @param model
+     * @return
+     */
     @RequestMapping("/tree-grid")
-    public  String treeGrid(Model model){
+    public String treeGrid(Model model) {
         TreeGridResult treeGridResult = testService.listArticleCat();
         String treeGridJson = JsonUtils.objectToJson(treeGridResult);
-        model.addAttribute("treeGridJson",treeGridJson);
+        model.addAttribute("treeGridJson", treeGridJson);
         return "test/tree-grid";
+    }
+
+    /**
+     * layui测试
+     *
+     * @return
+     */
+    @RequestMapping("/layui")
+    public String layui() {
+        return "test/layui";
     }
 
 }

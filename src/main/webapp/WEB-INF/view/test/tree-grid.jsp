@@ -3,24 +3,7 @@
 <head>
     <%@ include file="../common/head.jsp" %>
     <title>jQuery treetable</title>
-
     <link rel="stylesheet" href="${webRoot}/static/treetable/jquery.treetable.css"/>
-    <script src="${webRoot}/static/treetable/jquery.js"></script>
-    <script src="${webRoot}/static/treetable/jquery-ui.js"></script>
-    <script src="${webRoot}/static/treetable/jquery.treetable.js"></script>
-    <script>
-        $(document).ready(function () {
-            var tree =
-            ${treeGridJson}
-
-            var heads =
-                tree.heads;
-            var tNodes = tree.tNodes;
-
-            $.TreeTable("treeMenu", heads, tNodes);
-        });
-
-    </script>
 </head>
 
 <body>
@@ -49,8 +32,29 @@
     <%@ include file="../common/footer.jsp" %>
 </div>
 
+<script>
+    var GV = {
 
+        current_controller: "test/tree-grid"
+    };
+</script>
+<%@include file="../common/bottom.jsp" %>
 <!--页面JS脚本-->
+<%--<script src="${webRoot}/static/treetable/jquery.js"></script>--%>
+<script src="${webRoot}/static/treetable/jquery-ui.js"></script>
+<script src="${webRoot}/static/treetable/jquery.treetable.js"></script>
+<script>
+    $(document).ready(function () {
+        var tree =
+        ${treeGridJson}
 
+        var heads =
+            tree.heads;
+        var tNodes = tree.tNodes;
+
+        $.TreeTable("treeMenu", heads, tNodes);
+    });
+
+</script>
 </body>
 </html>

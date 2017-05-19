@@ -96,16 +96,16 @@
     <!--底部-->
     <%@include file="../common/footer.jsp" %>
 </div>
-
-<%@include file="../common/bottom.jsp" %>
-
 <!--页面JS脚本-->
 <script>
 
     var GV = {
 
-        current_controller: "/brand"
+        current_controller: "brand/list"
     };
 </script>
+<%@include file="../common/bottom.jsp" %>
+
+
 </body>
 </html>

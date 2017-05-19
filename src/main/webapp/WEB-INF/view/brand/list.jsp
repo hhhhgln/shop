@@ -3,12 +3,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html lang="zh-CN">
 <head>
-    <%@ include file="../common/head.jsp"%>
+    <%@ include file="../common/head.jsp" %>
 </head>
 
 <body>
 <div class="layui-layout layui-layout-admin">
-    <%@include file="../common/nav.jsp"%>
+    <%@include file="../common/nav.jsp" %>
 
     <!--主体-->
     <div class="layui-body">
@@ -19,12 +19,15 @@
                 <li class=""><a href="${webRoot}/brand/add">添加品牌</a></li>
             </ul>
             <div class="layui-tab-content">
-           <form action="" method="get" >
-               <input type="hidden" name="page" value="1">
-               <input type="text" name="keyWord"  lay-verify="required" placeholder="品牌名称" autocomplete="off" class="layui-input layui-input-inline" style="width: 200px" value="${keyWord}">
+                <form action="" method="get">
+                    <input type="hidden" name="page" value="1">
+                    <input type="text" name="keyWord" lay-verify="required" placeholder="品牌名称" autocomplete="off"
+                           class="layui-input layui-input-inline" style="width: 200px" value="${keyWord}">
 
-               <button type="submit" class="layui-btn layui-btn-normal layui-btn-small" data-action="/brand/list">搜索</button>
-           </form>
+                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-small" data-action="/brand/list">
+                        搜索
+                    </button>
+                </form>
 
                 <form action="" method="post" class="ajax-form">
                     <div class="layui-tab-item layui-show">
@@ -43,8 +46,10 @@
                             <tbody>
                             <c:forEach items="${pageResult.objects}" var="brand">
                                 <tr>
-                                    <td><input  type="checkbox" name="ids" value="${brand.brandId}">${brand.brandId}</td>
-                                    <td>${brand.brandName} <a href="${webRoot}/data/brandlogo/${brand.brandLogo}" target="_blank" ><img src="${webRoot}/static/images/picflag.gif" alt=""></a></td>
+                                    <td><input type="checkbox" name="ids" value="${brand.brandId}">${brand.brandId}</td>
+                                    <td>${brand.brandName} <a href="${webRoot}/data/brandlogo/${brand.brandLogo}"
+                                                              target="_blank"><img
+                                            src="${webRoot}/static/images/picflag.gif" alt=""></a></td>
                                     <td>${brand.brandDesc}</td>
                                     <td>${brand.siteUrl}</td>
                                     <td>${brand.sortOrder}</td>
@@ -58,8 +63,10 @@
                                     </td>
 
                                     <td>
-                                        <a href="${webRoot}/brand/edit/${brand.brandId}" class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
-                                        <a href="${webRoot}/brand/delete?ids=${brand.brandId}" class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
+                                        <a href="${webRoot}/brand/edit/${brand.brandId}"
+                                           class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
+                                        <a href="${webRoot}/brand/delete?ids=${brand.brandId}"
+                                           class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
                                     </td>
                                 </tr>
                             </c:forEach>
@@ -67,13 +74,15 @@
                         </table>
 
 
-                           <div class="admin-table-page left">
+                        <div class="admin-table-page left">
 
-                                   <button type="button" class="layui-btn layui-btn-normal layui-btn-small ajax-action" data-action="${webRoot}/brand/delete">删除选中</button>
-                               </div>
-                               <div id="page" class="page">
-                               </div>
-                           </div>
+                            <button type="button" class="layui-btn layui-btn-normal layui-btn-small ajax-action"
+                                    data-action="${webRoot}/brand/delete">删除选中
+                            </button>
+                        </div>
+                        <div id="page" class="page">
+                        </div>
+                    </div>
 
                 </form>
             </div>
@@ -81,44 +90,46 @@
     </div>
 
     <!--底部-->
-    <%@ include file="../common/footer.jsp"%>
+    <%@ include file="../common/footer.jsp" %>
 </div>
+<script>
+    var GV = {
 
-<%@ include file="../common/bottom.jsp"%>
+        current_controller: "brand/list"
+    };
+</script>
 
+<%@ include file="../common/bottom.jsp" %>
 <!--页面JS脚本-->
 <script>
 
-    layui.use(['laypage'], function () {
-        var $ = layui.jquery,
-            laypage = layui.laypage;
+    var laypage = layui.laypage;
+//    可以直接使用jquery
+    console($("page").html());
+    //page
+    laypage({
+        cont: 'page',
+        pages: ${pageResult.pages} //总页数
+        ,
+        groups: 5 //连续显示分页数
+        ,
+        skip: true,
+        curr:${pageResult.curr}
+        ,
+        jump: function (obj, first) {
+            //得到了当前页，用于向服务端请求对应数据
+            var curr = obj.curr;
+            if (!first) {
+                //layer.msg('第 ' + obj.curr + ' 页');
+                location.href = "${webRoot}/brand/list?page=" + obj.curr + "&keyWord=${keyWord}";
 
-
-        //page
-        laypage({
-            cont: 'page',
-            pages: ${pageResult.pages} //总页数
-            ,
-            groups: 5 //连续显示分页数
-            ,
-            skip:true,
-            curr:${pageResult.curr}
-            ,
-            jump: function (obj, first) {
-                //得到了当前页，用于向服务端请求对应数据
-                var curr = obj.curr;
-                if (!first) {
-                    //layer.msg('第 ' + obj.curr + ' 页');
-                    location.href ="${webRoot}/brand/list?page="+obj.curr+"&keyWord=${keyWord}";
-
-                }
             }
-        });
+        }
     });
-        var GV = {
 
-            current_controller: "/brand"
-        };
+
+
 </script>
+
 </body>
 </html>
