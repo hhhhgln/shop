@@ -59,17 +59,24 @@ public class TestServiceImpl implements TestService {
         return layTreeNodeList;
     }
 
-    public List<LayTreeNode> listToTree(List<EcsArticleCat> articleCatList, Short parentId) {
+    /**
+     * 集合转树
+     *
+     * @param articleCatList
+     * @param parentId
+     * @return
+     */
+    private List<LayTreeNode> listToTree(List<EcsArticleCat> articleCatList, Short parentId) {
         List<LayTreeNode> layTreeNodeList = new ArrayList<LayTreeNode>();
         for (EcsArticleCat articleCat : articleCatList) {
             if (articleCat.getParentId().equals(parentId)) {
                 LayTreeNode layTreeNode = new LayTreeNode();
                 layTreeNode.setName(articleCat.getCatName());
-                layTreeNode.setChildren(listToTree(articleCatList,articleCat.getCatId()));
+                layTreeNode.setChildren(listToTree(articleCatList, articleCat.getCatId()));
                 layTreeNodeList.add(layTreeNode);
             }
         }
-        return  layTreeNodeList;
+        return layTreeNodeList;
     }
 
 }
