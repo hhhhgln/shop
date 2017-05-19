@@ -24,6 +24,7 @@
                     <dd><a href="${webRoot}/test/layui">富文本编辑器</a></dd>
                     <dd><a href="${webRoot}/test/upload">上传</a></dd>
                     <dd><a href="${webRoot}/test/tree-grid">树形表格</a></dd>
+                    <dd><a href="${webRoot}/test/tree">树形菜单</a></dd>
                 </dl>
             </li>
 

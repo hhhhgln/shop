@@ -16,16 +16,10 @@
     <div class="layui-body">
         <ul id="demo"></ul>
         <div class="center-pill"></div>
-        上传案例
-        <input type="file" name="file" class="layui-upload-file">
-        <div class="upload" style="display: none">
-            <img class="" src="" alt="" style="max-height: 100px">
-        </div>
 
 
 
 
-    </div>
 
 
     <!--底部-->
@@ -35,13 +29,22 @@
 <script>
     // 定义全局JS变量
     var GV = {
-        current_controller: "test/upload"
+        current_controller: "test/tree"
     };
 </script>
 <!--JS引用-->
 <%@include file="../common/bottom.jsp" %>
 
+<script>
+    layui.tree({
+        elem: '#demo'
+        , nodes: ${nodes}
+        , click: function (node) {
+            console.log(node)
+        }
+    });
 
+</script>
 
 </body>
 </html>

@@ -39,12 +39,16 @@ public class TestController {
         return "test/tree-grid";
     }
 
+    /**
+     * 树型菜单
+     * @param model
+     * @return
+     */
     @RequestMapping("/tree")
-
     public String getLayTree(Model model) {
         String nodes = JsonUtils.objectToJson(testService.listLayTreeNode());
         model.addAttribute("nodes",nodes);
-        return "/test/upload";
+        return "/test/tree";
     }
 
     /**
