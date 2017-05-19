@@ -29,6 +29,7 @@ public class BrandServiceImpl implements BrandService {
     public PageResult listBrand(int page, int rows, String keyWord) {
         PageHelper.startPage(page, rows);
         EcsBrandExample brandExample = new EcsBrandExample();//查询条件 没有条件 就全部查询
+        brandExample.setOrderByClause("brand_id");
         EcsBrandExample.Criteria criteria = brandExample.createCriteria();
         criteria.andBrandNameLike("%" + keyWord + "%");
         List<EcsBrand> brandList = brandMapper.selectByExampleWithBLOBs(brandExample);

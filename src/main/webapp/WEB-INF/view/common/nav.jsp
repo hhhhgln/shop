@@ -21,7 +21,8 @@
             <li class="layui-nav-item">
                 <a href="javascript:;"><i class="fa fa-bars"></i>相关DEMO</a>
                 <dl class="layui-nav-child">
-                    <dd><a href="${webRoot}/test/layui">二级管理1</a></dd>
+                    <dd><a href="${webRoot}/test/layui">富文本编辑器</a></dd>
+                    <dd><a href="${webRoot}/test/upload">上传</a></dd>
                     <dd><a href="${webRoot}/test/tree-grid">树形表格</a></dd>
                 </dl>
             </li>

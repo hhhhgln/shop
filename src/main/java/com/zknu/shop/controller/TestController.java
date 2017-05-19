@@ -43,5 +43,8 @@ public class TestController {
     public String layui() {
         return "test/layui";
     }
-
+    @RequestMapping("/upload")
+    public  String upload(){
+        return "test/upload";
+    }
 }
