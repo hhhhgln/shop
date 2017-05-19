@@ -104,8 +104,7 @@
 <script>
 
     var laypage = layui.laypage;
-//    可以直接使用jquery
-    console($("page").html());
+
     //page
     laypage({
         cont: 'page',
@@ -126,8 +125,6 @@
             }
         }
     });
-
-
 
 </script>
 
