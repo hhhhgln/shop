@@ -52,12 +52,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${adPositionPageResult.objects}" var="ad">
+                            <c:forEach items="${adPageResult.objects}" var="ad">
                                 <tr>
                                     <td><input type="checkbox" name="ids" value="${ad.adId}">${ad.adId}</td>
                                     <td>${ad.adName}</td>
                                     <td>${ad.adCode}</td>
-                                    <td>${adPosition.positionName}</td>
+                                    <td>${ad.positionName}</td>
                                     <td>${ad.mediaType}</td>
                                     <td>${ad.startTime}</td>
                                     <td>${ad.endTime}</td>

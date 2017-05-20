@@ -48,7 +48,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${pageResult.objects}" var="ad_position">
+                            <c:forEach items="${adPositionPageResult.objects}" var="ad_position">
                                 <tr>
                                     <td><input type="checkbox" name="ids" value="${ad_positionf.adId}">${ad_position.adId}</td>
                                     <td>${ad_position.positionName}</td>
