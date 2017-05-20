@@ -52,7 +52,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${pageResult.objects}" var="ad">
+                            <c:forEach items="${adPositionPageResult.objects}" var="ad">
                                 <tr>
                                     <td><input type="checkbox" name="ids" value="${ad.adId}">${ad.adId}</td>
                                     <td>${ad.adName}</td>

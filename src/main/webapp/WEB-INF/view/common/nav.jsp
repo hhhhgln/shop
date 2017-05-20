@@ -42,7 +42,7 @@
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="${webRoot}/ad/list"> 广告列表</a></dd>
-                    <dd><a href="${webRoot}/ad_position/list"> 广告位列表</a></dd>
+                    <dd><a href="${webRoot}/ad-position/list"> 广告位列表</a></dd>
                 </dl>
             </li>
 

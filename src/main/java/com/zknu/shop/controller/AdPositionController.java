@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date: 2017/5/20 13:56
  */
 @Controller
-@RequestMapping("/ad_position")
+@RequestMapping("/ad-position")
 public class AdPositionController {
     @Autowired
     AdPositionService adPositionService;
@@ -36,8 +36,8 @@ public class AdPositionController {
                                  @RequestParam(defaultValue = "") String keyWord,
                                  Model model) {
         PageResult adPositionPageResult = adPositionService.listAdPosition(page, row, keyWord);
-        model.addAttribute("adPageResult", adPositionPageResult);
+        model.addAttribute("adPositionPageResult", adPositionPageResult);
         model.addAttribute("adKeyWord", keyWord);
-        return "/ad_position/list";
+        return "/ad-position/list";
     }
 }
