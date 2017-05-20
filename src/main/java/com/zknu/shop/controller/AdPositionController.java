@@ -1,7 +1,6 @@
 package com.zknu.shop.controller;
 
 import com.zknu.shop.service.AdPositionService;
-import com.zknu.shop.service.AdService;
 import com.zknu.shop.util.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
