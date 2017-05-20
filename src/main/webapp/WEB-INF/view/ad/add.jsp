@@ -2,12 +2,17 @@
   Created by IntelliJ IDEA.
   User: gln
   Date: 2017/5/20
+<<<<<<< HEAD
   Time: 14:34
+=======
+  Time: 14:29
+>>>>>>> f56031ce9841a523833a802744e63c7981af197e
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+<<<<<<< HEAD
     <%@ include file="../common/head.jsp" %>
 </head>
 <body>
@@ -51,5 +56,11 @@
     });
 
 </script>
+=======
+    <title>Title</title>
+</head>
+<body>
+
+>>>>>>> f56031ce9841a523833a802744e63c7981af197e
 </body>
 </html>
