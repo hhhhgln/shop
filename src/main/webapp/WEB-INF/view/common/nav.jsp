@@ -37,7 +37,14 @@
                     <dd><a href="${webRoot}/article_cat/list">文章分类</a></dd>
                 </dl>
             </li>
-
+            <li class="layui-nav-item">
+                <a href="#"> 广告管理</i>
+                </a>
+                <dl class="layui-nav-child">
+                    <dd><a href="${webRoot}/ad/list"> 广告列表</a></dd>
+                    <dd><a href="${webRoot}/ad_position/list"> 广告位列表</a></dd>
+                </dl>
+            </li>
 
             <li class="layui-nav-item" style="height: 30px; text-align: center"></li>
         </ul>
