@@ -21,7 +21,7 @@
         <div class="layui-tab layui-tab-brief">
             <ul class="layui-tab-title">
                 <li class="layui-this">广告位管理</li>
-                <li class=""><a href="${webRoot}/ad/add">添加广告位</a></li>
+                <li class=""><a href="${webRoot}/ad-position/add">添加广告位</a></li>
             </ul>
             <div class="layui-tab-content">
                 <form action="" method="get">
@@ -29,7 +29,7 @@
                     <input type="text" name="keyWord" lay-verify="required" placeholder="广告位名称" autocomplete="off"
                            class="layui-input layui-input-inline" style="width: 200px" value="${keyWord}">
 
-                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-small" data-action="/ad/list">
+                    <button type="submit" class="layui-btn layui-btn-normal layui-btn-small" data-action="/ad-position/list">
                         搜索
                     </button>
                 </form>
@@ -48,17 +48,17 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${adPositionPageResult.objects}" var="ad_position">
+                            <c:forEach items="${adPositionPageResult.objects}" var="adposition">
                                 <tr>
-                                    <td><input type="checkbox" name="ids" value="${ad_positionf.adId}">${ad_position.adId}</td>
-                                    <td>${ad_position.positionName}</td>
-                                    <td>${ad_position.adWidth}</td>
-                                    <td>${ad_position.adHeight}</td>
-                                    <td>${ad_position.positionDesc}</td>
+                                    <td><input type="checkbox" name="ids" value="${adposition.positionId}">${adposition.positionId}</td>
+                                    <td>${adposition.positionName}</td>
+                                    <td>${adposition.adWidth}</td>
+                                    <td>${adposition.adHeight}</td>
+                                    <td>${adposition.positionDesc}</td>
                                     <td>
-                                        <a href="${webRoot}/ad_position/edit/${ad_position.adId}"
+                                        <a href="${webRoot}/ad-position/edit/${adposition.positionId}"
                                            class="layui-btn layui-btn-normal layui-btn-mini">编辑</a>
-                                        <a href="${webRoot}/ad_position/delete?ids=${ad_position.adId}"
+                                        <a href="${webRoot}/ad-position/delete?ids=${adposition.positionId}"
                                            class="layui-btn layui-btn-danger layui-btn-mini ajax-delete">删除</a>
                                     </td>
                                 </tr>
@@ -87,7 +87,7 @@
 <script>
     var GV = {
 
-        current_controller: "ad_position/list"
+        current_controller: "ad-position/list"
     };
 </script>
 
@@ -100,19 +100,19 @@
     //page
     laypage({
         cont: 'page',
-        pages: ${pageResult.pages} //总页数
+        pages: ${adPositionPageResult.pages} //总页数
         ,
         groups: 5 //连续显示分页数
         ,
         skip: true,
-        curr:${pageResult.curr}
+        curr:${adPositionPageResult.curr}
         ,
         jump: function (obj, first) {
             //得到了当前页，用于向服务端请求对应数据
             var curr = obj.curr;
             if (!first) {
                 //layer.msg('第 ' + obj.curr + ' 页');
-                location.href = "${webRoot}/ad_position/list?page=" + obj.curr + "&keyWord=${keyWord}";
+                location.href = "${webRoot}/ad-position/list?page=" + obj.curr + "&keyWord=${keyWord}";
 
             }
         }

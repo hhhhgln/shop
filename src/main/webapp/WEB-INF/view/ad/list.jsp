@@ -56,8 +56,9 @@
                                 <tr>
                                     <td><input type="checkbox" name="ids" value="${ad.adId}">${ad.adId}</td>
                                     <td>${ad.adName}</td>
-                                    <td>${ad.adCode}</td>
-                                    <td>${ad.positionName}</td>
+                                    <td><img
+                                            src="${webRoot}/${ad.adCode}" alt=""></td>
+                                    <td>${ad.positionId}</td>
                                     <td>${ad.mediaType}</td>
                                     <td>${ad.startTime}</td>
                                     <td>${ad.endTime}</td>
@@ -105,12 +106,12 @@
     //page
     laypage({
         cont: 'page',
-        pages: ${pageResult.pages} //总页数
+        pages: ${adPageResult.pages} //总页数
         ,
         groups: 5 //连续显示分页数
         ,
         skip: true,
-        curr:${pageResult.curr}
+        curr:${adPageResult.curr}
         ,
         jump: function (obj, first) {
             //得到了当前页，用于向服务端请求对应数据
