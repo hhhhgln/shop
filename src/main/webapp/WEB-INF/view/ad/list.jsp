@@ -88,9 +88,6 @@
             </div>
         </div>
     </div>
-
-    <!--底部-->
-    <%@ include file="../common/footer.jsp" %>
 </div>
 <script>
     var GV = {
